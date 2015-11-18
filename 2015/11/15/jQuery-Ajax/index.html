@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jQuery-Ajax | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在此是对实验楼的练习笔记的整理，有兴趣的小伙伴可以到实验楼这个非常棒的平台去练练～
+原始Ajax
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&amp;lt;!doctype html&amp;gt;&amp;lt;html lang=&quot;zh&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery-Ajax">
+<meta property="og:url" content="http://yoursite.com/2015/11/15/jQuery-Ajax/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在此是对实验楼的练习笔记的整理，有兴趣的小伙伴可以到实验楼这个非常棒的平台去练练～
+原始Ajax
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&amp;lt;!doctype html&amp;gt;&amp;lt;html lang=&quot;zh&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt">
+<meta property="og:updated_time" content="2015-11-15T09:36:22.072Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery-Ajax">
+<meta name="twitter:description" content="在此是对实验楼的练习笔记的整理，有兴趣的小伙伴可以到实验楼这个非常棒的平台去练练～
+原始Ajax
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&amp;lt;!doctype html&amp;gt;&amp;lt;html lang=&quot;zh&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJRpPTSQahzQLuJ5dtJgxK4dZtagyjsJz-W8AOdZj2uoKlTUio0w" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Poplar</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/学习笔记">学习笔记</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/node-js/" style="font-size: 15px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 15px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">我的github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">All is well O(∩_∩)O~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Poplar</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJRpPTSQahzQLuJ5dtJgxK4dZtagyjsJz-W8AOdZj2uoKlTUio0w" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Poplar</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/学习笔记">学习笔记</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-jQuery-Ajax" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/15/jQuery-Ajax/" class="article-date">
+  	<time datetime="2015-11-15T09:36:22.072Z" itemprop="datePublished">2015-11-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery-Ajax
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在此是对<a href="https://www.shiyanlou.com/" target="_blank" rel="external">实验楼</a>的练习笔记的整理，有兴趣的小伙伴可以到<a href="https://www.shiyanlou.com/" target="_blank" rel="external">实验楼</a>这个非常棒的平台去练练～</p>
+<p><strong>原始Ajax</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"zh"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span>jQuery Ajax<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery-1.11.2.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> xhr = <span class="keyword">new</span> AjaxXmlHttpRequest();</span><br><span class="line">      $(<span class="string">"#btnAjaxOld"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> xhr = <span class="keyword">new</span> AjaxXmlHttpRequest();</span><br><span class="line">        xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"divResult"</span>).innerHTML = xhr.responseText;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//由于涉及到同源策略，需要服务器端的支持</span></span><br><span class="line">        xhr.open(<span class="string">"GET"</span>, <span class="string">"data/AjaxGetCityInfo.aspx?resultType=html"</span>, <span class="literal">true</span>);</span><br><span class="line">        xhr.send(<span class="literal">null</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//跨浏览器获取 XmlHttpRequest 对象</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">AjaxXmlHttpRequest</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> xmlHttp;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// Firefox, Opera 8.0+, Safari</span></span><br><span class="line">        xmlHttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="comment">// Internet Explorer</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          xmlHttp = <span class="keyword">new</span> ActiveXObject(<span class="string">"Msxml2.XMLHTTP"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">            xmlHttp = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">          &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            alert(<span class="string">"Your browser nonsupport AJAX！"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> xmlHttp;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"btnAjaxOld"</span>&gt;</span>original ajax call<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"divResult"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面的实例中，data/AjaxGetCityInfo.aspx?resultType=html地址会返回一段 HTML 代码。</p>
+<p><strong>而用 jQuery 的Load方法，只需要一句话：</strong><br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(</span><span class="string">"#divResult"</span>).load(<span class="string">"data/AjaxGetCityInfo.aspx"</span>, &#123; <span class="string">"resultType"</span><span class="symbol">:</span> <span class="string">"html"</span> &#125;);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"zh"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span>jQuery Ajax<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery-1.11.2.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      $(<span class="string">"#btnAjaxJquery"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        $(<span class="string">"#divResult"</span>).load(<span class="string">"data/AjaxGetCityInfo.aspx"</span>, &#123; <span class="string">"resultType"</span>: <span class="string">"html"</span> &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"btnAjaxJquery"</span>&gt;</span>use jQuery load method<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"divResult"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>1. load( url, [data], [callback] )</strong></p>
+<blockquote>
+<p>1.它主要用于直接返回 HTML 的 Ajax 接口<br>2.load是一个 jQuery 包装集方法，需要在 jQuery 包装集上调用，并且会将返回的 HTML 加载到对象中，即使设置了回调函数也还是会加载</p>
+</blockquote>
+<p>*提示:我们要时刻注意浏览器缓存, 当使用 GET 方式时要添加时间戳参数 (new Date()).getTime() 来保证每次发送的 URL 不同,可以避免浏览器缓存。</p>
+<p>提示: 当在 url 参数后面添加了一个空格, 比如” “的时候,会出现”无法识别符号”的错误,请求还是能正常发送。但是无法加载 HTML 到 DOM. 删除后问题解决。*</p>
+<p><strong>2. jQuery.get( url, [data], [callback], [type] )</strong></p>
+<p>通过远程 HTTP GET 请求载入信息。</p>
+<p>这是一个简单的 GET 请求功能以取代复杂\$.ajax 。请求成功时可调用回调函数。如果需要在出错时执行函数，请使用 \$.ajax。</p>
+<p>讲解:</p>
+<blockquote>
+<p>此函数发送 Get 请求, 参数可以直接在 url 中拼接, 比如:</p>
+<p><code>$.get(&quot;../data/AjaxGetMethod.aspx?param=btnAjaxGet_click&quot;);</code></p>
+<p>或者通过 data 参数传递：</p>
+<p><code>$.get(&quot;../data/AjaxGetMethod.aspx&quot;, { &quot;param&quot;: &quot;btnAjaxGet2_click&quot; });</code></p>
+<p>两种方式效果相同，data 参数会自动添加到请求的 url 中。</p>
+<p>如果 url 中的某个参数，又通过 data 参数传递，不会自动合并相同名称的参数。<br>回调函数签名如下：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">(data, textStatus)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// data could be xmlDoc, jsonObj, html, text, etc...</span></span><br><span class="line">    <span class="keyword">this</span>; <span class="comment">// the options for this ajax request</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中 data 是返回的数据，textStatus 表示状态码，可能是如下值：</p>
+<p>“timeout”,”error”,”notmodified”,”success”,”parsererror”</p>
+<p>type 参数是指 data 数据的类型, 可能是下面的值: “xml”, “html”, “script”, “json”, “jsonp”, “text”</p>
+<p>默认为”html”</p>
+<p>jQuery.getJSON( url, [data], [callback] ) 方法就相当于 jQuery.get(url, [data],[callback], “json”)</p>
+</blockquote>
+<p><strong>3. jQuery.getJSON( url, [data], [callback] )</strong></p>
+<p>Returns: XMLHttpRequest</p>
+<p>相当于: jQuery.get(url, [data], [callback], “json”)</p>
+<blockquote>
+<p>通过 HTTP GET 请求载入 JSON 数据。</p>
+<p>在 jQuery 1.2 中，您可以通过使用JSONP形式的回调函数来加载其他网域的JSON 数据，如 “myurl?callback=?”。jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。</p>
+<p>注意：此行以后的代码将在这个回调函数执行前执行。</p>
+<p>getJSON 函数仅仅将 get 函数的 type 参数设置为”JSON”而已. 在回调函数中获取的数据已经是按照 JSON 格式解析后的对象了:</p>
+</blockquote>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$.getJSON(</span><br><span class="line"><span class="string">"../data/AjaxGetCityInfo.aspx"</span>, </span><br><span class="line">&#123; <span class="string">"resultType"</span>: <span class="string">"json"</span> &#125;,</span><br><span class="line"><span class="title">function</span>(<span class="typedef"><span class="keyword">data</span>, textStatus)<span class="container">&#123;</span><br><span class="line">    <span class="title">alert</span>(<span class="title">data</span>.<span class="title">length</span>);</span><br><span class="line">    <span class="title">alert</span>(<span class="title">data</span>[0].<span class="type">CityName</span>);</span><br><span class="line">&#125;</span>);</span></span><br></pre></td></tr></table></figure>
+<p><strong>4. jQuery.getScript( url, [callback] )</strong></p>
+<p>相当于: jQuery.get(url, null, [callback], “script”)</p>
+<p>首先了解此函数的 jQuery 内部实现, 仍然使用get函数, jQuery 所有的 Ajax 函数包括get最后都是用的是jQuery.ajax(), getScript 将传入值为”script”的 type 参数, 最后在 Ajax 函数中对 type 为 script 的请求做了如下处理:<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> head = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>];            </span><br><span class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">script.src = s.url;</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码动态建立了一个 script 语句块，并且将其加入到 head 中：</p>
+<p><code>head.appendChild(script);</code></p>
+<p>当脚本加载完毕后，再从 head 中删除：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Handle Script loading</span></span><br><span class="line"><span class="keyword">if</span> ( !jsonp ) &#123;</span><br><span class="line">    <span class="keyword">var</span> done = <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">// Attach handlers for all browsers</span></span><br><span class="line">    script.onload = script.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">if</span> ( !done &amp;&amp; (!<span class="keyword">this</span>.readyState ||<span class="keyword">this</span>.readyState == <span class="string">"loaded"</span> || <span class="keyword">this</span>.readyState == <span class="string">"complete"</span>) ) &#123;</span><br><span class="line">            done = <span class="literal">true</span>;</span><br><span class="line">            success();</span><br><span class="line">            complete();</span><br><span class="line">            <span class="comment">// Handle memory leak in IE</span></span><br><span class="line">            script.onload = script.onreadystatechange = <span class="literal">null</span>;</span><br><span class="line">            head.removeChild( script );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>演示如何使用 getScript 函数:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#btnAjaxGetScript"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    $.getScript(<span class="string">"../scripts/getScript.js"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data, textStatus</span>)</span>&#123;</span><br><span class="line">        alert(data);</span><br><span class="line">        alert(textStatus);</span><br><span class="line">        alert(<span class="keyword">this</span>.url);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$(<span class="string">"#btnAjaxGetScriptCross"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    $.getScript(<span class="string">"http://resource.elong.com/getScript.js"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data, textStatus</span>)</span>&#123;</span><br><span class="line">        alert(data);</span><br><span class="line">        alert(textStatus);</span><br><span class="line">        alert(<span class="keyword">this</span>.url);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>5. jQuery.post( url, [data], [callback], [type] )</strong></p>
+<blockquote>
+<p>通过远程 HTTP POST 请求载入信息。</p>
+<p>这是一个简单的 POST 请求功能以取代复杂 $.ajax 。请求成功时可调用回调函数。如果需要在出错时执行函数，请使用 $.ajax。</p>
+</blockquote>
+<p><strong>6. jQuery.ajax( options )</strong></p>
+<blockquote>
+<p>通过 HTTP 请求加载远程数据。</p>
+<p>jQuery 底层 AJAX 实现。简单易用的高层实现见 $.get, $.post 等。</p>
+<p>$.ajax()返回其创建的 XMLHttpRequest 对象。大多数情况下你无需直接操作该对象，但特殊情况下可用于手动终止请求。</p>
+<p>$.ajax() 只有一个参数：参数 key/value 对象，包含各配置及回调函数信息。详细参数选项见下。</p>
+<p>注意： 如果你指定了 dataType 选项，请确保服务器返回正确的MIME信息，(如 xml 返回”text/xml”)。错误的MIME类型可能导致不可预知的错误。</p>
+<p>注意：如果dataType设置为”script”，那么所有的远程(不在同一域名下)的POST请求都将转化为GET请求。(因为将使用 DOM 的 script 标签来加载)</p>
+<p>jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型设置为 JSONP。使用 JSONP 形式调用函数时，如 “myurl?callback=?”jQuery 将自动替换? 为正确的函数名，以执行回调函数。数据类型设置为 jsonp 时，jQuery 将自动调用回调函数。</p>
+<p>这是 jQuery 中 Ajax 的核心函数,上面所有的发送 Ajax 请求的函数内部最后都会调用此函数。options 参数支持很多参数, 使用这些参数可以完全控制 ajax 请求。 在 Ajax 回调函数中的 this 对象也是 options 对象。</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/15/回顾jQuery/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          回顾jQuery
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="jQuery-Ajax" data-title="jQuery-Ajax" data-url="http://yoursite.com/2015/11/15/jQuery-Ajax/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Poplar
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

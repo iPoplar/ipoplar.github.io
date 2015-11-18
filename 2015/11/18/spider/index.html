@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>基于 Node.js 的网站信息爬虫 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="通过 Node.js 实现一个简单爬虫，爬取豆瓣热门电影。主要会用到的模块（包）有：http，fs，path，cheerio。
+这里用一个跑在本地的 http server 来模拟在线爬豆瓣网。douban-server.tar.gz 是由实验楼提供的在本地模拟豆瓣网的程序。
+具体的代码实现参考 git:ipoplar ，其中 growth.md 是遇到的问题。
+
+Operation解压 doub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于 Node.js 的网站信息爬虫">
+<meta property="og:url" content="http://yoursite.com/2015/11/18/spider/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="通过 Node.js 实现一个简单爬虫，爬取豆瓣热门电影。主要会用到的模块（包）有：http，fs，path，cheerio。
+这里用一个跑在本地的 http server 来模拟在线爬豆瓣网。douban-server.tar.gz 是由实验楼提供的在本地模拟豆瓣网的程序。
+具体的代码实现参考 git:ipoplar ，其中 growth.md 是遇到的问题。
+
+Operation解压 doub">
+<meta property="og:image" content="http://yoursite.com/growth-img/3.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/2.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/1.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/4.png">
+<meta property="og:updated_time" content="2015-11-18T13:08:46.290Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于 Node.js 的网站信息爬虫">
+<meta name="twitter:description" content="通过 Node.js 实现一个简单爬虫，爬取豆瓣热门电影。主要会用到的模块（包）有：http，fs，path，cheerio。
+这里用一个跑在本地的 http server 来模拟在线爬豆瓣网。douban-server.tar.gz 是由实验楼提供的在本地模拟豆瓣网的程序。
+具体的代码实现参考 git:ipoplar ，其中 growth.md 是遇到的问题。
+
+Operation解压 doub">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJRpPTSQahzQLuJ5dtJgxK4dZtagyjsJz-W8AOdZj2uoKlTUio0w" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Poplar</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/学习笔记">学习笔记</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/node-js/" style="font-size: 15px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 15px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">我的github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">All is well O(∩_∩)O~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Poplar</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJRpPTSQahzQLuJ5dtJgxK4dZtagyjsJz-W8AOdZj2uoKlTUio0w" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Poplar</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/学习笔记">学习笔记</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-spider" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/18/spider/" class="article-date">
+  	<time datetime="2015-11-18T13:08:46.290Z" itemprop="datePublished">2015-11-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      基于 Node.js 的网站信息爬虫
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>通过 Node.js 实现一个简单爬虫，爬取豆瓣热门电影。主要会用到的模块（包）有：http，fs，path，cheerio。</p>
+<p>这里用一个跑在本地的 http server 来模拟在线爬豆瓣网。<br>douban-server.tar.gz 是由<a href="https://www.shiyanlou.com/" target="_blank" rel="external">实验楼</a>提供的在本地模拟豆瓣网的程序。</p>
+<p>具体的代码实现参考 <a href="https://github.com/iPoplar/2015_Learn/tree/master/Learn4Road/Demo-NodeJs/Spider_Demo" target="_blank" rel="external">git:ipoplar</a> ，其中 growth.md 是遇到的问题。</p>
+</blockquote>
+<h2 id="Operation">Operation</h2><p>解压 douban-server.tar.gz<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf douban-server<span class="class">.tar</span><span class="class">.gz</span></span><br></pre></td></tr></table></figure></p>
+<p>进入解压后的目录，启动服务:</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> start</span><br></pre></td></tr></table></figure>
+<p>创建文件夹 spider, 进入文件夹，输入 <code>npm init</code> , 初始化项目，会得到类似与小编的文件。（在初始化项目要添加第三方包 <code>npm install cheerio --save</code>）</p>
+<p>运行 <code>node spider.js</code> 会抓取到想要的信息（将抓取到的图片放到 img 文件夹下，将电影信息放置在 data/data.json 中）</p>
+<h2 id="Problems_and_growth">Problems and growth</h2><p>在小编现在的 spider.js 中的爬虫url信息如下图所示<br><img src="/growth-img/3.png" alt="爬虫url信息"><br>当改为某个在线的网址，在此以妙味课堂的网址为例了<br><img src="/growth-img/2.png" alt="爬虫url信息2"><br><strong><em>那么在这里要要注意什么呢？</em></strong><br>1.<em>hostname</em> ,注意这两出的都没有 ‘http://‘ 部分，那么如果加了会怎么样呢？看下图喽：<br><img src="/growth-img/1.png" alt="爬虫url信息3"></p>
+<p>2.<em>port</em> , 当抓取在线的网站的信息时，要记着去掉 port:3000, 不然又会有错：<br><img src="/growth-img/4.png" alt="爬虫url信息4"></p>
+<p>3 要注意 host 和 path 的写法。对比前两幅图即可得。</p>
+<hr>
+<p><strong><em>res.setEncoding();</em></strong><br>用于使流（Stream）返回指定编码的字符串，具体可以看Node.js的api文档：<em>Stream</em>，Node.js不支持GBK编码，如果需要处理GBK编码的页面，可以使用 <a href="https://github.com/ashtuchkin/iconv-lite" target="_blank" rel="external">iconv-lite</a> 这个包。一般对文件设置为binary，对字符串设置为utf-8。<br>参考的地址： <a href="https://cnodejs.org/topic/5203a71844e76d216a727d2e" target="_blank" rel="external">https://cnodejs.org/topic/5203a71844e76d216a727d2e</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/18/spider-cheerio/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          spider-cheerio
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/15/回顾jQuery/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">回顾jQuery</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="spider" data-title="基于 Node.js 的网站信息爬虫" data-url="http://yoursite.com/2015/11/18/spider/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Poplar
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

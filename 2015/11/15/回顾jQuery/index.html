@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>回顾jQuery | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在此是对实验楼的练习笔记的整理，有兴趣的小伙伴可以到实验楼这个非常棒的平台去练练～
+看一段简单的代码段，回顾jQuery的使用方式（内部的代码片段是截取了js部分，显示不同的功能）
+12345678910111213141516&amp;lt;!doctype html&amp;gt;&amp;lt;html&amp;gt;	&amp;lt;head&amp;gt;		&amp;lt;script type=&quot;text/javascript&quot; src=">
+<meta property="og:type" content="article">
+<meta property="og:title" content="回顾jQuery">
+<meta property="og:url" content="http://yoursite.com/2015/11/15/回顾jQuery/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在此是对实验楼的练习笔记的整理，有兴趣的小伙伴可以到实验楼这个非常棒的平台去练练～
+看一段简单的代码段，回顾jQuery的使用方式（内部的代码片段是截取了js部分，显示不同的功能）
+12345678910111213141516&amp;lt;!doctype html&amp;gt;&amp;lt;html&amp;gt;	&amp;lt;head&amp;gt;		&amp;lt;script type=&quot;text/javascript&quot; src=">
+<meta property="og:updated_time" content="2015-11-15T09:37:21.266Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="回顾jQuery">
+<meta name="twitter:description" content="在此是对实验楼的练习笔记的整理，有兴趣的小伙伴可以到实验楼这个非常棒的平台去练练～
+看一段简单的代码段，回顾jQuery的使用方式（内部的代码片段是截取了js部分，显示不同的功能）
+12345678910111213141516&amp;lt;!doctype html&amp;gt;&amp;lt;html&amp;gt;	&amp;lt;head&amp;gt;		&amp;lt;script type=&quot;text/javascript&quot; src=">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJRpPTSQahzQLuJ5dtJgxK4dZtagyjsJz-W8AOdZj2uoKlTUio0w" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Poplar</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/学习笔记">学习笔记</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/node-js/" style="font-size: 15px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 15px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">我的github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">All is well O(∩_∩)O~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Poplar</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJRpPTSQahzQLuJ5dtJgxK4dZtagyjsJz-W8AOdZj2uoKlTUio0w" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Poplar</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/学习笔记">学习笔记</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-回顾jQuery" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/15/回顾jQuery/" class="article-date">
+  	<time datetime="2015-11-15T09:37:21.266Z" itemprop="datePublished">2015-11-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      回顾jQuery
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在此是对<a href="https://www.shiyanlou.com/" target="_blank" rel="external">实验楼</a>的练习笔记的整理，有兴趣的小伙伴可以到<a href="https://www.shiyanlou.com/" target="_blank" rel="external">实验楼</a>这个非常棒的平台去练练～</p>
+<p>看一段简单的代码段，回顾jQuery的使用方式<br>（内部的代码片段是截取了js部分，显示不同的功能）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/jquery-2.1.1.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">			$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				$(<span class="string">"#demo"</span>).css(&#123;<span class="string">'width'</span>:<span class="string">"100px"</span>, <span class="string">"height"</span>:<span class="string">"100px"</span>, <span class="string">"background-color"</span>:<span class="string">"red"</span>&#125;)</span><br><span class="line">			&#125;);</span><br><span class="line"></span><br><span class="line">		</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"demo"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="jQuery的常用属性">jQuery的常用属性</h2><p><strong>表单选择器</strong></p>
+<blockquote>
+<p>:input<br>:text<br>:password<br>:radio<br>:checkbox<br>:submit<br>:image<br>:reset<br>:button<br>:file<br>:hidden</p>
+</blockquote>
+<hr>
+<p><strong>基本过滤选择器</strong></p>
+<blockquote>
+<p>:first<br> :last<br> :not(selector)<br> :odd 选取索引是奇数的元素<br> :even 选取索引是偶数<br> :eq(index)  =<br> :gt(index)  大于<br> :lt(index)     小于<br> :header     选取标题元素<br> :animated   选取当前正在执行动画的元素<br> :focus     选取当前焦点的元素</p>
+</blockquote>
+<hr>
+<p><strong>内容过滤元素</strong></p>
+<blockquote>
+<p>:contains(text) 选取包含“text”的元素<br> :empty 选取不包含元素或文本的空元素<br> :has(selector) 选取含有选择器所匹配的元素的元素<br> :parent 选取含有子元素或者文本的元素</p>
+</blockquote>
+<hr>
+<p><strong>  可见性过滤器</strong></p>
+<blockquote>
+<p>:hidden 选取不可见元素<br>   :visible 选取可见元素</p>
+</blockquote>
+<hr>
+<p><strong>   属性过滤选择器</strong></p>
+<blockquote>
+<p>[attr] 拥有此属性的元素<br>    [attr=value] 选取属性值为value的元素<br>    [attr!=value]<br>    [attr^=value] 属性值以value开始的元素<br>    [attr$=value] 属性值以vlaue结束的元素<br>    [attr*=value] 属性值含有value的元素</p>
+</blockquote>
+<hr>
+<p> <strong> 子元素过滤器</strong></p>
+<blockquote>
+<p>:first-child 选取第一个子元素<br> :last-child 选取最后一个子元素</p>
+</blockquote>
+<hr>
+<p><strong>表单对象属性过滤器</strong></p>
+<blockquote>
+<p>:enabled 选取所有可用元素<br>  :disabled<br>  :checked 选取所有被选中元素(单选框，复选框)<br>  :selected 选取所有被选中的选项(下拉列表)</p>
+</blockquote>
+<hr>
+<h2 id="DOM与jQuery的相互转换">DOM与jQuery的相互转换</h2><p><strong>DOM =&gt; jQuery </strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> domObj = <span class="built_in">document</span>.getElementById(<span class="string">'demo'</span>);</span><br><span class="line"><span class="keyword">var</span> jQueryObj = $(domObj);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>jQuery =&gt; DOM</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>   <span class="variable"><span class="keyword">var</span> jQueryObj</span> = $('#demo');</span><br><span class="line">     <span class="variable"><span class="keyword">var</span> domObj</span> = jQueryObj[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>   <span class="variable"><span class="keyword">var</span> jQueryObj</span> = $('#demo');</span><br><span class="line">     <span class="variable"><span class="keyword">var</span> domObj</span> = jQueryObj.<span class="keyword">get</span>(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="jQuery中的DOM操作">jQuery中的DOM操作</h2><p><strong>1. 创建节点</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">	$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> li_obj = $(<span class="string">'&lt;li&gt;yellow&lt;/li&gt;'</span>);</span><br><span class="line">		$(<span class="string">'ul'</span>).append(li_obj);</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">li</span>&gt;</span>blue<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">li</span>&gt;</span>white<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">li</span>&gt;</span>red<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>2.插入节点</strong></p>
+<blockquote>
+<p><strong>插入的方法</strong><br> append() 向匹配的元素内部追加内容<br> appendTo() 将匹配的元素追加到指定的元素中<br> prepend() 向匹配的元素内部前置内容<br> prependTo() 将匹配的元素前置到指定的元素中<br> after() 将匹配的元素之后插入内容<br> insertAfter() 就爱那个匹配的元素插入到指定的元素后面<br> before()  在匹配的元素之前插入内容<br> insertBefore() 将匹配的元素插入到指定的元素的前面</p>
+</blockquote>
+<hr>
+<p><strong>3.删除节点</strong></p>
+<blockquote>
+<p>remove() 从DOM中删除所匹配的元素，可传参数，后代节点也被删除<br>detach() 从DOM中删除所匹配的元素，但绑定的事件，附加的数据等会保留下来<br>empty() 清空节点，清空元素的所有的后代元素节点</p>
+</blockquote>
+<hr>
+<p><strong>4.复制节点</strong><br>复制节点可以通过clone()方法来实现，当clone()中传递了参数true，代表复制元素的同时复制其绑定的元素。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">eg：点击li元素即可复制其本身到ul中</span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">	$(<span class="string">"ul li"</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		$(<span class="keyword">this</span>).clone().appendTo(<span class="string">'ul'</span>);</span><br><span class="line">	&#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">li</span>&gt;</span>blue<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">li</span>&gt;</span>white<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">li</span>&gt;</span>red<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>5.替换节点</strong></p>
+<blockquote>
+<p>repalceWith() 将匹配到的元素替换成指定的HTML或DOM元素<br>replaceAll() 颠倒了 replaceWith() 的操作</p>
+</blockquote>
+<hr>
+<p><strong>6.包裹节点</strong></p>
+<blockquote>
+<p>wrap()    将匹配的元素用其他结构化的标记包裹起来（单独包裹）<br>wrapAll() 将匹配的元素用一个结构化的标记包裹起来<br>wrapInner() 将匹配的元素的子内容用其他结构话的标记包裹起来</p>
+</blockquote>
+<hr>
+<p><strong>7.属性操作</strong></p>
+<blockquote>
+<p>用attr()方法获取和设置元素的属性，区别是参数的个数<br>eg: attr(“class”); —获取<br>    attr(“class”, “demo”); —设置<br>removeAttr() 删除元素的属性</p>
+</blockquote>
+<hr>
+<p><strong>8.样式操作</strong></p>
+<blockquote>
+<p>addClass() 追加样式<br>removeClass() 移除样式</p>
+</blockquote>
+<hr>
+<p><strong>9.HTML, 文本和值</strong></p>
+<blockquote>
+<p>html()用来获取或设置所匹配元素中的HTML内容<br>text()用来获取或设置所匹配元素中的文本内容<br>val()用来设置和获取元素的值</p>
+</blockquote>
+<hr>
+<p><strong>10.遍历节点</strong></p>
+<blockquote>
+<p>children() 获取匹配元素的子元素集合<br>next() 获取匹配元素后面紧邻的同辈元素<br>prev() 获取匹配元素前面紧邻的同辈元素<br>siblings() 获取匹配元素前后所有的同辈元素<br>parent() 匹配元素的父级元素</p>
+</blockquote>
+<hr>
+<p><strong>11.CSS-DOM操作</strong></p>
+<blockquote>
+<p>css()获取或设置元素样式属性<br>hight(), width() 获取元素高，宽</p>
+</blockquote>
+<hr>
+<h2 id="事件和动画">事件和动画</h2><h3 id="事件">事件</h3><p><strong>1.事件绑</strong></p>
+<blockquote>
+<p>bind() 对匹配元素进行特定的事件绑定<br>on() 对匹配元素进行一个或多个事件绑定<br>one() 对匹配元素进行一个只执行一次的事件处理函数绑定</p>
+</blockquote>
+<p>事件类型：blur, focus, load, resize, scroll, unload, click, dbclick, mousedown, mouseup, mouseover, mouseout, keydown, keypress等，也可以为自定义名称。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="rule"><span class="attribute">eg</span>:<span class="value"></span><br><span class="line"></span><br><span class="line">$(<span class="string">'ul li'</span>).<span class="function">bind</span>(<span class="string">'click'</span>, <span class="function">function</span>()&#123;</span><br><span class="line">	$(this).<span class="function">clone</span>().<span class="function">appendTo</span>(<span class="string">'ul'</span>)</span></span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>2.简写绑定事件</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'ul li'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="keyword">this</span>).clone().appendTo(<span class="string">'ul'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>3.合成事件hover()</strong><br>用于模拟光标悬停事件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'ul li'</span>).hover(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="keyword">this</span>).css(&#123;<span class="string">"font-size"</span>:<span class="string">"24px"</span>&#125;);</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="keyword">this</span>).css(&#123;<span class="string">"font-size"</span>:<span class="string">"14px"</span>&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="动画">动画</h2><p><strong>1.show() 和 hide()</strong><br>控制元素的显示和隐藏</p>
+<hr>
+<p><strong>2.animate()</strong><br>用来实现自定义动画<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(</span><span class="string">'.title'</span>).animate(&#123;<span class="symbol">left:</span><span class="string">"500px"</span>&#125;, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="Ajax_应用">Ajax 应用</h2><p><strong>1.load()</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">载入远程HTML代码或记事本中的内容插入DOM中.</span><br><span class="line"></span><br><span class="line">$(<span class="string">'.loadData'</span>).load(<span class="string">"test.html"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">responseText, textStatus, XMLHttpRequest</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//返回的数据</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>2.$.get()</strong><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">`<span class="javascript">使用GET方式来进行异步请求</span><br><span class="line"></span><br><span class="line">$.get(<span class="string">'get.py'</span>, &#123;</span><br><span class="line">	<span class="comment">//此处是示例，是获取表单中的username, password的值</span></span><br><span class="line">	username:$(<span class="string">'#username'</span>).val(),</span><br><span class="line">	password:$(<span class="string">'#password'</span>).val()</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">data, textStatus</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//返回的数据</span></span><br><span class="line">&#125;);</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>3.$.post()</strong><br><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">使用POST方式进行异步请求</span><br><span class="line"></span><br><span class="line">$.post('post.py', &#123;</span><br><span class="line"><span class="label">	username:</span>$('#username').val(),</span><br><span class="line"><span class="label">	password:</span>$('#password).val()</span><br><span class="line">&#125;, function(data,, textStatus)&#123;</span><br><span class="line">	//返回的数据</span><br><span class="line">&#125;)<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>4.$.getJSON()</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">用于加载<span class="built_in">JSON</span>文件</span><br><span class="line"></span><br><span class="line">$.getJSON(<span class="string">'test.json'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//返回的数据</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>5.$.ajax()</strong><br><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">是jQuery最底层的Ajax实现，可以用它来替代之前所介绍的方法</span><br><span class="line"></span><br><span class="line">eg: 替代$.post()</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">	type:<span class="string">"<span class="keyword">POST</span>"</span>,</span><br><span class="line">	url:<span class="string">"post.py"</span>,</span><br><span class="line">	dataType:<span class="string">"json"</span>,</span><br><span class="line">	success:function(data)&#123;</span><br><span class="line">		//返回的数据</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="jQuery插件">jQuery插件</h2><p><strong>1.自定义插件</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">eg：一个设置和获取元素背景色的插件（这里只是写了关键代码段）</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">	<span class="class">.one</span><span class="rules">&#123;</span><br><span class="line">		<span class="rule"><span class="attribute">background</span>:<span class="value">black</span></span>;</span><br><span class="line">		<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100px</span></span></span>;</span><br><span class="line">		<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">200px</span></span></span>;</span><br><span class="line">	&#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line"><span class="comment">//插件的编写</span></span><br><span class="line">	(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>&#123;</span><br><span class="line">		jQuery.fn.extend(&#123;</span><br><span class="line">			<span class="string">"background"</span>: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">				<span class="keyword">if</span>(value == <span class="literal">undefined</span>)&#123;</span><br><span class="line">					<span class="keyword">return</span> <span class="keyword">this</span>.css(<span class="string">"background"</span>);</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					<span class="keyword">return</span> <span class="keyword">this</span>.css(<span class="string">"background"</span>,value);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;)(jQuery);</span><br><span class="line"></span><br><span class="line"><span class="comment">//插件的使用</span></span><br><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert($(<span class="string">'.one'</span>).background());</span><br><span class="line">	<span class="comment">//设置背景色:$('.one').background('red');</span></span><br><span class="line">&#125;);</span><br><span class="line">	</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"one"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/18/spider/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          基于 Node.js 的网站信息爬虫
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/15/jQuery-Ajax/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jQuery-Ajax</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="回顾jQuery" data-title="回顾jQuery" data-url="http://yoursite.com/2015/11/15/回顾jQuery/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Poplar
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
