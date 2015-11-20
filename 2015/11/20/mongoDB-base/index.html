@@ -3,34 +3,48 @@
 <head>
   <meta charset="utf-8">
   
-  <title>基于 Node.js 的网站信息爬虫 | Hexo</title>
+  <title>mongoDb基本使用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="通过 Node.js 实现一个简单爬虫，爬取豆瓣热门电影。主要会用到的模块（包）有：http，fs，path，cheerio。
-这里用一个跑在本地的 http server 来模拟在线爬豆瓣网。douban-server.tar.gz 是由实验楼提供的在本地模拟豆瓣网的程序。
-具体的代码实现参考 git:ipoplar ，其中 growth.md 是遇到的问题。
+  <meta name="description" content="基本的命令启动服务：sudo service mongod start或者systemctl start mongod
+mongod --dbpath=/data/db --port=27017   //有两个参数,如果不加，就执行默认的端口
 
-Operation解压 doub">
+终止服务：
+sudo service mongod stop或者ctrl + c
+
+客户端的使用：
+
+
+mongo
+mongo 127.0.0.1:270">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于 Node.js 的网站信息爬虫">
-<meta property="og:url" content="http://yoursite.com/2015/11/18/spider/index.html">
+<meta property="og:title" content="mongoDb基本使用">
+<meta property="og:url" content="http://yoursite.com/2015/11/20/mongoDB-base/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="通过 Node.js 实现一个简单爬虫，爬取豆瓣热门电影。主要会用到的模块（包）有：http，fs，path，cheerio。
-这里用一个跑在本地的 http server 来模拟在线爬豆瓣网。douban-server.tar.gz 是由实验楼提供的在本地模拟豆瓣网的程序。
-具体的代码实现参考 git:ipoplar ，其中 growth.md 是遇到的问题。
+<meta property="og:description" content="基本的命令启动服务：sudo service mongod start或者systemctl start mongod
+mongod --dbpath=/data/db --port=27017   //有两个参数,如果不加，就执行默认的端口
 
-Operation解压 doub">
-<meta property="og:image" content="http://yoursite.com/growth-img/3.png">
-<meta property="og:image" content="http://yoursite.com/growth-img/2.png">
-<meta property="og:image" content="http://yoursite.com/growth-img/1.png">
-<meta property="og:image" content="http://yoursite.com/growth-img/4.png">
-<meta property="og:updated_time" content="2015-11-18T13:08:46.970Z">
+终止服务：
+sudo service mongod stop或者ctrl + c
+
+客户端的使用：
+
+
+mongo
+mongo 127.0.0.1:270">
+<meta property="og:updated_time" content="2015-11-20T04:10:20.876Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于 Node.js 的网站信息爬虫">
-<meta name="twitter:description" content="通过 Node.js 实现一个简单爬虫，爬取豆瓣热门电影。主要会用到的模块（包）有：http，fs，path，cheerio。
-这里用一个跑在本地的 http server 来模拟在线爬豆瓣网。douban-server.tar.gz 是由实验楼提供的在本地模拟豆瓣网的程序。
-具体的代码实现参考 git:ipoplar ，其中 growth.md 是遇到的问题。
+<meta name="twitter:title" content="mongoDb基本使用">
+<meta name="twitter:description" content="基本的命令启动服务：sudo service mongod start或者systemctl start mongod
+mongod --dbpath=/data/db --port=27017   //有两个参数,如果不加，就执行默认的端口
 
-Operation解压 doub">
+终止服务：
+sudo service mongod stop或者ctrl + c
+
+客户端的使用：
+
+
+mongo
+mongo 127.0.0.1:270">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -211,11 +225,11 @@ Operation解压 doub">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-spider" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-mongoDB-base" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/18/spider/" class="article-date">
-  	<time datetime="2015-11-18T13:08:46.970Z" itemprop="datePublished">2015-11-18</time>
+      <a href="/2015/11/20/mongoDB-base/" class="article-date">
+  	<time datetime="2015-11-19T16:00:00.000Z" itemprop="datePublished">2015-11-20</time>
 </a>
     </div>
   
@@ -228,7 +242,7 @@ Operation解压 doub">
         
   
     <h1 class="article-title" itemprop="name">
-      基于 Node.js 的网站信息爬虫
+      mongoDb基本使用
     </h1>
   
 
@@ -237,7 +251,7 @@ Operation解压 doub">
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mode-js/">mode.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongoDB/">mongoDB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
 	</div>
 
         
@@ -252,21 +266,34 @@ Operation解压 doub">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>通过 Node.js 实现一个简单爬虫，爬取豆瓣热门电影。主要会用到的模块（包）有：http，fs，path，cheerio。</p>
-<p>这里用一个跑在本地的 http server 来模拟在线爬豆瓣网。<br>douban-server.tar.gz 是由<a href="https://www.shiyanlou.com/" target="_blank" rel="external">实验楼</a>提供的在本地模拟豆瓣网的程序。</p>
-<p>具体的代码实现参考 <a href="https://github.com/iPoplar/2015_Learn/tree/master/Learn4Road/Demo-NodeJs/Spider_Demo" target="_blank" rel="external">git:ipoplar</a> ，其中 growth.md 是遇到的问题。</p>
-</blockquote>
-<h2 id="Operation">Operation</h2><p>解压 douban-server.tar.gz<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf douban-server<span class="class">.tar</span><span class="class">.gz</span></span><br></pre></td></tr></table></figure></p>
-<p>进入解压后的目录，启动服务:</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> start</span><br></pre></td></tr></table></figure>
-<p>创建文件夹 spider, 进入文件夹，输入 <code>npm init</code> , 初始化项目，会得到类似与小编的文件。（在初始化项目要添加第三方包 <code>npm install cheerio --save</code>）</p>
-<p>运行 <code>node spider.js</code> 会抓取到想要的信息（将抓取到的图片放到 img 文件夹下，将电影信息放置在 data/data.json 中）</p>
-<h2 id="Problems_and_growth">Problems and growth</h2><p>在小编现在的 spider.js 中的爬虫url信息如下图所示<br><img src="/growth-img/3.png" alt="爬虫url信息"><br>当改为某个在线的网址，在此以妙味课堂的网址为例了<br><img src="/growth-img/2.png" alt="爬虫url信息2"><br><strong><em>那么在这里要要注意什么呢？</em></strong><br>1.<em>hostname</em> ,注意这两出的都没有 ‘http://‘ 部分，那么如果加了会怎么样呢？看下图喽：<br><img src="/growth-img/1.png" alt="爬虫url信息3"></p>
-<p>2.<em>port</em> , 当抓取在线的网站的信息时，要记着去掉 port:3000, 不然又会有错：<br><img src="/growth-img/4.png" alt="爬虫url信息4"></p>
-<p>3 要注意 host 和 path 的写法。对比前两幅图即可得。</p>
+        <h2 id="基本的命令">基本的命令</h2><p><strong><em>启动服务：</em></strong><br><code>sudo service mongod start</code><br>或者<br><code>systemctl start mongod</code></p>
+<p><code>mongod --dbpath=/data/db --port=27017</code>   //有两个参数,如果不加，就执行默认的端口</p>
 <hr>
-<p><strong><em>res.setEncoding();</em></strong><br>用于使流（Stream）返回指定编码的字符串，具体可以看Node.js的api文档：<em>Stream</em>，Node.js不支持GBK编码，如果需要处理GBK编码的页面，可以使用 <a href="https://github.com/ashtuchkin/iconv-lite" target="_blank" rel="external">iconv-lite</a> 这个包。一般对文件设置为binary，对字符串设置为utf-8。<br>参考的地址： <a href="https://cnodejs.org/topic/5203a71844e76d216a727d2e" target="_blank" rel="external">https://cnodejs.org/topic/5203a71844e76d216a727d2e</a></p>
+<p><strong><em>终止服务：</em></strong></p>
+<p><code>sudo service mongod stop</code><br>或者<br><code>ctrl + c</code></p>
+<hr>
+<p><strong><em>客户端的使用：</em></strong></p>
+<blockquote>
+<ol>
+<li>mongo</li>
+<li>mongo 127.0.0.1:27018</li>
+</ol>
+</blockquote>
+<p><strong><em>显示</em></strong> 所有的数据库:<br><code>show dbs</code> </p>
+<p>//没有要的数据库，使用     <code>use mydb1</code> 也会显示切换到此数据库<br>下，实际上真正的创建是在插入第一条数据之后创建</p>
+<p><strong><em>插入: </em></strong><br><code>db.users.insert({&quot;username&quot;:&quot;poplar&quot;});</code><br>//这条语句才是创建了数据库和集合，并且插入了一条数据</p>
+<p><strong><em>查看集合:</em></strong><br><code>show collections</code><br>//通过这条语句，不仅有一个 users 集合，还有一个 system.indexes ,这是创建数据库的索引的</p>
+<p><strong><em>查询:</em></strong><br><code>db.users.find()</code><br>//查询出集合中的所有数据</p>
+<p><code>db.users.find().count();</code><br>//查询出集合中的所有数据个数</p>
+<p><code>db.users.find({&quot;_id&quot;: ObjectId(&quot;232lsdjfalfasf&quot;)});</code><br>//根据相应条件进行查询</p>
+<p><strong><em>修改：</em></strong><br>update有3个参数</p>
+<p><code>db.users.update({&quot;username&quot;: &quot;Zoe&quot;}, {$set: {&quot;group&quot;: &quot;write&quot;}});</code><br>//默认修改匹配的第一个</p>
+<p><code>db.users.update({&quot;username&quot;: &quot;Zoe&quot;}, {$set: {&quot;group&quot;: &quot;write&quot;}, {multi: true}});</code><br>//修改多个</p>
+<p><strong><em>保存</em></strong><br><code>db.users.save({&quot;_id&quot;: ObjectId(&quot;232lsdjfalfasf&quot;)}, {&quot;group&quot;: &quot;write&quot;});</code><br>//但是save的修改，必须要有 id,只有一个参数 同时其他数值也要有，否则会被丢掉的。</p>
+<p><strong><em>删除</em></strong><br><code>db.users.remove({&quot;group&quot;: &quot;write&quot;}, true)</code><br>//第二个参数是 是否删除一条，true是删除满足条件的第一条数据； 么有第二个参数，会删除匹配的所有</p>
+<p><code>db.users.remove({});</code>//删除了集合中的所有数据 –只删除了文档<br><code>db.users.drop();</code>//删除了集合，–删除了文档，也删除了索引</p>
+<h2 id="MongoDB_does_not_start_on_Ubuntu_15-04">MongoDB does not start on Ubuntu 15.04</h2><p>遇到的问题和相关参考链接：<br><a href="http://stackoverflow.com/questions/33010719/mongodb-not-able-to-start-in-ubuntu-15-04" target="_blank" rel="external">http://stackoverflow.com/questions/33010719/mongodb-not-able-to-start-in-ubuntu-15-04</a></p>
+<p><a href="http://askubuntu.com/questions/617097/mongodb-2-6-does-not-start-on-ubuntu-15-04" target="_blank" rel="external">http://askubuntu.com/questions/617097/mongodb-2-6-does-not-start-on-ubuntu-15-04</a></p>
 
       
     </div>
@@ -276,18 +303,9 @@ Operation解压 doub">
     
 <nav id="article-nav">
   
-    <a href="/2015/11/18/spider-cheerio/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          spider-cheerio
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/11/18/jQuery-Ajax/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">jQuery-Ajax</div>
+    <a href="/2015/11/18/spider-cheerio/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spider-cheerio</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -316,7 +334,7 @@ Operation解压 doub">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="spider" data-title="基于 Node.js 的网站信息爬虫" data-url="http://yoursite.com/2015/11/18/spider/"></div>
+	<div class="ds-thread" data-thread-key="mongoDB-base" data-title="mongoDb基本使用" data-url="http://yoursite.com/2015/11/20/mongoDB-base/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

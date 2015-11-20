@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/node-js/" style="font-size: 15px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 15px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+						<a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 13.33px;">jQuery</a> <a href="/tags/mode-js/" style="font-size: 10px;">mode.js</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 13.33px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
 					</div>
 				</section>
 				
@@ -195,6 +195,92 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-mongoDB-base" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/20/mongoDB-base/" class="article-date">
+  	<time datetime="2015-11-19T16:00:00.000Z" itemprop="datePublished">2015-11-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/20/mongoDB-base/">mongoDb基本使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基本的命令">基本的命令</h2><p><strong><em>启动服务：</em></strong><br><code>sudo service mongod start</code><br>或者<br><code>systemctl start mongod</code></p>
+<p><code>mongod --dbpath=/data/db --port=27017</code>   //有两个参数,如果不加，就执行默认的端口</p>
+<hr>
+<p><strong><em>终止服务：</em></strong></p>
+<p><code>sudo service mongod stop</code><br>或者<br><code>ctrl + c</code></p>
+<hr>
+<p><strong><em>客户端的使用：</em></strong></p>
+<blockquote>
+<ol>
+<li>mongo</li>
+<li>mongo 127.0.0.1:27018</li>
+</ol>
+</blockquote>
+<p><strong><em>显示</em></strong> 所有的数据库:<br><code>show dbs</code> </p>
+<p>//没有要的数据库，使用     <code>use mydb1</code> 也会显示切换到此数据库<br>下，实际上真正的创建是在插入第一条数据之后创建</p>
+<p><strong><em>插入: </em></strong><br><code>db.users.insert({&quot;username&quot;:&quot;poplar&quot;});</code><br>//这条语句才是创建了数据库和集合，并且插入了一条数据</p>
+<p><strong><em>查看集合:</em></strong><br><code>show collections</code><br>//通过这条语句，不仅有一个 users 集合，还有一个 system.indexes ,这是创建数据库的索引的</p>
+<p><strong><em>查询:</em></strong><br><code>db.users.find()</code><br>//查询出集合中的所有数据</p>
+<p><code>db.users.find().count();</code><br>//查询出集合中的所有数据个数</p>
+<p><code>db.users.find({&quot;_id&quot;: ObjectId(&quot;232lsdjfalfasf&quot;)});</code><br>//根据相应条件进行查询</p>
+<p><strong><em>修改：</em></strong><br>update有3个参数</p>
+<p><code>db.users.update({&quot;username&quot;: &quot;Zoe&quot;}, {$set: {&quot;group&quot;: &quot;write&quot;}});</code><br>//默认修改匹配的第一个</p>
+<p><code>db.users.update({&quot;username&quot;: &quot;Zoe&quot;}, {$set: {&quot;group&quot;: &quot;write&quot;}, {multi: true}});</code><br>//修改多个</p>
+<p><strong><em>保存</em></strong><br><code>db.users.save({&quot;_id&quot;: ObjectId(&quot;232lsdjfalfasf&quot;)}, {&quot;group&quot;: &quot;write&quot;});</code><br>//但是save的修改，必须要有 id,只有一个参数 同时其他数值也要有，否则会被丢掉的。</p>
+<p><strong><em>删除</em></strong><br><code>db.users.remove({&quot;group&quot;: &quot;write&quot;}, true)</code><br>//第二个参数是 是否删除一条，true是删除满足条件的第一条数据； 么有第二个参数，会删除匹配的所有</p>
+<p><code>db.users.remove({});</code>//删除了集合中的所有数据 –只删除了文档<br><code>db.users.drop();</code>//删除了集合，–删除了文档，也删除了索引</p>
+<h2 id="MongoDB_does_not_start_on_Ubuntu_15-04">MongoDB does not start on Ubuntu 15.04</h2><p>遇到的问题和相关参考链接：<br><a href="http://stackoverflow.com/questions/33010719/mongodb-not-able-to-start-in-ubuntu-15-04" target="_blank" rel="external">http://stackoverflow.com/questions/33010719/mongodb-not-able-to-start-in-ubuntu-15-04</a></p>
+<p><a href="http://askubuntu.com/questions/617097/mongodb-2-6-does-not-start-on-ubuntu-15-04" target="_blank" rel="external">http://askubuntu.com/questions/617097/mongodb-2-6-does-not-start-on-ubuntu-15-04</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mode-js/">mode.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongoDB/">mongoDB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-spider-cheerio" class="article article-type-post" itemscope itemprop="blogPost">
   
