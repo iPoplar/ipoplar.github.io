@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Redis 初识(一) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在此是对实验楼的练习笔记的整理。
+Redis 是什么REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis提供了一些丰富的数据结构，包括 lists, sets, ordered sets 以及 hashes ，当然还有和Memcached一样的 strings结构.Redis当然还包括了对这些数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis 初识(一)">
+<meta property="og:url" content="http://yoursite.com/2015/11/22/Redis初识/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在此是对实验楼的练习笔记的整理。
+Redis 是什么REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis提供了一些丰富的数据结构，包括 lists, sets, ordered sets 以及 hashes ，当然还有和Memcached一样的 strings结构.Redis当然还包括了对这些数据">
+<meta property="og:image" content="http://yoursite.com/growth-img/redis/1.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/redis/2.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/redis/3.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/redis/5.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/redis/6.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/redis/7.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/redis/8.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/redis/10.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/redis/11.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/redis/12.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/redis/13.png">
+<meta property="og:updated_time" content="2015-11-22T07:04:31.179Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis 初识(一)">
+<meta name="twitter:description" content="在此是对实验楼的练习笔记的整理。
+Redis 是什么REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis提供了一些丰富的数据结构，包括 lists, sets, ordered sets 以及 hashes ，当然还有和Memcached一样的 strings结构.Redis当然还包括了对这些数据">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJRpPTSQahzQLuJ5dtJgxK4dZtagyjsJz-W8AOdZj2uoKlTUio0w" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Poplar</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/学习笔记">学习笔记</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Redis/" style="font-size: 13.33px;">Redis</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 13.33px;">jQuery</a> <a href="/tags/mode-js/" style="font-size: 10px;">mode.js</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 13.33px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">All is well O(∩_∩)O~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Poplar</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJRpPTSQahzQLuJ5dtJgxK4dZtagyjsJz-W8AOdZj2uoKlTUio0w" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Poplar</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/学习笔记">学习笔记</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Redis初识" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/22/Redis初识/" class="article-date">
+  	<time datetime="2015-11-21T16:00:00.000Z" itemprop="datePublished">2015-11-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Redis 初识(一)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在此是对<a href="https://www.shiyanlou.com/" target="_blank" rel="external">实验楼</a>的练习笔记的整理。</p>
+<h2 id="Redis_是什么">Redis 是什么</h2><p>REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis提供了一些丰富的数据结构，包括 lists, sets, ordered sets 以及 hashes ，当然还有和Memcached一样的 strings结构.Redis当然还包括了对这些数据结构的丰富操作。</p>
+<p>Redis常被称作是一款数据结构服务器（data structure server）。Redis的键值可以包括字符串（strings）类型，同时它还包括哈希（hashes）、列表（lists）、集合（sets）和 有序集合（sorted sets）等数据类型。 对于这些数据类型，你可以执行原子操作。例如：对字符串进行附加操作（append）；递增哈希中的值；向列表中增加元素；计算集合的交集、并集与差集等</p>
+<p><strong><em> 优点 </em></strong> ：</p>
+<p>性能极高 – Redis能支持超过 100K+ 每秒的读写频率。</p>
+<p>丰富的数据类型 – Redis支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作。</p>
+<p>原子 – Redis的所有操作都是原子性的，同时Redis还支持对几个操作全并后的原子性执行。</p>
+<p>丰富的特性 – Redis还支持 publish/subscribe, 通知, key 过期等等特性。</p>
+<blockquote>
+<p>安装参考链接： <a href="http://www.linuxidc.com/Linux/2014-05/101544p2.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-05/101544p2.htm</a></p>
+</blockquote>
+<h2 id="Redis数据类型">Redis数据类型</h2><p>Redis不仅仅是简单的key-value 存储器，同时也是一种data structures server。传统的key-value是指支持使用一个key字符串来索引value字符串的存储，而Redis中，value不仅仅支持字符串，还支持更多的复杂结构，包括列表，集合，哈希表等。<br>Redis keys是采用二进制安全，这就意味着你可以使用任何二进制序列作为重点，从像”foo”可以联系一个 JPEG 文件。空字符串也是一个有效的密钥。</p>
+<h3 id="Redis_strings">Redis strings</h3><p>字符串是一种最基本的Redis值类型。Redis字符串是二进制安全的，这意味着一个Redis字符串能包含任意类型的数据，例如： 一张JPEG格式的图片或者一个序列化的Ruby对象。一个字符串类型的值最多能存储512M字节的内容。</p>
+<p><img src="/growth-img/redis/1.png" alt="数据类型"></p>
+<p>如上例所示，可以SET和GET命令来创建和检索strings。注意,set命令将取代现有的任何已经存在的key。SET命令还有一个提供附加参数的选项,我们能够让SET命令只有在没有相同key的情况下成功，反之亦然，可以让SET命令在有相同key值得情况下成功。</p>
+<p><img src="/growth-img/redis/2.png" alt=""></p>
+<p>即使string是Redis的基本类型，也可以对其进行一些有趣的操作，例如加法器：</p>
+<p><img src="/growth-img/redis/3.png" alt=""></p>
+<p>INCR命令让the value 成为一个整数，运行一次INCR便+1。INCRBY命令便是一个加法运算。类似的命令如减法运算为： DECR and DECRBY。</p>
+<p>Redis可以运用MSET and MGET 命令完成一次性的完成多个key-value的对应关系，使用MGET命令，Redis返回一个value数组。</p>
+<p><img src="/growth-img/redis/5.png" alt=""></p>
+<h3 id="Redis_Lists">Redis Lists</h3><p>Redis列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素导列表的头部（左边）或者尾部（右边） LPUSH 命令插入一个新的元素导头部, 而 RPUSH插入一个新元素导尾部.当一个这两个操作在一个空的Key上被执行的时候一个新的列表被创建。相似的，如果一个列表操作清空一个列表那么对应的key将被从key空间删除。这是非常方便的语义，因为他们被调用使用一个空列表完全就像他们被调用时使用一个不存在的键值（可以）做为参数。</p>
+<p>PUSH一类的命令的返回值为list的长度。一些类表操作和结果的例子：</p>
+<p><img src="/growth-img/redis/6.png" alt=""></p>
+<p>注意：LRANGE 利用了两个检索值，0表示list的开头第一个，-1表示list的倒数第一个，即最后一个。-2则便是list的倒数第二个，以此类推。</p>
+<p>这些命令都是可变的命令，也就是说你可以一次加入多个元素放入list。</p>
+<p><img src="/growth-img/redis/7.png" alt=""></p>
+<p>在Redis的命令操作中，还有一类重要的操作：POP，取出list元素。和PUSH操作类似，POP命令可以选择不同的方向取出元素.POP命令返回值为取出的元素。</p>
+<p><img src="/growth-img/redis/8.png" alt=""></p>
+<p>在Redis list中还有很多有用的命令，更多内容可以查看官方文档。</p>
+<h3 id="Redis_Hashes">Redis Hashes</h3><p>Redis Hashes是字符串字段和字符串值之间的映射,因此他们是展现对象的完美数据类型。 (例如:一个有名，姓，年龄等等属性的用户):一个带有一些字段的hash仅仅需要一块很小的空间存储,因此你可以存储数以百万计的对象在一个小的Redis实例中。 哈希主要用来表现对象，他们有能力存储很多对象，因此你可以将哈希用于许多其他的任务。</p>
+<p><img src="/growth-img/redis/10.png" alt=""></p>
+<p>HMSET命令设置一个多域的hash表，HGET命令获取指定的单域，HGETALL命令获取指定key的所有信息。HMGET类似于HGET，只是返回一个value数组。</p>
+<p>同样可以根据需要对hash表的表项进行单独的操作，例如 HINCRBY</p>
+<h3 id="Redis_无序集合">Redis 无序集合</h3><p>Redis 集合（Set）是一个无序的字符串集合. 你可以以O(1)的时间复杂度 (无论集合中有多少元素时间复杂度都是常量)完成添加，删除，以及测试元素是否存在。 Redis 集合拥有令人满意的不允许包含相同成员的属性。多次添加相同的元素，最终在集合里只会有一个元素。 实际上说这些就是意味着在添加元素的时候无须检测元素是否存在。 一个Redis集合的非常有趣的事情是他支持一些服务端的命令从现有的集合出发去进行集合运算，因此你可以在非常短的时间内进行合并（unions）, 求交集（intersections）,找出不同的元素（differences of sets）。</p>
+<p><img src="/growth-img/redis/11.png" alt=""></p>
+<p>SADD命令产生一个无序集合，返回集合的元素个数。SMEMBER用于查看集合。</p>
+<p>SISMEMBER用于查看集合是否存在，匹配项包括集合名和元素个数。匹配成功返回1，匹配失败返回0.</p>
+<h3 id="Redis有序集合">Redis有序集合</h3><p>Redis有序集合与普通集合非常相似，是一个没有重复元素的字符串集合。不同之处是有序集合的没有成员都关联了一个评分，这个评分被用来按照从最低分到最高分的方式排序集合中的成员。集合的成员是唯一的，但是评分可以是重复了。 使用有序集合你可以以非常快的速度（O(log(N))）添加，删除和更新元素。因为元素是有序的, 所以你也可以很快的根据评分（score）或者次序（position）来获取一个范围的元素。访问有序集合的中间元素也是非常快的,因此你能够使用有序集合作为一个没有重复成员的智能列表。在有序集合中，你可以很快捷的访问一切你需要的东西：有序的元素，快速的存在性测试，快速访问集合的中间元素！ 简而言之使用有序集合你可以做完成许多对性能有极端要求的任务，而那些任务使用其他类型的数据库真的是很难完成的。</p>
+<p>ZADD与SADD类似，但是在元素之前多了一个参数，这个参数便是用于排序的。形成一个有序的集合。</p>
+<p><img src="/growth-img/redis/12.png" alt=""></p>
+<p>查看集合ZRANGE是查看正序的集合，ZREVRANGE是查看反序的集合。0表示集合第一个元素，-1表示集合的倒数第一个元素。<br>使用WITHSCORES 参数返回记录值。</p>
+<p><img src="/growth-img/redis/13.png" alt=""></p>
+<h2 id="Redis_常用命令">Redis 常用命令</h2><p>启动redis服务和redis-cli命令界面<br><code>sudo service redis-server start</code><br><code>redis-cli</code></p>
+<p><strong><em>EXISTS and DEL</em></strong></p>
+<p>EXISTS key 判断一个key是否存在;存在返回 1;否则返回0; DEL key 删除某个key,或是一系列key;DEL key1 key2 key3 key4。成功返回1，失败返回0（key值不存在）。</p>
+<p><strong><em>TYPE and KEYS</em></strong></p>
+<p>TYPE key：返回某个key元素的数据类型 ( none:不存在,string:字符,list,set,zset,hash)，key不存在返回空。 KEYS key—pattern ：返回匹配的key列表 (KEYS foo*:查找foo开头的keys)</p>
+<p><strong><em>RANDOMKEY and CLEAR</em></strong></p>
+<p>RANDOMKEY ： 随机获得一个已经存在的key，如果当前数据库为空，则返回空字符串。<br>CLEAR ：清除界面。</p>
+<p><strong><em> RENAME and RENAMENX</em></strong></p>
+<p>RENAME oldname newname：改key的名字，新键如果存在将被覆盖 RENAMENX oldname newname：更改key的名字，如果名字存在则更改失败</p>
+<p><strong><em>DBSIZE</em></strong></p>
+<p>DBSIZE ：返回当前数据库的key的总数</p>
+<p><strong><em>限定key生存时间</em></strong></p>
+<p>这同样是一个无视数据类型的命令，对于临时存储很有用处。避免进行大量的DEL操作。</p>
+<p>EXPIRE：设置某个key的过期时间（秒）,(EXPIRE bruce 1000：设置bruce这个key1000秒后系统自动删除)注意：如果在还没有过期的时候，对值进行了改变，那么那个值会被清除。</p>
+<p><strong><em>查询key剩余生存时间</em></strong></p>
+<p>限时操作可以再SET命令中实现，并且可用TTL命令查询key剩余生存时间。 TTL：查找某个key还有多长时间过期,返回时间秒</p>
+<p><strong><em>清除key</em></strong></p>
+<p>FLUSHDB：清空当前数据库中的所有键</p>
+<p>FLUSHALL：清空所有数据库中的所有键</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/11/22/Redis初识2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis 初识(二)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Redis初识" data-title="Redis 初识(一)" data-url="http://yoursite.com/2015/11/22/Redis初识/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Poplar
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
