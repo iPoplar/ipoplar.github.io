@@ -109,7 +109,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Redis/" style="font-size: 13.33px;">Redis</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 13.33px;">jQuery</a> <a href="/tags/mode-js/" style="font-size: 10px;">mode.js</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 13.33px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+						<a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Redis/" style="font-size: 13.33px;">Redis</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 13.33px;">jQuery</a> <a href="/tags/mode-js/" style="font-size: 10px;">mode.js</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 13.33px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
 					</div>
 				</section>
 				
@@ -175,6 +175,78 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Node部分基础知识整理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/26/Node部分基础知识整理/" class="article-date">
+  	<time datetime="2015-11-25T16:00:00.000Z" itemprop="datePublished">2015-11-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/26/Node部分基础知识整理/">Node.js 部分基础知识整理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="回调函数">回调函数</h2><p>由于 node 是一个异步事件驱动的平台，所以在代码中我们经常需要使用回调函数。下面是回调函数应用的示例：</p>
+<pre><code>setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+<span class="built_in">console</span>.log(<span class="string">'callback is called'</span>);
+},<span class="number">2000</span>);
+</code></pre><p>我们传给 setTimeout 函数传入了一个匿名函数和一个调用时间 2000 (毫秒)，运行程序后等待 2 秒，可以看到输出了”callback is called”。</p>
+<h2 id="标准回调函数">标准回调函数</h2><p>node.js 中回调函数格式是约定俗成的，它有两个参数，第一个参数为 err，第二个参数为 data，顾名思义，err 是错误信息，data 则是返回的数据，示例如下:</p>
+<pre><code><span class="function"><span class="keyword">function</span><span class="params">(err,data)</span></span>{
+
+}
+</code></pre>
+      
+    </div>    
+
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/26/Node部分基础知识整理/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Redis初识" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -213,7 +285,8 @@
 <p>安装参考链接： <a href="http://www.linuxidc.com/Linux/2014-05/101544p2.htm">http://www.linuxidc.com/Linux/2014-05/101544p2.htm</a></p>
 </blockquote>
       
-    </div>
+    </div>    
+
     
     <div class="article-info article-info-index">
       
@@ -285,7 +358,8 @@
 <p>（1） 登录时可以 <code>redis-cli -a password</code></p>
 <p>（2）登录后使用<code>auth password</code></p>
       
-    </div>
+    </div>    
+
     
     <div class="article-info article-info-index">
       
@@ -352,7 +426,8 @@
 <p><code>sudo service mongod stop</code><br>或者<br><code>ctrl + c</code></p>
 <hr>
       
-    </div>
+    </div>    
+
     
     <div class="article-info article-info-index">
       
@@ -424,7 +499,8 @@
 <p>运行 <code>node spider.js</code> 会抓取到想要的信息（将抓取到的图片放到 img 文件夹下，将电影信息放置在 data/data.json 中）</p>
 <h2 id="Problems_and_growth">Problems and growth</h2>
       
-    </div>
+    </div>    
+
     
     <div class="article-info article-info-index">
       
@@ -502,7 +578,8 @@
 <p>参考链接: <a href="https://www.npmjs.com/package/cheerio" target="_blank" rel="external">https://www.npmjs.com/package/cheerio</a></p>
 
       
-    </div>
+    </div>    
+
     
     <div class="article-info article-info-index">
       
@@ -562,7 +639,8 @@
 <p><strong>原始Ajax</strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"zh"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span>jQuery Ajax<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery-1.11.2.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> xhr = <span class="keyword">new</span> AjaxXmlHttpRequest();</span><br><span class="line">      $(<span class="string">"#btnAjaxOld"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> xhr = <span class="keyword">new</span> AjaxXmlHttpRequest();</span><br><span class="line">        xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"divResult"</span>).innerHTML = xhr.responseText;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//由于涉及到同源策略，需要服务器端的支持</span></span><br><span class="line">        xhr.open(<span class="string">"GET"</span>, <span class="string">"data/AjaxGetCityInfo.aspx?resultType=html"</span>, <span class="literal">true</span>);</span><br><span class="line">        xhr.send(<span class="literal">null</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//跨浏览器获取 XmlHttpRequest 对象</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">AjaxXmlHttpRequest</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> xmlHttp;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// Firefox, Opera 8.0+, Safari</span></span><br><span class="line">        xmlHttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="comment">// Internet Explorer</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          xmlHttp = <span class="keyword">new</span> ActiveXObject(<span class="string">"Msxml2.XMLHTTP"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">            xmlHttp = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">          &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            alert(<span class="string">"Your browser nonsupport AJAX！"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> xmlHttp;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"btnAjaxOld"</span>&gt;</span>original ajax call<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"divResult"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
-    </div>
+    </div>    
+
     
     <div class="article-info article-info-index">
       
@@ -631,7 +709,8 @@
 </blockquote>
 <h2 id="<!-more->">
       
-    </div>
+    </div>    
+
     
     <div class="article-info article-info-index">
       

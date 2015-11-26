@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node.js 部分基础知识整理 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="回调函数由于 node 是一个异步事件驱动的平台，所以在代码中我们经常需要使用回调函数。下面是回调函数应用的示例：
+setTimeout(function(){
+console.log(&apos;callback is called&apos;);
+},2000);
+我们传给 setTimeout 函数传入了一个匿名函数和一个调用时间 2000 (毫秒)，运行程序后等待 2 秒，可以看到输出了”callback i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js 部分基础知识整理">
+<meta property="og:url" content="http://yoursite.com/2015/11/26/Node部分基础知识整理/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="回调函数由于 node 是一个异步事件驱动的平台，所以在代码中我们经常需要使用回调函数。下面是回调函数应用的示例：
+setTimeout(function(){
+console.log(&apos;callback is called&apos;);
+},2000);
+我们传给 setTimeout 函数传入了一个匿名函数和一个调用时间 2000 (毫秒)，运行程序后等待 2 秒，可以看到输出了”callback i">
+<meta property="og:updated_time" content="2015-11-26T09:08:39.420Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js 部分基础知识整理">
+<meta name="twitter:description" content="回调函数由于 node 是一个异步事件驱动的平台，所以在代码中我们经常需要使用回调函数。下面是回调函数应用的示例：
+setTimeout(function(){
+console.log(&apos;callback is called&apos;);
+},2000);
+我们传给 setTimeout 函数传入了一个匿名函数和一个调用时间 2000 (毫秒)，运行程序后等待 2 秒，可以看到输出了”callback i">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJRpPTSQahzQLuJ5dtJgxK4dZtagyjsJz-W8AOdZj2uoKlTUio0w" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Poplar</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/学习笔记">学习笔记</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Redis/" style="font-size: 13.33px;">Redis</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 13.33px;">jQuery</a> <a href="/tags/mode-js/" style="font-size: 10px;">mode.js</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 13.33px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">All is well O(∩_∩)O~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Poplar</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJRpPTSQahzQLuJ5dtJgxK4dZtagyjsJz-W8AOdZj2uoKlTUio0w" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Poplar</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/学习笔记">学习笔记</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Node部分基础知识整理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/26/Node部分基础知识整理/" class="article-date">
+  	<time datetime="2015-11-25T16:00:00.000Z" itemprop="datePublished">2015-11-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node.js 部分基础知识整理
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="回调函数">回调函数</h2><p>由于 node 是一个异步事件驱动的平台，所以在代码中我们经常需要使用回调函数。下面是回调函数应用的示例：</p>
+<pre><code>setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+<span class="built_in">console</span>.log(<span class="string">'callback is called'</span>);
+},<span class="number">2000</span>);
+</code></pre><p>我们传给 setTimeout 函数传入了一个匿名函数和一个调用时间 2000 (毫秒)，运行程序后等待 2 秒，可以看到输出了”callback is called”。</p>
+<h2 id="标准回调函数">标准回调函数</h2><p>node.js 中回调函数格式是约定俗成的，它有两个参数，第一个参数为 err，第二个参数为 data，顾名思义，err 是错误信息，data 则是返回的数据，示例如下:</p>
+<pre><code><span class="function"><span class="keyword">function</span><span class="params">(err,data)</span></span>{
+
+}
+</code></pre><a id="more"></a>
+<h2 id="os模块">os模块</h2><p>提供操作系统的一些基本信息，它的一些常用方法如下：</p>
+<pre><code><span class="keyword">var</span> os = require(<span class="string">"os"</span>);
+
+<span class="keyword">var</span> <span class="literal">result</span> = os.platform(); //查看操作系统平台
+ //os.release(); 查看操作系统版本
+ //os.<span class="keyword">type</span>(); 查看操作系统名称
+ //os.arch(); 查看操作系统<span class="type">CPU</span>架构 
+console.log(<span class="literal">result</span>);
+</code></pre><h2 id="进程管理">进程管理</h2><p>process 是一个全局内置对象，可以在代码中的任何位置访问此对象，这个对象代表我们的 node.js 代码宿主的操作系统进程对象。</p>
+<p>使用 process 对象可以截获进程的异常、退出等事件，也可以获取进程的当前目录、环境变量、内存占用等信息，还可以执行进程退出、工作目录切换等操作。</p>
+<p><strong><em>process 对象的一些常用方法</em></strong></p>
+<p><code>process.cwd();</code> //查看应用程序当前目录<br><code>process.chdir(&quot;目录&quot;);</code>//改变应用程序目录</p>
+<p><code>stdout</code>是标准输出流，它的作用就是将内容打印到输出设备上，console.log 就是封装了它</p>
+<pre><code>console.<span class="built_in">log</span> = <span class="function"><span class="keyword">function</span><span class="params">(d)</span></span>{
+process.stdout.<span class="built_in">write</span>(d+<span class="string">'\n'</span>);
+}
+</code></pre><p><code>stderr</code>是标准错误流，它是用来打印错误信息的，我们可以通过它来捕获错误信息:</p>
+<pre><code><span class="tag">process</span><span class="class">.stderr</span><span class="class">.write</span>(输入内容);
+</code></pre><p><code>stdin</code>是进程的输入流,我们可以通过注册事件的方式来获取输入的内容，如下：</p>
+<pre><code>process.stdin.on(<span class="string">'readable'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+ <span class="keyword">var</span> chunk = process.stdin.read();
+ <span class="keyword">if</span> (chunk !== <span class="literal">null</span>) {
+process.stdout.write(<span class="string">'data: '</span> + chunk);
+ }
+});
+</code></pre><p>示例中的 chunk 就是输入流中的内容。</p>
+<p><code>exit</code>需要在程序内杀死进程，退出程序，可以使用，示例如下：</p>
+<pre><code><span class="keyword">process</span>.<span class="keyword">exit</span>(code);
+</code></pre><p>参数 code 为退出后返回的代码，如果省略则默认返回0；</p>
+<h2 id="设置编码">设置编码</h2><p>在我们的输入输出的内容中有中文的时候，可能会乱码的问题，这是因为编码不同造成的，所以在这种情况下需要为流设置编码，如下示例：</p>
+<pre><code><span class="tag">process</span><span class="class">.stdin</span><span class="class">.setEncoding</span>(编码); 
+<span class="tag">process</span><span class="class">.stdout</span><span class="class">.setEncoding</span>(编码); 
+<span class="tag">process</span><span class="class">.stderr</span><span class="class">.setEncoding</span>(编码);
+</code></pre><h2 id="文件I/O">文件I/O</h2><h4 id="写入文件">写入文件</h4><p>fs 模块提供 writeFile 函数，可以异步的将数据写入一个文件, 如果文件已经存在则会被替换。用法如下：</p>
+<p>例：fs.writeFile(filename, data, callback)</p>
+<pre><code><span class="keyword">var</span> fs= <span class="built_in">require</span>(<span class="string">"fs"</span>);
+
+fs.writeFile(<span class="string">'test.txt'</span>, <span class="string">'Hello node'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>)</span>{
+  <span class="keyword">if</span>(err){
+    <span class="keyword">throw</span> err;
+  }<span class="keyword">else</span>{
+    <span class="built_in">console</span>.log(<span class="string">'Saveed successfully'</span>);
+  }
+</code></pre><p>数据参数可以是 string 或者是 Buffer,编码格式参数可选，默认为”utf8”，回调函数只有一个参数err。</p>
+<h4 id="追加写入">追加写入</h4><p>fs 模块中有 appendFile 函数，它可以将新的内容追加到已有的文件中，如果文件不存在，则会创建一个新的文件。使用方法如下：</p>
+<p>例：fs.appendFile(文件名,数据,编码,回调函数(err));</p>
+<pre><code><span class="keyword">var</span> fs= <span class="built_in">require</span>(<span class="string">"fs"</span>);
+
+fs.appendFile(<span class="string">'test.txt'</span>, <span class="string">'data to append'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>{
+   <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
+
+    <span class="comment">//数据被添加到文件的尾部</span>
+    <span class="built_in">console</span>.log(<span class="string">'The "data to append" was appended to file!'</span>); 
+});
+</code></pre><p>编码格式默认为”utf8”，</p>
+<h4 id="是否存在">是否存在</h4><p>exists 函数可以检查一个文件是否存在。</p>
+<p>例：fs.exists(文件，回调函数(exists));</p>
+<p>exists 的回调函数只有一个参数，类型为布尔型，通过它来表示文件是否存在。</p>
+<pre><code><span class="keyword">var</span> fs= <span class="built_in">require</span>(<span class="string">"fs"</span>);
+
+fs.exists(<span class="string">'/etc/passwd'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">exists</span>) </span>{
+  <span class="built_in">console</span>.log(exists ? <span class="string">"存在"</span> : <span class="string">"不存在!"</span>);
+});
+</code></pre><h4 id="修改名称">修改名称</h4><p>rename 函数提供修改名称服务</p>
+<pre><code><span class="keyword">var</span> fs= require(<span class="string">"fs"</span>);
+
+fs.<span class="keyword">rename</span>(旧文件，新文件，回调函数(<span class="keyword">err</span>){
+   <span class="keyword">if</span> (<span class="keyword">err</span>) throw <span class="keyword">err</span>;
+   console.<span class="literal">log</span>('Successful modification,');
+});
+</code></pre><h4 id="移动文件">移动文件</h4><p>fs 没有专门移动文件的函数，但是我们可以通过 rename 函数来达到移动文件的目的，示例如下。</p>
+<pre><code><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);
+
+fs.rename(oldPath,newPath,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>{
+   <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
+   <span class="built_in">console</span>.log(<span class="string">'renamed complete'</span>);
+});
+</code></pre><h4 id="读取文件">读取文件</h4><p>例：fs.readFile(文件,编码,回调函数);</p>
+<pre><code><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);
+
+fs.readFile(文件名, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>{
+  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
+  <span class="built_in">console</span>.log(data);
+});
+</code></pre><p>回调函数里面的 data ,就是读取的文件内容。</p>
+<h4 id="删除文件">删除文件</h4><p>例：fs.unlink(文件,回调函数(err));</p>
+<pre><code><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);
+
+fs.unlink(文件, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
+  <span class="built_in">console</span>.log(<span class="string">'successfully deleted'</span>);
+});
+</code></pre><h4 id="创建目录">创建目录</h4><pre><code><span class="built_in">fs</span>.<span class="built_in">mkdir</span>(路径，权限，回调函数(err));
+</code></pre><p><strong><em>参数</em></strong></p>
+<p>路径：新创建的目录。<br>权限：可选参数，只在 linux 下有效，表示目录的权限，默认为 0777，表示文件所有者、文件所有者所在的组的用户、所有用户，都有权限进行读、写、执行的操作。<br>回调函数：当发生错误时，错误信息会传递给回调函数的 err 参数。</p>
+<h4 id="删除目录">删除目录</h4><p>例：fs.rmdir(路径，回调函数(err));</p>
+<pre><code><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);
+
+fs.rmdir(path, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{
+  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
+  <span class="built_in">console</span>.log(<span class="string">'ok'</span>);
+});
+</code></pre><h4 id="读取目录">读取目录</h4><p>readdir 函数可以读取到指定目录下所有的文件，示例如下：</p>
+<pre><code>var <span class="built_in">fs</span> = require('<span class="built_in">fs</span>');
+
+<span class="built_in">fs</span>.readdir(目录,回调函数(err,files));
+</code></pre><p>回调函数 (callback) 接受两个参数 (err, files) 其中 files 是一个存储目录中所包含的文件名称的数组，数组中不包括 ‘.’ 和 ‘..’。</p>
+<h2 id="url_处理">url 处理</h2><h4 id="parse">parse</h4><p>parse 函数的作用是解析 url，返回一个 json 格式的数组，请看如下示例：</p>
+<pre><code><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);
+url.parse(<span class="string">'http://www.baidu.com'</span>);
+</code></pre><p>运行结果：<br>    { protocol: ‘http:’,<br>      slashes: null,<br>      auth: null,<br>      host: null,<br>      port: null,<br>      hostname: null,<br>      hash: null,<br>      search: null,<br>      query: null,<br>      pathname: ‘www.baidu.com’,<br>      path: ‘www.baidu.com’,<br>      href: ‘<a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a>‘ }</p>
+<h4 id="条件解析">条件解析</h4><p>parse 函数的第二个参数是布尔类型，当参数为 true 时，会将查询条件也解析成 json 格式的对象。</p>
+<pre><code><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);
+url.parse(<span class="string">'http://www.baidu.com?page=1'</span>,<span class="literal">true</span>);
+</code></pre><p>运行结果：<br>    { protocol: ‘http:’,<br>      slashes: true,<br>      auth: null,<br>      host: ‘www.baidu.com’,<br>      port: null,<br>      hostname: ‘www.baidu.com’,<br>      hash: null,<br>      search: ‘?page=1’,<br>      query: { page: ‘1’ },<br>      pathname: ‘/‘,<br>      path: ‘/?page=1’,<br>      href: ‘<a href="http://www.baidu.com/?page=1" target="_blank" rel="external">http://www.baidu.com/?page=1</a>‘ }</p>
+<h4 id="解析主机">解析主机</h4><p>parse 函数的第三个参数也是布尔类型的，当参数为 true ，解析时会将 url 的”//“和第一个”/“之间的部分解析为主机名，示例如下：</p>
+<pre><code><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);
+url.parse(<span class="string">'http://www.baidu.com/news'</span>,<span class="literal">false</span>,<span class="literal">true</span>);
+</code></pre><p>运行结果：<br>    { protocol: ‘http:’,<br>      slashes: true,<br>      auth: null,<br>      host: ‘www.baidu.com’,<br>      port: null,<br>      hostname: ‘www.baidu.com’,<br>      hash: null,<br>      search: null,<br>      query: null,<br>      pathname: ‘/news’,<br>      path: ‘/news’,<br>      href: ‘<a href="http://www.baidu.com/news" target="_blank" rel="external">http://www.baidu.com/news</a>‘ }<br>较之前面的示例，host 的内容不再是 null 了。</p>
+<h4 id="格式化">格式化</h4><p>format 函数的作用与 parse 相反，它的参数是一个 JSON 对象，返回一个组装好的 url 地址，请看如下示例：</p>
+<pre><code>var url = require(<span class="string">'url'</span>);
+url.format({
+<span class="string">protocol:</span> <span class="string">'http:'</span>,
+<span class="string">hostname:</span><span class="string">'www.baidu.com'</span>,
+<span class="string">port:</span><span class="string">'80'</span>,
+<span class="string">pathname :</span><span class="string">'/news'</span>,
+<span class="string">query:</span>{<span class="string">page:</span><span class="number">1</span>}
+});
+</code></pre><p>运行结果：<br>    <a href="http://www.baidu.com/news?page=1" target="_blank" rel="external">http://www.baidu.com/news?page=1</a><br>参数 JSON 对象的字段跟 parse 函数解析后返回的 JSON 字段一一对应。</p>
+<h4 id="resolve">resolve</h4><p>esolve 函数的参数是两个路径，第一个路径是开始的路径或者说当前路径，第二个则是想要去往的路径，返回值是一个组装好的 url ，示例如下：</p>
+<pre><code>var url = <span class="keyword">require</span>(<span class="string">'url'</span>);
+
+url.resolve(<span class="string">'http://example.com/'</span>, <span class="string">'/one'</span>)  /<span class="regexp">/ 'http:/</span><span class="regexp">/example.com/one</span><span class="string">'
+url.resolve('</span><span class="symbol">http:</span>/<span class="regexp">/example.com/one</span><span class="string">', '</span>/two<span class="string">') // '</span><span class="symbol">http:</span>/<span class="regexp">/example.com/two</span><span class="string">'</span>
+</code></pre><h2 id="path_优化">path 优化</h2><p>本模块包含一套用于处理和转换文件路径的工具集,用于处理目录的对象，提高用户开发效率</p>
+<h4 id="格式化路径">格式化路径</h4><p>normalize 函数将不符合规范的路径经过格式化转换为标准路径,解析路径中的.与..外，还能去掉多余的斜杠。</p>
+<p>如下示例：</p>
+<pre><code><span class="built_in">var</span> path = <span class="keyword">require</span>(<span class="string">'path'</span>);  
+<span class="built_in">var</span> <span class="built_in">data</span> = path<span class="built_in">.</span>normalize(<span class="string">'/path///normalize/hi/..'</span>);
+console<span class="built_in">.</span><span class="keyword">log</span>(<span class="built_in">data</span>);
+</code></pre><p>运行结果：<br>    ‘/path/normalize/‘</p>
+<h4 id="组合路径">组合路径</h4><p>join 函数将传入的多个路径拼接为标准路径并将其格式化，返回规范后的路径，避免手工拼接路径字符串的繁琐. 如下示例：</p>
+<pre><code><span class="built_in">var</span> path = <span class="keyword">require</span>(<span class="string">'path'</span>);
+<span class="built_in">var</span> <span class="built_in">data</span> = path<span class="built_in">.</span><span class="keyword">join</span>(<span class="string">'///you'</span>, <span class="string">'/are'</span>, <span class="string">'//beautiful'</span>);
+console<span class="built_in">.</span><span class="keyword">log</span>(<span class="built_in">data</span>);
+</code></pre><p>运行结果：<br>    ‘/you/are/beautiful’</p>
+<h4 id="dirname">dirname</h4><p>dirname 函数用来返回路径中的目录名. 如下示例：</p>
+<pre><code><span class="built_in">var</span> path = <span class="keyword">require</span>(<span class="string">'path'</span>);
+<span class="built_in">var</span> <span class="built_in">data</span> = path<span class="built_in">.</span>dirname(<span class="string">'/foo/strong/cool/nice'</span>); 
+console<span class="built_in">.</span><span class="keyword">log</span>(<span class="built_in">data</span>);
+</code></pre><p>运行结果：<br>    ‘/foo/strong/cool’</p>
+<h4 id="basename">basename</h4><p>basename 函数可返回路径中的最后一部分，并且可以对其进行条件排除. 如下示例：</p>
+<p>例1：path.basename(‘路径字符串’);</p>
+<p>例2：path.basename(‘路径字符串’, ‘[ext]’)&lt;排除[ext]后缀字符串&gt;;</p>
+<pre><code><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);    
+<span class="keyword">var</span> data1 = path.basename(<span class="string">'/foo/strong/basename/index.html'</span>);
+<span class="keyword">var</span> data2 = path.basename(<span class="string">'/foo/strong/basename/index.html'</span>,<span class="string">'.html'</span>);
+<span class="built_in">console</span>.log(data1 + <span class="string">' "and" '</span> + data2);
+</code></pre><p>运行结果：<br>    ‘index.html “and” index’</p>
+<h4 id="extname">extname</h4><p>extname 函数返回路径中文件的扩展名(以最后一个’.’开始,返回’.’以及’.’以后的所有字符串,如没有’.’,则返回空字符串). 如下示例：</p>
+<pre><code><span class="built_in">var</span> path = <span class="keyword">require</span>(<span class="string">'path'</span>);
+<span class="built_in">var</span> <span class="built_in">data</span> = path<span class="built_in">.</span>extname(<span class="string">'index.html'</span>);
+console<span class="built_in">.</span><span class="keyword">log</span>(<span class="built_in">data</span>);
+</code></pre><p>运行结果：<br>    ‘.html’</p>
+<h2 id="字符串的转换">字符串的转换</h2><p>Query String 模块用于实现URL参数字符串与参数对象之间的互相转换，提供了”stringify”、”parse”等一些实用函数来针对字符串进行处理，通过序列化和反序列化，来更好的应对实际开发中的条件需求，对于逻辑的处理也提供了很好的帮助。</p>
+<h4 id="序列化">序列化</h4><p>stringify 函数的作用就是序列化对象，也就是说将对象类型转换成一个字符串类型（默认的分割符（”&amp;”）和分配符（”=”））。<br>例1：querystring.stringify(“对象”)</p>
+<pre><code><span class="keyword">var</span> querystring= require('querystring');
+<span class="keyword">var</span> <span class="literal">result</span> = querystring.stringify({foo:'bar',cool:['xux', 'yys']});
+console.log(<span class="literal">result</span>);
+</code></pre><p>运行结果：<br>    foo=bar&amp;cool=xux&amp;cool=yys</p>
+<p><strong><em>多参数用法:</em></strong><br>querystring.stringify(“对象”，”分隔符”，”分配符”)</p>
+<pre><code><span class="keyword">var</span> querystring = require('querystring');
+<span class="keyword">var</span> <span class="literal">result</span> = querystring.stringify({foo:'bar',cool:['xux', 'yys']},'*','$');
+console.log(<span class="literal">result</span>);
+</code></pre><p>运行结果：</p>
+<pre><code><span class="string">'foo<span class="variable">$bar</span>*cool<span class="variable">$xux</span>*cool<span class="variable">$yys</span>'</span>
+</code></pre><h4 id="反序列化">反序列化</h4><p>parse 函数，parse 函数的作用就是反序列化字符串（默认是由”=”、”&amp;”拼接而成），转换得到一个对象类型。如下示例：</p>
+<p>例1：querystring.parse(“字符串”)</p>
+<pre><code><span class="keyword">var</span> querystring = require('querystring');
+<span class="keyword">var</span> <span class="literal">result</span> = querystring.parse('foo=bar&amp;cool=xux&amp;cool=yys');
+console.log(<span class="literal">result</span>);
+</code></pre><p>运行结果：<br>    { foo: ‘bar’, cool: [‘xux’, ‘yys’]}</p>
+<p><strong><em>多参数用法:</em></strong><br>querystring.parse(“字符串”，”分隔符”，”分配符”)</p>
+<pre><code><span class="keyword">var</span> querystring = require('querystring');
+<span class="keyword">var</span> <span class="literal">result</span> = querystring.parse('foo@bar$cool@xux$cool@yys','@','$');
+console.log(<span class="literal">result</span>);
+</code></pre><p>运行结果：<br>    { foo: ‘’, bar: ‘cool’, xux: ‘cool’, yys: ‘’ }</p>
+<h2 id="实用工具">实用工具</h2><p>util 模块呢，是一个 Node.js 核心模块，提供常用函数的集合，用于弥补核心 JavaScript 的一些功能过于精简的不足。并且还提供了一系列常用工具，用来对数据的输出和验证。</p>
+<h4 id="转换字符串">转换字符串</h4><p>util.inspect(object,[showHidden],[depth],[colors]) 是一个将任意对象转换为字符串的函数，通常用于调试和错误输出。它至少接受一个参数 object ，即要转换的对象。使用语法如下：</p>
+<pre><code><span class="keyword">var</span> util = require('util');
+<span class="keyword">var</span> <span class="literal">result</span> = util.inspect(<span class="keyword">object</span>);
+console.log(<span class="literal">result</span>);
+</code></pre><h4 id="字符串格式化">字符串格式化</h4><p>format 函数根据第一个参数，返回一个格式化字符串，第一个参数是一个可包含零个或多个占位符的字符串。每一个占位符被替换为与其对应的转换后的值，支持的占位符有：”%s(字符串)”、”%d(数字&lt;整型和浮点型&gt;)”、”%j(JSON)”、”%(单独一个百分号则不作为一个参数)”。</p>
+<p>1：如果占位符没有相对应的参数，占位符将不会被替换.如示例：</p>
+<pre><code><span class="keyword">var</span> util = require('util');
+<span class="keyword">var</span> <span class="literal">result</span> = util.format('%s:%s', 'foo');
+console.log(<span class="literal">result</span>);
+</code></pre><p>运行结果：<br>    ‘foo:%s’<br>2：如果有多个参数占位符，额外的参数将会调用 util.inspect() 转换为字符串。这些字符串被连接在一起，并且以空格分隔。如示例：</p>
+<pre><code><span class="keyword">var</span> util = require('util');
+<span class="keyword">var</span> <span class="literal">result</span> = util.format('%s:%s', 'foo', 'bar', 'baz');
+console.log(<span class="literal">result</span>);
+</code></pre><p>运行结果：<br>    ‘foo:bar baz’<br>3：如果第一个参数是一个非格式化字符串，则会把所有的参数转成字符串并以空格隔开拼接在一块，而且返回该字符串。如示例：</p>
+<pre><code><span class="keyword">var</span> util = require('util');
+<span class="keyword">var</span> <span class="literal">result</span> = util.format(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);
+console.log(<span class="literal">result</span>);
+</code></pre><p>运行结果：<br>    ‘1 2 3’</p>
+<h4 id="数组验证">数组验证</h4><p>isArray 函数可以判断对象是否为数组类型，是则返回 ture ,否则为 false 。语法如下：</p>
+<pre><code><span class="keyword">var</span> util = require('util');
+<span class="keyword">var</span> <span class="literal">result</span> = util.isArray(<span class="keyword">object</span>);
+console.log(<span class="literal">result</span>);
+</code></pre><h4 id="日期验证">日期验证</h4><p>isDate 函数可以判断对象是否为日期类型，是则返回 ture ,否则返回 false 。语法如下：</p>
+<pre><code><span class="keyword">var</span> util = require('util');
+<span class="keyword">var</span> <span class="literal">result</span> = util.isDate(<span class="keyword">object</span>);
+console.log(<span class="literal">result</span>);
+</code></pre><h4 id="正则验证">正则验证</h4><p>isRegExp 函数可以判断对象是否为正则类型，是则返回 ture,否则返回 false。语法如下：</p>
+<pre><code><span class="keyword">var</span> util = require('util');
+<span class="keyword">var</span> <span class="literal">result</span> = util.isRegExp(<span class="keyword">object</span>);
+console.log(<span class="literal">result</span>);
+</code></pre><h2 id="子进程">子进程</h2><p>众所周知 node.js 是基于单线程模型架构，这样的设计可以带来高效的 CPU 利用率，但是无法却利用多个核心的 CPU，为了解决这个问题， node.js 提供了 child_process 模块，通过多进程来实现对多核 CPU 的利用。  child_process 模块提供了四个创建子进程的函数，分别是 spawn， exec， execFile 和fork。</p>
+<h4 id="创建子进程">创建子进程</h4><p>pawn 函数用给定的命令发布一个子进程，只能运行指定的程序，参数需要在列表中给出。如下示例：</p>
+<pre><code><span class="keyword">var</span> child_process = <span class="built_in">require</span>(<span class="string">'child_process'</span>);
+<span class="keyword">var</span> child = child_process.spawn( command );
+child.stdout.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{
+  <span class="built_in">console</span>.log(data);
+});
+</code></pre><p>通过执行命令得到返回结果，我们就可以拿到标准输出流数据了。</p>
+<h4 id="exec">exec</h4><p>exec 也是一个创建子进程的函数，与 spawn 函数不同它可以直接接受一个回调函数作为参数，回调函数有三个参数，分别是 err, stdout , stderr，基本使用方法如下：</p>
+<pre><code><span class="keyword">var</span> child_process = <span class="built_in">require</span>(<span class="string">'child_process'</span>);
+child_process.exec( command , <span class="function"><span class="keyword">function</span>(<span class="params">err, stdout , stderr </span>) </span>{
+  <span class="built_in">console</span>.log( stdout );
+});
+</code></pre><p>exec 函数可以直接接受一个回调函数作为参数，回调函数有三个参数，分别是 err, stdout,stderr，非常方便直接使用，</p>
+<h4 id="execFile">execFile</h4><p>execFile 函数与 exec 函数类似，但 execFile 函数更显得精简，因为它可以直接执行所指定的文件，基本使用方法如下：</p>
+<pre><code><span class="keyword">var</span> child_process = <span class="built_in">require</span>(<span class="string">'child_process'</span>);
+child_process.execFile( file , <span class="function"><span class="keyword">function</span>(<span class="params">err, stdout , stderr </span>) </span>{
+  <span class="built_in">console</span>.log( stdout );
+});
+</code></pre><p>execFile 与 spawn 的参数相似，也需要分别指定执行的命令和参数，但可以接受一个回调函数，与 exec 的回调函数相同。</p>
+<h4 id="fork">fork</h4><p>fork 函数可直接运行 Node.js 模块，所以可以直接通过指定模块路径而直接进行操作。使用方法如下：</p>
+<pre><code><span class="keyword">var</span> child_process = <span class="built_in">require</span>(<span class="string">'child_process'</span>);
+child_process.fork( modulePath );
+</code></pre><p>该方法是 spawn() 的特殊情景，用于派生 Node 进程。除了普通 ChildProcess 实例所具有的所有方法，所返回的对象还具有内建的通讯通道。</p>
+
+      
+    </div>    
+
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/11/22/Redis初识/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis 初识(一)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Node部分基础知识整理" data-title="Node.js 部分基础知识整理" data-url="http://yoursite.com/2015/11/26/Node部分基础知识整理/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Poplar
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
