@@ -12,7 +12,7 @@
 Operation解压 doub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于 Node.js 的网站信息爬虫">
-<meta property="og:url" content="http://yoursite.com/2015/11/18/spider/index.html">
+<meta property="og:url" content="http://yoursite.com/2015/11/26/spider/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="通过 Node.js 实现一个简单爬虫，爬取豆瓣热门电影。主要会用到的模块（包）有：http，fs，path，cheerio。
 这里用一个跑在本地的 http server 来模拟在线爬豆瓣网。douban-server.tar.gz 是由实验楼提供的在本地模拟豆瓣网的程序。
@@ -23,7 +23,7 @@ Operation解压 doub">
 <meta property="og:image" content="http://yoursite.com/growth-img/2.png">
 <meta property="og:image" content="http://yoursite.com/growth-img/1.png">
 <meta property="og:image" content="http://yoursite.com/growth-img/4.png">
-<meta property="og:updated_time" content="2015-11-18T13:08:46.970Z">
+<meta property="og:updated_time" content="2015-11-26T01:33:04.281Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于 Node.js 的网站信息爬虫">
 <meta name="twitter:description" content="通过 Node.js 实现一个简单爬虫，爬取豆瓣热门电影。主要会用到的模块（包）有：http，fs，path，cheerio。
@@ -193,8 +193,8 @@ Operation解压 doub">
       <div class="body-wrap"><article id="post-spider" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/18/spider/" class="article-date">
-  	<time datetime="2015-11-18T13:08:46.970Z" itemprop="datePublished">2015-11-18</time>
+      <a href="/2015/11/26/spider/" class="article-date">
+  	<time datetime="2015-11-26T01:33:04.281Z" itemprop="datePublished">2015-11-26</time>
 </a>
     </div>
   
@@ -241,7 +241,8 @@ Operation解压 doub">
 <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> start</span><br></pre></td></tr></table></figure>
 <p>创建文件夹 spider, 进入文件夹，输入 <code>npm init</code> , 初始化项目，会得到类似与小编的文件。（在初始化项目要添加第三方包 <code>npm install cheerio --save</code>）</p>
 <p>运行 <code>node spider.js</code> 会抓取到想要的信息（将抓取到的图片放到 img 文件夹下，将电影信息放置在 data/data.json 中）</p>
-<h2 id="Problems_and_growth">Problems and growth</h2><p>在小编现在的 spider.js 中的爬虫url信息如下图所示<br><img src="/growth-img/3.png" alt="爬虫url信息"><br>当改为某个在线的网址，在此以妙味课堂的网址为例了<br><img src="/growth-img/2.png" alt="爬虫url信息2"><br><strong><em>那么在这里要要注意什么呢？</em></strong><br>1.<em>hostname</em> ,注意这两出的都没有 ‘http://‘ 部分，那么如果加了会怎么样呢？看下图喽：<br><img src="/growth-img/1.png" alt="爬虫url信息3"></p>
+<h2 id="Problems_and_growth">Problems and growth</h2><a id="more"></a>
+<p>在小编现在的 spider.js 中的爬虫url信息如下图所示<br><img src="/growth-img/3.png" alt="爬虫url信息"><br>当改为某个在线的网址，在此以妙味课堂的网址为例了<br><img src="/growth-img/2.png" alt="爬虫url信息2"><br><strong><em>那么在这里要要注意什么呢？</em></strong><br>1.<em>hostname</em> ,注意这两出的都没有 ‘http://‘ 部分，那么如果加了会怎么样呢？看下图喽：<br><img src="/growth-img/1.png" alt="爬虫url信息3"></p>
 <p>2.<em>port</em> , 当抓取在线的网站的信息时，要记着去掉 port:3000, 不然又会有错：<br><img src="/growth-img/4.png" alt="爬虫url信息4"></p>
 <p>3 要注意 host 和 path 的写法。对比前两幅图即可得。</p>
 <hr>
@@ -255,17 +256,17 @@ Operation解压 doub">
     
 <nav id="article-nav">
   
-    <a href="/2015/11/18/spider-cheerio/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/11/26/回顾jQuery/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          spider-cheerio
+          回顾jQuery
         
       </div>
     </a>
   
   
-    <a href="/2015/11/18/jQuery-Ajax/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/11/26/jQuery-Ajax/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">jQuery-Ajax</div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -295,7 +296,7 @@ Operation解压 doub">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="spider" data-title="基于 Node.js 的网站信息爬虫" data-url="http://yoursite.com/2015/11/18/spider/"></div>
+	<div class="ds-thread" data-thread-key="spider" data-title="基于 Node.js 的网站信息爬虫" data-url="http://yoursite.com/2015/11/26/spider/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
