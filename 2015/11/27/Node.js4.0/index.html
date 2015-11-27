@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node.js 4.0 (一) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。Node.js 的包管理器 npm 是全球最大的开源库生态系统。
+　　Node v4 这个版本是 Node 和 iojs 合并后发布的首个稳定版本，并且为开发者带来了大量的 ES6 语言扩展。了解 Node.js中包括的 ES6 语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js 4.0 (一)">
+<meta property="og:url" content="http://yoursite.com/2015/11/27/Node.js4.0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。Node.js 的包管理器 npm 是全球最大的开源库生态系统。
+　　Node v4 这个版本是 Node 和 iojs 合并后发布的首个稳定版本，并且为开发者带来了大量的 ES6 语言扩展。了解 Node.js中包括的 ES6 语言">
+<meta property="og:updated_time" content="2015-11-27T04:57:54.551Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js 4.0 (一)">
+<meta name="twitter:description" content="Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。Node.js 的包管理器 npm 是全球最大的开源库生态系统。
+　　Node v4 这个版本是 Node 和 iojs 合并后发布的首个稳定版本，并且为开发者带来了大量的 ES6 语言扩展。了解 Node.js中包括的 ES6 语言">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJRpPTSQahzQLuJ5dtJgxK4dZtagyjsJz-W8AOdZj2uoKlTUio0w" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Poplar</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/学习笔记">学习笔记</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Node-js/" style="font-size: 13.33px;">Node.js</a> <a href="/tags/Redis/" style="font-size: 13.33px;">Redis</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 13.33px;">jQuery</a> <a href="/tags/mode-js/" style="font-size: 10px;">mode.js</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 13.33px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">All is well O(∩_∩)O~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Poplar</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJRpPTSQahzQLuJ5dtJgxK4dZtagyjsJz-W8AOdZj2uoKlTUio0w" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Poplar</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/学习笔记">学习笔记</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Node.js4.0" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/27/Node.js4.0/" class="article-date">
+  	<time datetime="2015-11-26T16:00:00.000Z" itemprop="datePublished">2015-11-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node.js 4.0 (一)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。Node.js 的包管理器 npm 是全球最大的开源库生态系统。</p>
+<p>　　Node v4 这个版本是 Node 和 iojs 合并后发布的首个稳定版本，并且为开发者带来了大量的 ES6 语言扩展。了解 Node.js中包括的 ES6 语言扩展。</p>
+<p>　　Node.js 4.0.0 尖端的技术，保持了项目的先进性。其中对 v8 的升级几乎做到了与 Chromium / Google Chrome 同步，达到了 4.5.x，它提供了很多新的语言功能。ECMA-262 是 JavaScript 语言规范的最新版本，而且好多新特性数都是开箱即用的。这些新特性包括：</p>
+<blockquote>
+<p>classes - 各种 ‘类’，再也无需用 CoffeeScript 的语法糖写类了<br>generators - 未来的.js 代码中将有无数生成器，不学一点就看不懂 JS 代码了哦<br>collections － 集合、映射、弱集合、弱映射<br>arrow functions － 箭向函数<br>block scoping － 使用 let 、const 作用域，块辖域<br>template strings － 模板字串<br>promises － 用标准化了的方法进行延迟和异步计算<br>symbols － 唯一的、不可修改的数据</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="块级作用域">块级作用域</h2><h3 id="严格模式">严格模式</h3><p>严格模式在语义上与正常的 JavaScript 有一些不同。 首先，严格模式会将 JavaScript 陷阱直接变成明显的错误。其次，严格模式修正了一些引擎难以优化的错误：同样的代码有些时候严格模式会比非严格模式下更快。 第三，严格模式禁用了一些有可能在未来版本中定义的语法。</p>
+<p>因为我们 ECMAScript 6 中的一些特性，必须在严格模式下，才可以使用，而不报错。</p>
+<p>严格模式可以应用到整个 script 标签或某个别函数中。</p>
+<p>为整个 script 标签开启严格模式, 需要在所有语句之前放一个特定语句 “use strict”; （或 ‘use strict’;）</p>
+<pre><code><span class="comment">// 整个语句都开启严格模式的语法</span>
+<span class="pi">"use strict"</span>;
+<span class="keyword">let</span> v = <span class="string">"Hi!  I'm a strict mode script!"</span>;
+</code></pre><p>同样的，要给某个函数开启严格模式，得把 “use strict”; (或 ‘use strict’; )声明一字不漏地放在函数体所有语句之前。</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">strict</span>(<span class="params"></span>)
+</span>{
+  <span class="comment">// 函数级别严格模式语法</span>
+<span class="pi">  'use strict'</span>;
+  <span class="keyword">return</span> <span class="string">"Hi!  I'm a strict mode function!"</span> ;
+}
+<span class="function"><span class="keyword">function</span> <span class="title">notStrict</span>(<span class="params"></span>) </span>{ 
+  <span class="keyword">return</span> <span class="string">"I'm not strict."</span>;
+}
+</code></pre><h3 id="let">let</h3><p>let 允许把变量的作用域限制在块级域中。与 var 不同处是：var 申明变量要么是全局的，要么是函数级的，而无法是块级的。</p>
+<p><strong><em>let vs var</em></strong><br>let 的作用域是块，而 var 的作用域是函数</p>
+<pre><code><span class="pi">'use strict'</span>;
+<span class="keyword">var</span> a = <span class="number">5</span>;
+<span class="keyword">var</span> b = <span class="number">10</span>;
+<span class="keyword">if</span> (a === <span class="number">5</span>) {
+  <span class="keyword">let</span> a = <span class="number">4</span>; <span class="comment">// The scope is inside the if-block</span>
+  <span class="keyword">var</span> b = <span class="number">1</span>; <span class="comment">// The scope is inside the function</span>
+  <span class="built_in">console</span>.log(a);  <span class="comment">// 4</span>
+  <span class="built_in">console</span>.log(b);  <span class="comment">// 1</span>
+} 
+<span class="built_in">console</span>.log(a); <span class="comment">// 5</span>
+<span class="built_in">console</span>.log(b); <span class="comment">// 1</span>
+</code></pre><p>let 在循环中<br>可以使用 let 关键字绑定变量在循环的范围而不是使用一个全局变量(使用 var )定义。</p>
+<pre><code><span class="pi">'use strict'</span>;
+<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {
+  <span class="built_in">console</span>.log(i); <span class="comment">// 0, 1, 2, 3, 4 ... 9</span>
+}
+<span class="built_in">console</span>.log(i); <span class="comment">// i is not defined</span>
+</code></pre><p>上面报错，因为变量 i 不存在于 for 语句外的作用域中。 let 创建块级作用域变量的，使用 var 创建一个全局变量。</p>
+<h3 id="const">const</h3><p>const 这个声明创建一个常量,可以全局或局部的函数声明。</p>
+<p>一个常量可以是全局的或者是局部的,常量遵循与变量相同的作用域规则。</p>
+<p>一个常量不可以被重新赋值,并且不能被重复声明.所以,虽然可以在声明一个常量的时候不进行初始化,但这样做是没有意义的,因为这个常量的值永远会保持 undefined 。</p>
+<p>一个常量不能和它所在作用域内的其他变量或函数拥有相同的名称。</p>
+<p>示例<br>下面的例子演示了常量的行为。</p>
+<pre><code><span class="keyword">const</span> num = <span class="number">10</span>;
+num =<span class="number">20</span>;
+console.<span class="built_in">log</span>(num); <span class="comment">// 10</span>
+</code></pre><p>如果我们在上面声明常量 num，在声明 var num，这时会报错，num 已经声明。</p>
+<pre><code><span class="keyword">const</span> <span class="built_in">num</span> = <span class="number">10</span>;
+<span class="keyword">var</span> <span class="built_in">num</span> = <span class="number">20</span>;
+console.log(<span class="built_in">num</span>); <span class="comment">// 'num' has already been declared</span>
+</code></pre><h3 id="块级作用域-1">块级作用域</h3><p>很多语言中都有块级作用域， JavaScript 使用 var 声明变量，以 function 来划分作用域，大括号“{}” 却限定不了 var 的作用域。用var声明的变量具有变量提升（declaration hoisting）的效果。</p>
+<p>ES6 里增加了一个 let，可以在{}， if， for 里声明。用法同 var，但作用域限定在块级，let 声明的变量不存在变量提升。</p>
+<pre><code><span class="pi">'use strict'</span>;
+<span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>{
+  <span class="keyword">var</span> a = <span class="number">1</span>;
+  <span class="keyword">let</span> n = <span class="number">2</span>;
+  <span class="keyword">if</span> (<span class="literal">true</span>) {
+      <span class="keyword">var</span> a = <span class="number">20</span>;
+      <span class="keyword">let</span> n = <span class="number">10</span>;
+  }
+  <span class="built_in">console</span>.log(n); <span class="comment">// 2</span>
+  <span class="built_in">console</span>.log(a); <span class="comment">// 20</span>
+}
+f1();
+</code></pre><h2 id="类_（Classes）">类 （Classes）</h2><h3 id="类声明">类声明</h3><p>ES6 中的类实际上就是个函数，而且正如函数的定义方式有函数声明和函数表达式两种一样，类的定义方式也有两种，分别是：类声明、类表达式。</p>
+<p><strong><em>类声明</em></strong><br>类声明是定义类的一种方式，就像下面这样，使用 class 关键字后跟一个类名（这里是 Ploygon），就可以定义一个类。</p>
+<pre><code><span class="pi">'use strict'</span>;
+<span class="class"><span class="keyword">class</span> <span class="title">Polygon</span> </span>{
+  constructor(height, width) {
+    <span class="keyword">this</span>.height = height;
+    <span class="keyword">this</span>.width = width;
+  }
+}
+</code></pre><p><strong><em>变量提升</em></strong><br>类声明和函数声明不同的一点是，函数声明存在变量提升现象，而类声明不会。也就是说，你必须先声明类，然后才能使用它，否则代码会抛出 ——ReferenceError 异常，像下面这样：</p>
+<pre><code><span class="keyword">var</span> p = <span class="keyword">new</span> Polygon(); <span class="comment">// ReferenceError</span>
+
+<span class="class"><span class="keyword">class</span> <span class="title">Polygon</span> </span>{}
+</code></pre><h3 id="类表达式">类表达式</h3><p>类表达式是定义类的另外一种方式，就像函数表达式一样，在类表达式中，类名是可有可无的。如果定义了类名，则该类名只有在类体内部才能访问到。</p>
+<pre><code><span class="pi">'use strict'</span>;
+<span class="comment">// 匿名类表达式</span>
+<span class="keyword">var</span> Polygon = <span class="keyword">class</span> {
+  <span class="constructor"><span class="keyword">constructor</span>(height, width) </span>{
+    <span class="keyword">this</span>.height = height;
+    <span class="keyword">this</span>.width = width;
+  }
+};
+
+<span class="comment">// 命名类表达式</span>
+<span class="keyword">var</span> Polygon = <span class="keyword">class</span> Polygon {
+  <span class="constructor"><span class="keyword">constructor</span>(height, width) </span>{
+    <span class="keyword">this</span>.height = height;
+    <span class="keyword">this</span>.width = width;
+  }
+};
+</code></pre><h3 id="构造函数">构造函数</h3><p>类的成员需要定义在一对花括号 {} 里，花括号里的代码和花括号本身组成了类体。类成员包括类构造器和类方法（包括静态方法和实例方法）。</p>
+<p>class 根据 constructor 方法来创建和初始化对象。</p>
+<p><strong><em>constructor方法</em></strong>是类的默认方法，通过 new 命令生成对象实例时，自动调用该方法。一个类只能有一个 constructor 方法，如果没有显式定义，一个空的 constructor 方法会被默认添加。</p>
+<p>constructor() {}<br>constructor 方法默认返回实例对象（即 this ），完全可以指定返回另外一个对象。</p>
+<pre><code><span class="pi">'use strict'</span>;
+<span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>{
+  constructor() {
+    <span class="keyword">return</span> <span class="built_in">Object</span>.create(<span class="literal">null</span>);
+  }
+}
+<span class="keyword">new</span> Foo() <span class="keyword">instanceof</span> Foo
+<span class="comment">// false</span>
+</code></pre><p>上面代码中，constructor 函数返回一个全新的对象，结果导致实例对象不是 Foo 类的实例。</p>
+<p>constructor 方法是一个特殊的类方法，它既不是静态方法也不是实例方法，它仅在实例化一个类的时候被调用。一个类只能拥有一个名为 constructor 的方法，否则会抛出 SyntaxError 异常。</p>
+<p>严格模式<br>类和模块的内部，默认就是严格模式，所以不需要使用 use strict 指定运行模式。只要你的代码写在类或模块之中，就只有严格模式可用。</p>
+<h3 id="静态方法">静态方法</h3><p>static 关键字定义了一个类的静态方法。静态方法被称为无需实例化类也可当类被实例化。静态方法通常用于为应用程序创建实用函数。</p>
+<p>示例<br>    ‘use strict’;<br>    class Point {<br>        constructor(x, y) {<br>            this.x = x;<br>            this.y = y;<br>        }</p>
+<pre><code>    <span class="function"><span class="keyword">static</span> <span class="title">distance</span><span class="params">(a, b)</span> </span>{
+        <span class="keyword">const</span> dx = a.x - b.x;
+        <span class="keyword">const</span> dy = a.y - b.y;
+
+        <span class="keyword">return</span> Math.<span class="built_in">sqrt</span>(dx*dx + dy*dy);
+    }
+}
+
+<span class="keyword">const</span> p1 = <span class="keyword">new</span> Point(<span class="number">5</span>, <span class="number">5</span>);
+<span class="keyword">const</span> p2 = <span class="keyword">new</span> Point(<span class="number">10</span>, <span class="number">10</span>);
+
+console.<span class="built_in">log</span>(Point.distance(p1, p2));
+</code></pre><h2 id="使用_extent_关键字创建子类">使用 extent 关键字创建子类</h2><p>extends 关键字可以用来创建继承于某个类的子类。</p>
+<p>这个例子是根据名为 Animal 类创建一个名为 Dog 的类。</p>
+<pre><code><span class="pi">'use strict'</span>;
+<span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>{ 
+  constructor(name) {
+    <span class="keyword">this</span>.name = name;
+  }
+
+  speak() {
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">' makes a noise.'</span>);
+  }
+}
+
+<span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>{
+  speak() {
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">' barks.'</span>);
+  }
+}
+<span class="keyword">var</span> dog = <span class="keyword">new</span> Dog(<span class="string">'NiNi'</span>);
+dog.speak();
+</code></pre><h2 id="集合">集合</h2><h3 id="map_基本用法">map 基本用法</h3><p>map 对象是一个简单的键/值映射。任何值（包括对象和原始值）都可以用作一个键或一个值。</p>
+<pre><code><span class="keyword">var</span> <span class="keyword">m</span> = new Map();
+<span class="keyword">var</span> o = {p: <span class="string">"Hello World"</span>};
+<span class="keyword">m</span>.<span class="keyword">set</span>(o, <span class="string">"content"</span>)
+<span class="keyword">m</span>.<span class="literal">get</span>(o) <span class="comment">// "content"</span>
+</code></pre><p>上面代码使用 set 方法，将对象 o 当作 m 的一个键。</p>
+<p>Map 也可以接受一个数组作为参数。该数组的成员是一个个表示键值对的数组。</p>
+<pre><code>var <span class="built_in">map</span> = <span class="keyword">new</span> Map([[<span class="string">"name"</span>, <span class="string">"张三"</span>], [<span class="string">"title"</span>, <span class="string">"Author"</span>]]);
+<span class="built_in">map</span>.<span class="built_in">size</span> <span class="comment">// 2</span>
+<span class="built_in">map</span>.<span class="built_in">get</span>(<span class="string">"name"</span>) <span class="comment">// "张三"</span>
+<span class="built_in">map</span>.<span class="built_in">get</span>(<span class="string">"title"</span>) <span class="comment">// "Author"</span>
+</code></pre><p>上面代码在新建 Map 实例时，就指定了两个键 name 和 title 。</p>
+<p>注意 Map 的键实际上是跟内存地址绑定的，只要内存地址不一样，就视为两个键。</p>
+<ul>
+<li>如果使用对象作为键名，就不用担心自己的属性与原作者的属性同名。</li>
+<li>如果 Map 的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，Map 将其视为一个键，包括 0 和 -0 。</li>
+<li>另外，虽然 NaN 不严格相等于自身，但 Map 将其视为同一个键。</li>
+</ul>
+<h3 id="map_实例的属性和操作方法">map 实例的属性和操作方法</h3><p>size 属性返回 Map 结构的成员总数。即返回映射对象中的键/值对的数目。</p>
+<p><strong><em>set(key, value) </em></strong>方法设置 key 所对应的键值，然后返回整个 Map 结构。如果 key 已经有值，则键值会被更新，否则就新生成该键。</p>
+<pre><code><span class="keyword">var</span> <span class="keyword">m</span> = new Map();
+<span class="keyword">m</span>.<span class="keyword">set</span>(<span class="string">"edition"</span>, 6)        <span class="comment">// 键是字符串</span>
+<span class="keyword">m</span>.<span class="keyword">set</span>(262, <span class="string">"standard"</span>)     <span class="comment">// 键是数值</span>
+<span class="keyword">m</span>.<span class="keyword">set</span>(undefined, <span class="string">"nah"</span>)    <span class="comment">// 键是undefined</span>
+</code></pre><p>set 方法返回的是 Map 本身，因此可以采用链式写法。</p>
+<p>get(key) 方法读取 key 对应的键值，如果找不到 key ，返回 undefined 。</p>
+<p>has(key) 方法返回一个布尔值，表示某个键是否在 Map 数据结构中。</p>
+<p>delete(key) 方法删除某个键，返回 true 。如果删除失败，返回 false 。</p>
+<p>clear() 方法清除所有成员，没有返回值。</p>
+<h3 id="map_遍历方法">map 遍历方法</h3><p>Map 原生提供三个遍历器生成函数和一个遍历方法。</p>
+<ul>
+<li>keys()：返回键名的遍历器。</li>
+<li>values()：返回键值的遍历器。</li>
+<li>entries()：返回所有成员的遍历器。</li>
+<li>forEach()：遍历Map的所有成员。</li>
+</ul>
+<h3 id="WeakMap">WeakMap</h3><p>WeakMap 结构与 Map 结构基本类似，唯一的区别是它只接受对象作为键名（ null 除外），不接受其他类型的值作为键名，而且键名所指向的对象，不计入垃圾回收机制。</p>
+<pre><code><span class="tag">var</span> map = new <span class="function"><span class="title">WeakMap</span><span class="params">()</span></span>
+map.<span class="function"><span class="title">set</span><span class="params">(<span class="number">1</span>, <span class="number">2</span>)</span></span>
+<span class="comment">// TypeError: 1 is not an object!</span>
+map.<span class="function"><span class="title">set</span><span class="params">(Symbol()</span></span>, <span class="number">2</span>)
+<span class="comment">// TypeError: Invalid value used as weak map key</span>
+</code></pre><p>上面代码中，如果将 1 和 Symbol 作为 WeakMap 的键名，都会报错。</p>
+<p>WeakMap 的设计目的在于，键名是对象的弱引用（垃圾回收机制不将该引用考虑在内），所以其所对应的对象可能会被自动回收。当对象被回收后， WeakMap 自动移除对应的键值对。</p>
+<p>典型应用是，一个对应 DOM 元素的 WeakMap 结构，当某个 DOM 元素被清除，其所对应的 WeakMap 记录就会自动被移除。基本上， WeakMap 的专用场合就是，它的键所对应的对象，可能会在将来消失。 WeakMap 结构有助于防止内存泄漏。</p>
+<p>WeakMap 与 Map 在 API 上的区别主要是两个，一是没有遍历操作（即没有 key()、values() 和 entries() 方法），也没有 size 属性；二是无法清空，即不支持 clear 方法。这与 WeakMap 的键不被计入引用、被垃圾回收机制忽略有关。</p>
+<p>WeakMap 只有四个方法可用：get()、set()、has()、delete()。</p>
+<pre><code><span class="keyword">var</span> myMap = <span class="keyword">new</span> <span class="built_in">Map</span>();
+<span class="keyword">var</span> keyString = <span class="string">"a string"</span>;
+<span class="comment">// 添加键</span>
+myMap.<span class="literal">set</span>(keyString, <span class="string">"和键'a string'关联的值"</span>);
+<span class="comment">// 读取值</span>
+myMap.<span class="literal">get</span>(keyString);    <span class="comment">// "和键'a string'关联的值"</span>
+</code></pre><h3 id="Set_基本用法">Set 基本用法</h3><p>ES6 提供了新的数据结构 Set 。它类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
+<p>Set 本身是一个构造函数，用来生成 Set 数据结构。</p>
+<pre><code>var s = <span class="keyword">new</span> Set();
+[<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">2</span>].<span class="built_in">map</span>(x =&gt; s.add(x))
+<span class="keyword">for</span> (i of s) {console.<span class="built_in">log</span>(i)}
+<span class="comment">// 2 3 5 4</span>
+</code></pre><p>上面代码通过 add 方法向 Set 结构加入成员，结果表明 Set 结构不会添加重复的值。使用箭头函数形式。</p>
+<p>向 Set 加入值的时候，不会发生类型转换，所以 5 和 “5” 是两个不同的值。Set 内部判断两个值是否不同，使用的算法类似于精确相等运算符（===），这意味着，两个对象总是不相等的。唯一的例外是 NaN 等于自身（精确相等运算符认为 NaN 不等于自身）。</p>
+<pre><code>let <span class="built_in">set</span> = <span class="keyword">new</span> Set();
+<span class="built_in">set</span>.<span class="built_in">add</span>({})
+<span class="built_in">set</span>.<span class="built_in">size</span> <span class="comment">// 1</span>
+<span class="built_in">set</span>.<span class="built_in">add</span>({})
+<span class="built_in">set</span>.<span class="built_in">size</span> <span class="comment">// 2</span>
+</code></pre><p>上面代码表示，由于两个空对象不是精确相等，所以它们被视为两个值。</p>
+<h3 id="Set_实例的属性和方法">Set 实例的属性和方法</h3><p>Set 结构的实例有以下属性。</p>
+<blockquote>
+<ul>
+<li>Set.prototype.constructor：构造函数，默认就是Set函数。</li>
+<li>Set.prototype.size：返回Set实例的成员总数。</li>
+</ul>
+</blockquote>
+<p>Set 实例的方法分为两大类：操作方法（用于操作数据）和遍历方法（用于遍历成员）。先介绍四个操作方法。</p>
+<blockquote>
+<ul>
+<li>add(value)：添加某个值，返回Set结构本身。</li>
+<li>delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。</li>
+<li>has(value)：返回一个布尔值，表示该值是否为Set的成员。</li>
+<li>clear()：清除所有成员，没有返回值。 上面这些属性和方法的实例如下。</li>
+</ul>
+</blockquote>
+<pre><code>var s = <span class="keyword">new</span> Set();
+s.add(<span class="number">1</span>).add(<span class="number">2</span>).add(<span class="number">2</span>);
+<span class="comment">// 注意2被加入了两次</span>
+console.<span class="built_in">log</span>(s.size); <span class="comment">// 2</span>
+console.<span class="built_in">log</span>(s.has(<span class="number">1</span>)); <span class="comment">// true</span>
+console.<span class="built_in">log</span>(s.has(<span class="number">2</span>)); <span class="comment">// true</span>
+console.<span class="built_in">log</span>(s.has(<span class="number">3</span>)); <span class="comment">// false</span>
+console.<span class="built_in">log</span>(s.<span class="keyword">delete</span>(<span class="number">2</span>));
+console.<span class="built_in">log</span>(s.has(<span class="number">2</span>)); <span class="comment">// false</span>
+</code></pre><h3 id="遍历操作">遍历操作</h3><p>Set 结构的实例有四个遍历方法，可以用于遍历成员。</p>
+<blockquote>
+<ul>
+<li>keys()：返回一个键名的遍历器</li>
+<li>values()：返回一个键值的遍历器</li>
+<li>entries()：返回一个键值对的遍历器</li>
+<li>forEach()：使用回调函数遍历每个成员</li>
+</ul>
+</blockquote>
+<p>key 方法、value 方法、entries 方法返回的都是遍历器对象。由于 Set 结构没有键名，只有键值（或者说键名和键值是同一个值），所以 key 方法和 value 方法的行为完全一致。</p>
+<pre><code><span class="keyword">let</span> set = new Set([<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'blue'</span>]);
+<span class="keyword">for</span> ( <span class="keyword">let</span> <span class="literal">item</span> <span class="keyword">of</span> set.keys() ){
+  console.log(item);
+}
+// red  green  blue
+<span class="keyword">for</span> ( <span class="keyword">let</span> <span class="literal">item</span> <span class="keyword">of</span> set.values() ){
+  console.log(item);
+}
+// red  green  blue
+<span class="keyword">for</span> ( <span class="keyword">let</span> <span class="literal">item</span> <span class="keyword">of</span> set.entries() ){
+  console.log(item);
+}
+// [<span class="string">"red"</span>, <span class="string">"red"</span>]  [<span class="string">"green"</span>, <span class="string">"green"</span>]  [<span class="string">"blue"</span>, <span class="string">"blue"</span>]
+上面代码中，entries方法返回的遍历器，同时包括键名和键值，所以每次输出一个数组，它的两个成员完全相等。
+
+Set结构的实例的forEach方法，用于对每个成员执行某种操作，没有返回值。
+
+<span class="keyword">let</span> set = new Set([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);
+set.forEach((<span class="keyword">value</span>, key) =&gt; console.log(<span class="keyword">value</span> * <span class="number">2</span>) )
+// <span class="number">2</span>  <span class="number">4</span>  <span class="number">6</span>
+</code></pre><p>上面代码说明，forEach 方法的参数就是一个处理函数。该函数的参数依次为键值、键名、集合本身（上例省略了该参数）。另外，forEach 方法还可以有第二个参数，表示绑定的 this 对象。</p>
+<h3 id="WeakSet_基本用法">WeakSet 基本用法</h3><p>WeakSet 结构与 Set 类似，也是不重复的值的集合。但是，它与 Set 有两个区别。</p>
+<blockquote>
+<ul>
+<li>首先，WeakSet 的成员只能是对象，而不能是其他类型的值。</li>
+<li>其次，WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，也就是说，如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象还存在于 WeakSet 之中。这个特点意味着，无法引用 WeakSet 的成员，因此 WeakSet 是不可遍历的。<br>WeakSet 是一个构造函数，可以使用 new 命令，创建 WeakSet 数据结构。</li>
+</ul>
+</blockquote>
+<p>作为构造函数， WeakSet 可以接受一个数组或类似数组的对象作为参数。（实际上，任何具有 iterable 接口的对象，都可以作为 WeakSet 的参数。）该数组的所有成员，都会自动成为 WeakSet 实例对象的成员。</p>
+<pre><code>var a = [[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">3</span>,<span class="number">4</span>]];
+var ws = <span class="keyword">new</span> WeakSet(a);
+</code></pre><p>上面代码中，a 是一个数组，它有两个成员，也都是数组。将 a 作为 WeakSet 构造函数的参数，a 的成员会自动成为 WeakSet 的成员。</p>
+<h3 id="WeakSet_方法">WeakSet 方法</h3><p>WeakSet 结构有以下三个方法。</p>
+<ul>
+<li>WeakSet.prototype.add(value)：向 WeakSet 实例添加一个新成员。</li>
+<li>WeakSet.prototype.delete(value)：清除 WeakSet 实例的指定成员。</li>
+<li>WeakSet.prototype.has(value)：返回一个布尔值，表示某个值是否在 WeakSet 实例之中</li>
+</ul>
+<p>下面是一个例子:<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> ws</span> = new WeakSet();</span><br><span class="line"><span class="variable"><span class="keyword">var</span> obj</span> = &#123;&#125;;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> foo</span> = &#123;&#125;;</span><br><span class="line">ws.add(obj);</span><br><span class="line">ws.has(foo);    <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<p>WeakSet没有size属性，没有办法遍历它的成员。</p>
+<pre><code>ws.size <span class="comment">// undefined</span>
+ws.<span class="keyword">forEach</span> <span class="comment">// undefined</span>
+ws.<span class="keyword">forEach</span>(<span class="function"><span class="keyword">function</span><span class="params">(item)</span></span>{ console.log(<span class="string">'WeakSet has '</span> + item)})
+<span class="comment">// TypeError: undefined is not a function</span>
+</code></pre><p>上面代码试图获取 size 和 forEach 属性，结果都不能成功。</p>
+<p>WeakSet 不能遍历，是因为成员都是弱引用，随时可能消失，遍历机制无法保存成员的存在，很可能刚刚遍历结束，成员就取不到了。WeakSet 的一个用处，是储存 DOM 节点，而不用担心这些节点从文档移除时，会引发内存泄漏。</p>
+
+      
+    </div>    
+
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/11/26/Node部分基础知识整理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node.js 部分基础知识整理</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Node.js4.0" data-title="Node.js 4.0 (一)" data-url="http://yoursite.com/2015/11/27/Node.js4.0/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Poplar
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
