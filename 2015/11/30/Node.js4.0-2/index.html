@@ -15,8 +15,8 @@
 <meta property="og:description" content="GeneratorGenerator 函数有多种理解角度。从语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。
 执行 Generator 函数会返回一个遍历器对象，也就是说， Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。
 形式上， Generator 函数是一个普通函数">
-<meta property="og:image" content="http://yoursite.com/http://">
-<meta property="og:updated_time" content="2015-11-30T05:22:21.859Z">
+<meta property="og:image" content="http://yoursite.com/growth-img/promises.png">
+<meta property="og:updated_time" content="2015-11-30T05:29:07.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node.js 4.0 (二)">
 <meta name="twitter:description" content="GeneratorGenerator 函数有多种理解角度。从语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。
@@ -293,7 +293,7 @@ hw.<span class="function"><span class="title">next</span><span class="params">()
 });
 </code></pre><p>then 方法可以接受两个回调函数作为参数。第一个回调函数是 Promise 对象的状态变为 Resolved 时调用，第二个回调函数是 Promise 对象的状态变为 Reject 时调用。其中，第二个函数是可选的，不一定要提供。这两个函数都接受 Promise 对象传出的值作为参数。</p>
 <h3 id="Promise-prototype-then()_与_catch()">Promise.prototype.then() 与 catch()</h3><p>因为 Promise.prototype.then 和 Promise.prototype.catch 方法返回 promises , 所以它们可以被链式调用—一种被称为 composition 的操作.</p>
-<p><img src="http://" alt=""></p>
+<p><img src="/growth-img/promises.png" alt=""></p>
 <h3 id="Promise-prototype-then()">Promise.prototype.then()</h3><p>then() 方法返回一个 Promise。它有两个参数，分别为 Promise 在 success 和 failure 情况下的回调函数。</p>
 <pre><code><span class="transposed_variable">p.</span><span class="keyword">then</span>(onFulfilled, onRejected);
 <span class="transposed_variable">p.</span><span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span>
