@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node.js-session 应用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="cookie 和 sessioncookie在 web 应用中，多个请求之间共享 “用户会话” 是非常必要的。但 HTTP1.0 协议是无状态的。那这时 Cookie 就出现了。那 Cookie 又是如何处理的呢？
+Cookie的处理：
+
+服务端向客户端发送 Cookie
+客户端的浏览器把 Cookie 保存
+然后在每次请求浏览器都会将 Cookie 发送到服务端
+
+在 HTML 文档被发送之前，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js-session 应用">
+<meta property="og:url" content="http://yoursite.com/2015/11/30/Node.js-session应用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="cookie 和 sessioncookie在 web 应用中，多个请求之间共享 “用户会话” 是非常必要的。但 HTTP1.0 协议是无状态的。那这时 Cookie 就出现了。那 Cookie 又是如何处理的呢？
+Cookie的处理：
+
+服务端向客户端发送 Cookie
+客户端的浏览器把 Cookie 保存
+然后在每次请求浏览器都会将 Cookie 发送到服务端
+
+在 HTML 文档被发送之前，">
+<meta property="og:updated_time" content="2015-11-30T06:11:47.223Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js-session 应用">
+<meta name="twitter:description" content="cookie 和 sessioncookie在 web 应用中，多个请求之间共享 “用户会话” 是非常必要的。但 HTTP1.0 协议是无状态的。那这时 Cookie 就出现了。那 Cookie 又是如何处理的呢？
+Cookie的处理：
+
+服务端向客户端发送 Cookie
+客户端的浏览器把 Cookie 保存
+然后在每次请求浏览器都会将 Cookie 发送到服务端
+
+在 HTML 文档被发送之前，">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJRpPTSQahzQLuJ5dtJgxK4dZtagyjsJz-W8AOdZj2uoKlTUio0w" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Poplar</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/学习笔记">学习笔记</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/Redis/" style="font-size: 12.5px;">Redis</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 12.5px;">jQuery</a> <a href="/tags/mode-js/" style="font-size: 10px;">mode.js</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 12.5px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 17.5px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">All is well O(∩_∩)O~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Poplar</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJRpPTSQahzQLuJ5dtJgxK4dZtagyjsJz-W8AOdZj2uoKlTUio0w" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Poplar</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/学习笔记">学习笔记</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Node.js-session应用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/30/Node.js-session应用/" class="article-date">
+  	<time datetime="2015-11-29T16:00:00.000Z" itemprop="datePublished">2015-11-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node.js-session 应用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="cookie_和_session">cookie 和 session</h2><h3 id="cookie">cookie</h3><p>在 web 应用中，多个请求之间共享 “用户会话” 是非常必要的。但 HTTP1.0 协议是无状态的。那这时 Cookie 就出现了。那 Cookie 又是如何处理的呢？</p>
+<p><strong><em>Cookie的处理：</em></strong></p>
+<ul>
+<li>服务端向客户端发送 Cookie</li>
+<li>客户端的浏览器把 Cookie 保存</li>
+<li>然后在每次请求浏览器都会将 Cookie 发送到服务端</li>
+</ul>
+<p>在 HTML 文档被发送之前， Web 服务器通过传送 HTTP  包头中的 Set-Cookie  消息把一个 cookie  发送到用户的浏览器中，如下示例：</p>
+<pre><code>Set-Cookie: name=value; Path=/; expires=Wednesday, <span class="number">09</span>-Nov-<span class="number">99</span> <span class="number">23</span>:<span class="number">12</span>:<span class="number">40</span> GMT;
+</code></pre><a id="more"></a>
+<p><strong><em>其中比较重要的属性：</em></strong></p>
+<ul>
+<li><strong><em>name=value</em></strong>：键值对，可以设置要保存的 Key/Value，注意这里的 name 不能和其他属性项的名字一样</li>
+<li><strong><em>Expires</em></strong>： 过期时间（秒），在设置的某个时间点后该 Cookie 就会失效，如 expires=Wednesday, 09-Nov-99 23:12:40 GMT</li>
+<li><strong><em>maxAge</em></strong>： 最大失效时间（毫秒），设置在多少后失效</li>
+<li><strong><em>secure</em></strong>： 当 secure 值为 true 时，cookie 在 HTTP 中是无效，在 HTTPS 中才有效</li>
+<li><strong><em>Path</em></strong>： 表示 cookie 影响到的路，如 path=/。如果路径不能匹配时，浏览器则不发送这个 Cookie</li>
+<li><strong><em>httpOnly</em></strong>： 是微软对 COOKIE 做的扩展。如果在 COOKIE 中设置了 “httpOnly” 属性，则通过程序（ JS 脚本、applet 等）将无法读取到 COOKIE 信息，防止 XSS 攻击产生</li>
+</ul>
+<h3 id="nodejs中的_cookie">nodejs中的 cookie</h3><p>nodejs 是如何想客户端发送 cookie 的呢？ 有两个中方案：</p>
+<ul>
+<li><p>使用response.writeHead，代码如下：<br>  //设置过期时间为一分钟<br>  var today = new Date();<br>  var time = today.getTime() + 60*1000;<br>  var time2 = new Date(time);<br>  var timeObj = time2.toGMTString();<br>  response.writeHead({</p>
+<pre><code><span class="string">'Set-Cookie'</span>:'myCookie=<span class="string">"type=ninja"</span>, <span class="string">"language=javascript"</span>;path=<span class="string">"/"</span>;Expires=<span class="string">'+timeObj+'</span>;httpOnly=<span class="keyword">true</span><span class="string">'</span>
+</code></pre><p>  });<br>缺点：使用 response.writeHead 只能发送一次头部，即只能调用一次，且不能与 response.render 共存，否则会报错。</p>
+</li>
+<li><p>使用 response.cookie ，代码示例如下：<br>  response.cookie(‘haha’, ‘name1=value1&amp;name2=value2’, {maxAge:10*1000, path:’/‘, httpOnly:true});</p>
+</li>
+</ul>
+<p><em>语法</em>: response.cookie(‘cookieName’, ‘name=value[name=value…]’,[options]);</p>
+<h3 id="express_中的_cookie">express 中的 cookie</h3><p>express 在 4.x 版本之后，管理session和cookies等许多模块都不再直接包含在express中， 而是需要单独下载安装相应模块。</p>
+<p>cookieParser 安装：<code>$ npm install cookie-parser</code></p>
+<p><em>使用方法:</em></p>
+<pre><code><span class="keyword">var</span> express      = <span class="built_in">require</span>(<span class="string">'express'</span>);
+<span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);
+
+<span class="keyword">var</span> app = express();
+app.use(cookieParser());
+
+app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
+    <span class="comment">// 如果请求中的 cookie 存在 isVisit, 则输出 cookie</span>
+    <span class="comment">// 否则，设置 cookie 字段 isVisit, 并设置过期时间为1分钟</span>
+    <span class="keyword">if</span> (req.cookies.isVisit) {
+        <span class="built_in">console</span>.log(req.cookies);
+        res.send(<span class="string">"再次欢迎访问"</span>);
+    } <span class="keyword">else</span> {
+        res.cookie(<span class="string">'isVisit'</span>, <span class="number">1</span>, {maxAge: <span class="number">60</span> * <span class="number">1000</span>});
+        res.send(<span class="string">"欢迎第一次访问"</span>);
+    }
+});
+app.listen(<span class="number">80</span>);
+</code></pre><h3 id="session">session</h3><p>session 是另一种记录客户状态的机制，不同的是 Cookie 保存在客户端浏览器中，而 session 保存在服务器上。</p>
+<p>客户端浏览器访问服务器的时候，服务器把客户端信息以某种形式记录在服务器上，这就是 session 。客户端浏览器再次访问时只需要从该 Session 中查找该客户的状态就可以了。</p>
+<p>如果说 Cookie 机制是通过检查客户身上的“通行证”来确定客户身份的话，那么 session 机制就是通过检查服务器上的“客户明细表”来确认客户身份。</p>
+<p>session 相当于程序在服务器上建立的一份客户档案，客户来访的时候只需要查询客户档案表就可以了。</p>
+<p><strong><em>两者的区别：</em></strong></p>
+<ul>
+<li><p>cookie 数据存放在客户的浏览器上，session 数据放在服务器上。</p>
+</li>
+<li><p>cookie 不是很安全，别人可以分析存放在本地的 COOKIE 并进行 COOKIE 欺骗 考虑到安全应当使用 session 。</p>
+</li>
+<li><p>session 会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能 考虑到减轻服务器性能方面，应当使用 COOKIE 。</p>
+</li>
+<li><p>单个 cookie 保存的数据不能超过 4K，很多浏览器都限制一个站点最多保存 20 个cookie 。</p>
+</li>
+<li><p>所以建议：<em>将登陆信息等重要信息存放为 session 、其他信息如果需要保留，可以放在 cookie 中</em></p>
+</li>
+</ul>
+<h3 id="express_中的_session">express 中的 session</h3><p>跟 cookie 一样都需要单独的安装和引用模块， 安装模块：<code>$sudo npm install express-session</code></p>
+<p>主要的方法就是 session(options)，其中 options 中包含可选参数，主要有：</p>
+<ul>
+<li><strong><em>name</em></strong>: 设置 cookie 中，保存 session 的字段名称，默认为 connect.sid 。</li>
+<li><strong><em>store</em></strong>: session 的存储方式，默认存放在内存中，也可以使用 redis，mongodb 等。express 生态中都有相应模块的支持。</li>
+<li><strong><em>secret</em></strong>: 通过设置的 secret 字符串，来计算 hash 值并放在 cookie 中，使产生的 signedCookie 防篡改。</li>
+<li><strong><em>cookie</em></strong>: 设置存放 session id 的 cookie 的相关选项，默认为 (default: { path: ‘/‘, httpOnly: true, secure: false, maxAge: null })</li>
+<li><strong><em>genid</em></strong>: 产生一个新的 session_id 时，所使用的函数， 默认使用 uid2 这个 npm 包。</li>
+<li><strong><em>rolling</em></strong>: 每个请求都重新设置一个 cookie，默认为 false。</li>
+<li><p><strong><em>resave</em></strong>: 即使 session 没有被修改，也保存 session 值，默认为 true。<br>示例：</p>
+<p>  var express = require(‘express’);<br>  var session = require(‘express-session’);<br>  var app = express();</p>
+<p>  app.use(session({</p>
+<pre><code><span class="string">secret:</span> <span class="string">'hubwiz app'</span>, <span class="comment">//secret的值建议使用随机字符串</span>
+<span class="string">cookie:</span> {<span class="string">maxAge:</span> <span class="number">60</span> * <span class="number">1000</span> * <span class="number">30</span>} <span class="comment">// 过期时间（毫秒）</span>
+</code></pre><p>  }));<br>  app.get(‘/‘, function (req, res) {</p>
+<pre><code><span class="keyword">if</span> (req.session.<span class="keyword">sign</span>) {<span class="comment">//检查用户是否已经登录</span>
+    console.<span class="keyword">log</span>(req.session);<span class="comment">//打印session的值</span>
+    res.send(<span class="string">'welecome &lt;strong&gt;'</span> + req.session.name + <span class="string">'&lt;/strong&gt;, 欢迎你再次登录'</span>);
+} <span class="keyword">else</span> {
+    req.session.<span class="keyword">sign</span> = true;
+    req.session.name = <span class="string">'poplar Website'</span>;
+    res.send(<span class="string">'欢迎登陆！'</span>);
+}
+</code></pre><p>  });<br>  app.listen(80);</p>
+</li>
+</ul>
+<h2 id="数据库存储_session">数据库存储 session</h2><h3 id="存储到_mongodb_数据库">存储到 mongodb 数据库</h3><p>登录后，重新启动 <code>node app</code>，然后刷新访问测试页面。我们会发现 session 丢了！ 这是因为 session 会默认的存储到内存当中。也就是说 session 数据都是存储在内存当中的，当进程退出后， session 数据就会丢失。</p>
+<p>在开发环境中，这也许并不算什么坏事。但是如果线上的应用是这样的，用户绝对是不能忍受的。这也就引出了本章节要讲解的内容：将 session 数据 持久化存储。</p>
+<p>首先如何把 session 存储到 mongodb 数据库当中：</p>
+<p>在使用 mongodb存 储时首先要加载一个模块：<strong><em>connect-mongo</em></strong></p>
+<p>安装命令：<code>npm install connect-mongo</code></p>
+<p>使用代码：</p>
+<pre><code><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
+<span class="keyword">var</span> MongoStore = <span class="built_in">require</span>(<span class="string">'connect-mongo'</span>)(session);
+
+mongoose.connect(<span class="string">'mongodb://127.0.0.1:27017/hubwiz'</span>); <span class="comment">//连接数据库</span>
+mongoose.connection.on(<span class="string">'open'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
+    <span class="built_in">console</span>.log(<span class="string">'-----------数据库连接成功！------------'</span>);
+});
+
+app.use(session({
+    secret: config.cookieSecret, <span class="comment">//secret的值建议使用128个随机字符串</span>
+    cookie: {maxAge: <span class="number">60</span> * <span class="number">1000</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">14</span>}, <span class="comment">//过期时间</span>
+    resave: <span class="literal">true</span>, <span class="comment">// 即使 session 没有被修改，也保存 session 值，默认为 true</span>
+    saveUninitialized: <span class="literal">true</span>,
+    store: <span class="keyword">new</span> mongoStore({
+        mongooseConnection: mongoose.connection <span class="comment">//使用已有的数据库连接</span>
+    })
+}));
+
+app.listen(<span class="number">80</span>);
+</code></pre><h3 id="存储到_redis_数据库">存储到 redis 数据库</h3><p>Redis 是一个非常适合用于 Session 管理的数据库。<br>第一，它的结构简单 ，key-value 的形式非常符合 SessionID-UserID 的存储；<br>第二，读写速度非常快；<br>第三，自身支持数据自动过期和清除；<br>第四，语法、部署非常简单。<br>基于以上原因，很多 Session 管理都是基于 Redis 实现的。</p>
+<p>Express 已经将 Session 管理的整个实现过程简化到仅仅几行代码的配置的地步了，完全不用理解整个 session 产生、存储、返回、过期、再颁发的结构，使用 Express 和 Redis 实现 Session 管理，只要两个中间件就足够了：</p>
+<ul>
+<li>express-session</li>
+<li>connect-redis</li>
+</ul>
+<p><strong><em>参数</em></strong></p>
+<ul>
+<li><strong><em>client</em></strong> 你可以复用现有的 redis 客户端对象， 由 redis.createClient() 创建</li>
+<li><strong><em>host Redis</em></strong> 服务器名</li>
+<li><strong><em>port Redis</em></strong> 服务器端口</li>
+<li><strong><em>socket Redis</em></strong> 服务器的 unix_socket</li>
+</ul>
+<p><strong><em>可选参数</em></strong></p>
+<ul>
+<li><strong><em>ttl</em></strong> Redis session TTL 过期时间 （秒）</li>
+<li><strong><em>disableTTL </em></strong>禁用设置的 TTL</li>
+<li><strong><em>db </em></strong>使用第几个数据库</li>
+<li><strong><em>pass Redis</em></strong>数据库的密码</li>
+<li><strong><em>prefix </em></strong>数据表前辍即 schema , 默认为 “sess:”</li>
+</ul>
+<p>req 在经过 session 中间件的时候就会自动完成 session 的有效性验证、延期/重新颁发、以及对 session 中数据的获取了。</p>
+<p>使用示例：</p>
+<pre><code><span class="keyword">var</span> express = <span class="keyword">require</span>(<span class="string">'express'</span>);
+<span class="keyword">var</span> session = <span class="keyword">require</span>(<span class="string">'express-session'</span>);
+<span class="keyword">var</span> RedisStore = <span class="keyword">require</span>(<span class="string">'connect-redis'</span>)(session);
+
+<span class="keyword">var</span> app = express();
+<span class="keyword">var</span> options = {
+    <span class="string">"host"</span>: <span class="string">"127.0.0.1"</span>,
+    <span class="string">"port"</span>: <span class="string">"6379"</span>,
+    <span class="string">"ttl"</span>: <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">30</span>,   <span class="comment">//session的有效期为30天(秒)</span>
+};
+
+<span class="comment">// 此时req对象还没有session这个属性</span>
+app.<span class="keyword">use</span>(session({
+    store: <span class="keyword">new</span> RedisStore(options),
+    secret: <span class="string">'express is powerful'</span>
+}));
+
+app.listen(<span class="number">80</span>);
+</code></pre><h2 id="应用实现">应用实现</h2><h3 id="页面设计">页面设计</h3><p>express 为 session 应用提供了简单的实现方式，为了方便理解，创建一个简单的登录系统。</p>
+<p>首先来设计简单页面：</p>
+<ul>
+<li>index - 主页，用来展示登录表单</li>
+<li>home - 用户页，登录成功展示的页面</li>
+</ul>
+<p><strong><em>index.ejs:</em></strong></p>
+<pre><code><span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"/sign"</span> <span class="attribute">method</span>=<span class="value">"post"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">fieldset</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">legend</span>&gt;</span>Please sign in<span class="tag">&lt;/<span class="title">legend</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">p</span>&gt;</span>User: <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"user"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+
+        <span class="tag">&lt;<span class="title">p</span>&gt;</span>Pass: <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"password"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">button</span>&gt;</span>Submit<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">fieldset</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">form</span>&gt;</span>
+</code></pre><p><strong><em>sign.ejs</em></strong></p>
+<pre><code><span class="tag">&lt;<span class="title">html</span>&gt;</span>
+<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">title</span>&gt;</span>session练习项目-汇智网<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+   <span class="comment">&lt;!--登录成功展示的内容--&gt;</span>
+   <span class="tag">&lt;<span class="title">p</span>&gt;</span>welecome <span class="tag">&lt;<span class="title">strong</span>&gt;</span> <span class="tag">&lt;<span class="title">%=session.name%</span>&gt;</span> <span class="tag">&lt;/<span class="title">strong</span>&gt;</span>, 欢迎你再次登录<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"/out"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><h3 id="用户凭证">用户凭证</h3><p>创建一个 user.json 的文件，把用户凭证信息存放到当中：</p>
+<pre><code>{
+    "<span class="attribute">hubwiz</span>":<span class="value">{
+        "<span class="attribute">password</span>": <span class="value"><span class="string">"0903"</span></span>,
+        "<span class="attribute">name</span>": <span class="value"><span class="string">"汇智网"</span>
+    </span>}
+</span>}
+</code></pre><p>hubwiz 为登录用户名， password 为登录密码， name 为用户昵称。</p>
+<p>然后通过 require 载入 express 和 user 文件：</p>
+<pre><code><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>),
+    user = <span class="built_in">require</span>(<span class="string">'./user'</span>);
+</code></pre><p>接着我们加上 bodyParser 和 session 中间件，由于 session 中间件需要操作 cookie ，所以在它之前要先引入 cookieParser 模块。如下：</p>
+<pre><code><span class="keyword">var</span> cookieParser = <span class="keyword">require</span>(<span class="string">'cookie-parser'</span>),
+    bodyParser = <span class="keyword">require</span>(<span class="string">'body-parser'</span>),
+    session = <span class="keyword">require</span>(<span class="string">'express-session'</span>);
+
+app.<span class="keyword">use</span>(session({
+    secret: <span class="string">'hubwizApp'</span>, <span class="comment">//为了安全性的考虑设置secret属性</span>
+    cookie: {maxAge: <span class="number">60</span> * <span class="number">1000</span> * <span class="number">30</span>}, <span class="comment">//设置过期时间</span>
+    resave: <span class="keyword">true</span>, <span class="comment">// 即使 session 没有被修改，也保存 session 值，默认为 true</span>
+    saveUninitialized: <span class="keyword">false</span>, <span class="comment">//</span>
+}));
+</code></pre><h3 id="检查是否登录">检查是否登录</h3><p>接下来，检查用户是否已经登录。如果没有登录则展示index页面</p>
+<pre><code><span class="keyword">var</span> app = express();
+
+app.<span class="keyword">set</span>(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));
+app.<span class="keyword">set</span>(<span class="string">'view engine'</span>, <span class="string">'ejs'</span>);
+app.<span class="keyword">use</span>(bodyParser.json());
+app.<span class="keyword">use</span>(bodyParser.urlencoded({extended: <span class="literal">true</span>}));
+app.<span class="keyword">use</span>(cookieParser());
+
+app.<span class="keyword">get</span>(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> </span>{
+    <span class="keyword">if</span> (req.session.sign) {<span class="comment">//检查用户是否已经登录，如果已登录展现的页面</span>
+        console.log(req.session);<span class="comment">//打印session的值</span>
+        res.render(<span class="string">'sign'</span>, {session:req.session});
+    } <span class="keyword">else</span> {<span class="comment">//否则展示index页面</span>
+        res.render(<span class="string">'index'</span>, {title: <span class="string">'index'</span>});
+    }
+});
+</code></pre><h3 id="登录验证">登录验证</h3><p>登录路由检查登录表单的信息是否与用户凭证匹配，匹配则认为登录成功，否则失败：</p>
+<pre><code><span class="comment">//登录表单处理</span>
+<span class="transposed_variable">app.</span>post(<span class="string">'/sign'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> {</span>
+    <span class="comment">//登录的数据和user.json中的数据进行对比</span>
+    <span class="keyword">if</span> (<span class="transposed_variable">req.</span><span class="transposed_variable">body.</span>password != user<span class="matrix">[req.body.user].</span>password || !user<span class="matrix">[req.body.user]</span>) {
+        <span class="transposed_variable">res.</span><span class="keyword">end</span>(<span class="string">'sign failure'</span>);
+    } <span class="keyword">else</span> {
+        <span class="transposed_variable">req.</span><span class="transposed_variable">session.</span>sign = true;
+        <span class="transposed_variable">req.</span><span class="transposed_variable">session.</span>name = user<span class="matrix">[req.body.user].</span>name;
+        <span class="transposed_variable">res.</span>send(<span class="string">'welecome &lt;strong&gt;'</span> + <span class="transposed_variable">req.</span><span class="transposed_variable">session.</span>name + <span class="string">'&lt;/strong&gt;，&lt;a href="</span>/out<span class="string">"&gt;登出&lt;/a&gt;'</span>);
+    }
+});
+</code></pre><p>截止到现在就把一个简单的 session 登录完成了。</p>
+<h3 id="注销_session">注销 session</h3><p>剩下的工作就是注销操作了，只需要在 req.session 上调用 destroy() 方法来清空 session 就可以了：</p>
+<pre><code>app.<span class="keyword">get</span>(<span class="string">'/out'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+    req.session.destroy();
+    res.redirect(<span class="string">'/'</span>);
+})
+</code></pre><p>把上述代码加入到 app.js 文件当中。</p>
+
+      
+    </div>    
+
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/11/30/Node.js4.0-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node.js 4.0 (二)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Node.js-session应用" data-title="Node.js-session 应用" data-url="http://yoursite.com/2015/11/30/Node.js-session应用/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Poplar
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

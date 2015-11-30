@@ -175,6 +175,78 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Node.js-session应用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/30/Node.js-session应用/" class="article-date">
+  	<time datetime="2015-11-29T16:00:00.000Z" itemprop="datePublished">2015-11-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/30/Node.js-session应用/">Node.js-session 应用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="cookie_和_session">cookie 和 session</h2><h3 id="cookie">cookie</h3><p>在 web 应用中，多个请求之间共享 “用户会话” 是非常必要的。但 HTTP1.0 协议是无状态的。那这时 Cookie 就出现了。那 Cookie 又是如何处理的呢？</p>
+<p><strong><em>Cookie的处理：</em></strong></p>
+<ul>
+<li>服务端向客户端发送 Cookie</li>
+<li>客户端的浏览器把 Cookie 保存</li>
+<li>然后在每次请求浏览器都会将 Cookie 发送到服务端</li>
+</ul>
+<p>在 HTML 文档被发送之前， Web 服务器通过传送 HTTP  包头中的 Set-Cookie  消息把一个 cookie  发送到用户的浏览器中，如下示例：</p>
+<pre><code>Set-Cookie: name=value; Path=/; expires=Wednesday, <span class="number">09</span>-Nov-<span class="number">99</span> <span class="number">23</span>:<span class="number">12</span>:<span class="number">40</span> GMT;
+</code></pre>
+      
+    </div>    
+
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/30/Node.js-session应用/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Node.js4.0-2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -807,76 +879,10 @@
 
 
   
-    <article id="post-回顾jQuery" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2015/11/15/回顾jQuery/" class="article-date">
-  	<time datetime="2015-11-14T16:00:00.000Z" itemprop="datePublished">2015-11-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/15/回顾jQuery/">回顾jQuery</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在此是对<a href="https://www.shiyanlou.com/">实验楼</a>的练习笔记的整理，有兴趣的小伙伴可以到<a href="https://www.shiyanlou.com/">实验楼</a>这个非常棒的平台去练练～</p>
-<p>看一段简单的代码段，回顾jQuery的使用方式<br>（内部的代码片段是截取了js部分，显示不同的功能）</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/jquery-2.1.1.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">			$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				$(<span class="string">"#demo"</span>).css(&#123;<span class="string">'width'</span>:<span class="string">"100px"</span>, <span class="string">"height"</span>:<span class="string">"100px"</span>, <span class="string">"background-color"</span>:<span class="string">"red"</span>&#125;)</span><br><span class="line">			&#125;);</span><br><span class="line"></span><br><span class="line">		</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"demo"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="jQuery的常用属性">jQuery的常用属性</h2><p><strong>表单选择器</strong></p>
-<blockquote>
-<p>:input<br>:text<br>:password<br>:radio<br>:checkbox<br>:submit<br>:image<br>:reset<br>:button<br>:file<br>:hidden</p>
-</blockquote>
-<h2 id="<!-more->">
-      
-    </div>    
-
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/WEB/">WEB</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/15/回顾jQuery/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
