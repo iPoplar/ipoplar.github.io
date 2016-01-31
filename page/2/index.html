@@ -109,7 +109,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Node-js/" style="font-size: 16px;">Node.js</a> <a href="/tags/Redis/" style="font-size: 12px;">Redis</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 12px;">jQuery</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 14px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 18px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+						<a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Modernizr/" style="font-size: 10px;">Modernizr</a> <a href="/tags/Node-js/" style="font-size: 16px;">Node.js</a> <a href="/tags/Redis/" style="font-size: 12px;">Redis</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jQuery/" style="font-size: 12px;">jQuery</a> <a href="/tags/meta/" style="font-size: 10px;">meta</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 14px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 18px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
 					</div>
 				</section>
 				
@@ -174,6 +174,79 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-spider" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/19/spider/" class="article-date">
+  	<time datetime="2015-11-18T16:00:00.000Z" itemprop="datePublished">2015-11-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/19/spider/">基于 Node.js 的网站信息爬虫</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>通过 Node.js 实现一个简单爬虫，爬取豆瓣热门电影。主要会用到的模块（包）有：http，fs，path，cheerio。</p>
+<p>这里用一个跑在本地的 http server 来模拟在线爬豆瓣网。<br>douban-server.tar.gz 是由<a href="https://www.shiyanlou.com/">实验楼</a>提供的在本地模拟豆瓣网的程序。</p>
+<p>具体的代码实现参考 <a href="https://github.com/iPoplar/2015_Learn/tree/master/Learn4Road/Demo-NodeJs/Spider_Demo">git:ipoplar</a> ，其中 growth.md 是遇到的问题。</p>
+</blockquote>
+<h2 id="Operation">Operation</h2><p>解压 douban-server.tar.gz<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf douban-server<span class="class">.tar</span><span class="class">.gz</span></span><br></pre></td></tr></table></figure></p>
+<p>进入解压后的目录，启动服务:</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> start</span><br></pre></td></tr></table></figure>
+<p>创建文件夹 spider, 进入文件夹，输入 <code>npm init</code> , 初始化项目，会得到类似与小编的文件。（在初始化项目要添加第三方包 <code>npm install cheerio --save</code>）</p>
+<p>运行 <code>node spider.js</code> 会抓取到想要的信息（将抓取到的图片放到 img 文件夹下，将电影信息放置在 data/data.json 中）</p>
+<h2 id="Problems_and_growth">Problems and growth</h2>
+      
+    </div>    
+
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/19/spider/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-spider-cheerio" class="article article-type-post" itemscope itemprop="blogPost">
   
