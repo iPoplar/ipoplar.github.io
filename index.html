@@ -175,6 +175,107 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-mate常用code" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/01/mate常用code/" class="article-date">
+  	<time datetime="2016-01-31T16:23:47.630Z" itemprop="datePublished">2016-02-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="常用_code"><meta> 常用 code</h1><p>1/31/2016 11:47:36 PM </p>
+<p>##<code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</code></p>
+<p>X-UA-Compatible 是 IE8 的一个专有 <meta> 属性，它告诉 IE8 采用何种IE版本去渲染网页，在 html 的 <head> 标签中使用。在 IE8 刚推出的时候，很多网页由于重构的问题，无法适应较高级的浏览器，所以使用 X-UA-Compatible 标签强制 IE8 采用低版本方式渲染。 </head></p>
+<p>IE=edge 告诉 IE 使用最新的引擎渲染网页。</p>
+<p>有些因素会自动触发兼容性文档视图，这个时候设置 X-UA-Compatible 就可以防止这个自动触发的行为。 </p>
+<p><em>默认行为大致有这些：</em><br>  存在于注册表中的兼容性视图列表，当 url 匹配时将自动切换到兼容性视图<br>  在注册表中的对应字段指定了使用兼容性视图来显示所有网站<br>  未指定 DOCTYPE，则使用 Quirks 模式 </p>
+<p><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;</code></p>
+<p>chrome=1 则可以激活 Chrome Frame。</p>
+<p>##<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</code></p>
+<p>首先如果不设置 meta viewport 标签，那么移动设备上浏览器默认的宽度值 800px，980px，1024px 等这些，总之是大于屏幕宽度的。这里的宽度所用的单位 px 都是指 css 中的 px，它跟代表实际屏幕物理像素的 px不是一回事。</p>
+<p>第二、每个移动设备浏览器中都有一个理想的宽度，这个理想的宽度是指 css 中的宽度，跟设备的物理宽度没有关系，在 css 中，这个宽度就相当于 100% 的所代表的那个宽度。我们可以用 meta 标签把 viewport 的宽度设为那个理想的宽度，如果不知道这个设备的理想宽度是多少，那么用 device-width 这个特殊值就行了，同时 initial-scale=1 也有把 viewport 的宽度设为理想宽度的作用。所以，我们可以使用</p>
+<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</code></p>
+<p>来得到一个理想的 viewport（也就是前面说的 ideal viewport ）。<br>为什么需要有理想的 viewport 呢？比如一个分辨率为 320x480 的手机理想 viewport 的宽度是 320px，而另一个屏幕尺寸相同但分辨率为640x960 的手机的理想 viewport 宽度也是为 320px，那为什么分辨率大的这个手机的理想宽度要跟分辨率小的那个手机的理想宽度一样呢？这是因为，只有这样才能保证同样的网站在不同分辨率的设备上看起来都是一样或差不多的。实际上，现在市面上虽然有那么多不同种类不同品牌不同分辨率的手机，但它们的理想 viewpor t宽度归纳起来无非也就 320、360、384、400 等几种，都是非常接近的，理想宽度的相近也就意味着我们针对某个设备的理想 viewport 而做出的网站，在其他设备上的表现也不会相差非常多甚至是表现一样的。</p>
+<p>在 iphone 和 ipad 上，无论你给 viewport 设的宽的是多少，如果没有指定默认的缩放值，则 iphone 和 ipad 会自动计算这个缩放值，以达到当前页面不会出现横向滚动条(或者说 viewport 的宽度就是屏幕的宽度)的目的。</p>
+<p>在苹果的规范中，meta viewport 有6个属性(暂且把 content 中的那些东西称为一个个属性和值)，如下：</p>
+<blockquote>
+<p>width    设置 layout viewport  的宽度，为一个正整数，或字符串”width-device”<br>initial-scale    设置页面的初始缩放值，为一个数字，可以带小数<br>minimum-scale    允许用户的最小缩放值，为一个数字，可以带小数<br>maximum-scale    允许用户的最大缩放值，为一个数字，可以带小数<br>height    设置 layout viewport  的高度，这个属性对我们并不重要，很少使用<br>user-scalable    是否允许用户进行缩放，值为”no”或”yes”, no 代表不允许，yes 代表允许</p>
+</blockquote>
+<p>这些属性可以同时使用，也可以单独使用或混合使用，多个属性同时使用时用逗号隔开就行了。</p>
+<p>此外，在安卓中还支持  target-densitydpi  这个私有属性，它表示目标设备的密度等级，作用是决定css中的1px代表多少物理像素</p>
+<blockquote>
+<p>target-densitydpi     值可以为一个数值或 high-dpi 、 medium-dpi、 low-dpi、 device-dpi 这几个字符串中的一个</p>
+</blockquote>
+<p>特别说明的是，当 target-densitydpi=device-dpi 时， css 中的 1px 会等于物理像素中的 1px。</p>
+<p>因为这个属性只有安卓支持，并且安卓已经决定要废弃target-densitydpi  这个属性了，所以这个属性我们要避免进行使用  。</p>
+<p>##<code>&lt;meta name=&quot;keywords&quot; content=&quot;3d, grid, effect, flip, css transform, perspective, web design&quot; /&gt;</code></p>
+<p>META 标签是 HTML 语言 HEAD 区的一个辅助性标签，它位于 HTML 文档头部的 <head> 标记和 <title> 标记之间，它提供用户不可见的信息。meta标签通常用来为搜索引擎 robots 定义页面主题，或者是定义用户浏览器上的 cookie；它可以用于鉴别作者，设定页面格式，标注内容提要和关键字；还可以设置页面使其可以根据你定义的时间间隔刷新自己,以及设置 RASC 内容等级，等等。</title></head></p>
+<p>　　name 是描述网页的，对应于 Content（网页内容），以便于搜索引擎机器人查找、分类（目前几乎所有的搜索引擎都使用网上机器人自动查找meta值来给网页分类）。<br>　　name 的 value 值（name=””）指定所提供信息的类型。有些值是已经定义好的。例如 description (说明)、keyword (关键字)、refresh (刷新)等。还可以指定其他任意值，如：creationdate (创建日期) 、document ID (文档编号)和 level (等级)等。<br>　　name 的 content 指定实际内容。如：如果指定 level (等级)为 value (值)，则 Content 可能是 beginner (初级)、intermediate (中级)、advanced (高级)。 </p>
+<p>　　1、Keywords (关键字)</p>
+<p>　　　说明：为搜索引擎提供的关键字列表</p>
+<p>　　　用法：<code>&lt;Meta name=&quot;Keywords&quot; Content=&quot;关键词1,关键词2，关键词3,关键词4,……&quot;&gt;</code></p>
+<p>　　　注意：各关键词间用英文逗号“,”隔开。META 的通常用处是指定搜索引擎用来提高搜索质量的关键词。当数个 META 元素提供文档语言从属信息时，搜索引擎会使用 lang 特性来过滤并通过用户的语言优先参照来显示搜索结果。例如：</p>
+<pre><code>　　　　　　&lt;Meta <span class="property">name</span>=<span class="string">"Kyewords"</span> Lang=<span class="string">"EN"</span> Content=<span class="string">"vacation,greece,sunshine"</span>&gt;
+　　　　　　&lt;Meta <span class="property">name</span>=<span class="string">"Kyewords"</span> Lang=<span class="string">"FR"</span> Content=<span class="string">"vacances,grè:ce,soleil"</span>&gt;
+</code></pre><p>　　2、Description (简介)</p>
+<p>　　　说明：Description 用来告诉搜索引擎你的网站主要内容。</p>
+<p>　　　用法：<code>&lt;Meta name=&quot;Description&quot; Content=&quot;你网页的简述&quot;&gt;</code>
+　　　</p>
+<p>　　3、Robots (机器人向导)</p>
+<p>　　　说明：Robots 用来告诉搜索机器人哪些页面需要索引，哪些页面不需要索引。Content 的参数有 all、none、index、noindex、follow、nofollow。默认是 all。</p>
+<p>　　　用法：<code>&lt;Meta name=&quot;Robots&quot; Content=&quot;All|None|Index|Noindex|Follow|Nofollow&quot;&gt;</code></p>
+<p>　　　注意：许多搜索引擎都通过放出 robot/spider 搜索来登录网站，这些 robot/spider 就要用到 meta 元素的一些特性来决定怎样登录。</p>
+<p>　　　 all：文件将被检索，且页面上的链接可以被查询；</p>
+<p>　　　 none：文件将不被检索，且页面上的链接不可以被查询；(和 “noindex, no follow” 起相同作用)</p>
+<p>　　　 index：文件将被检索；（让robot/spider登录）</p>
+<p>　　　 follow：页面上的链接可以被查询；</p>
+<p>　　　 noindex：文件将不被检索，但页面上的链接可以被查询；(不让robot/spider登录)</p>
+<p>　　　nofollow：文件将不被检索，页面上的链接可以被查询。(不让 robot/spider 顺着此页的连接往下探找)</p>
+<p>　　4、Author (作者)</p>
+<p>　　　说明：标注网页的作者或制作组</p>
+<p>　　　用法：<code>&lt;Meta name=&quot;Author&quot; Content=&quot;张三，abc@sina.com&quot;&gt;</code></p>
+<p>　　　注意：Content 可以是：你或你的制作组的名字,或 Email</p>
+<p>　　5、Copyright (版权)</p>
+<p>　　　说明：标注版权</p>
+<p>　　　用法：<code>&lt;Meta name=&quot;Copyright&quot; Content=&quot;本页版权归Zerospace所有。All Rights Reserved&quot;&gt;</code><br>　　<br>　　6、Generator (编辑器)</p>
+<p>　　　说明：编辑器的说明</p>
+<p>　　　用法：<code>&lt;Meta name=&quot;Generator&quot; Content=&quot;PCDATA|FrontPage|&quot;&gt;</code><br>　　　注意：Content=”你所用编辑器”</p>
+<p>　　7、revisit-after (重访)<br>　　　<br>　　　用法：<code>&lt;META name=&quot;revisit-after&quot; CONTENT=&quot;7 days&quot; &gt;</code>
+　</p>
+<p>##<code>&lt;link rel=&quot;shortcut icon&quot; href=&quot;../favicon.ico&quot;&gt;</code></p>
+<p>标签头上面显示了一个图标,就是我们常说的 favicon.ico。<br>下面两行代码就可以告诉浏览器使用 wangyi.ico 作为 index.html 的图标了：</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"icon"</span> href=<span class="string">"Images/wangyi.ico"</span> <span class="class"><span class="keyword">type</span></span>=<span class="string">"image/x-icon"</span> /&gt;</span><br><span class="line"></span><br><span class="line">&lt;link rel=<span class="string">"shortcut icon"</span> href=<span class="string">"Images/wangyi.ico"</span> <span class="class"><span class="keyword">type</span></span>=<span class="string">"image/x-icon"</span> /&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>    
+
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -224,6 +325,71 @@
       
         <p class="article-more-link">
           <a  href="/2015/12/03/git/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Node.js4.0-2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/30/Node.js4.0-2/" class="article-date">
+  	<time datetime="2015-11-29T16:00:00.000Z" itemprop="datePublished">2015-11-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/30/Node.js4.0-2/">Node.js 4.0 (二)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Generator">Generator</h2><p>Generator 函数有多种理解角度。从语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。</p>
+<p>执行 Generator 函数会返回一个遍历器对象，也就是说， Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。</p>
+<p>形式上， Generator 函数是一个普通函数，但是有两个特征。一是，function 命令与函数名之间有一个星号；二是，函数体内部使用 yield 语句，定义不同的内部状态（ yield 语句在英语里的意思就是“产出”）。</p>
+      
+    </div>    
+
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/30/Node.js4.0-2/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -296,71 +462,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/11/30/Node.js-session应用/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Node.js4.0-2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/30/Node.js4.0-2/" class="article-date">
-  	<time datetime="2015-11-29T16:00:00.000Z" itemprop="datePublished">2015-11-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/30/Node.js4.0-2/">Node.js 4.0 (二)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Generator">Generator</h2><p>Generator 函数有多种理解角度。从语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。</p>
-<p>执行 Generator 函数会返回一个遍历器对象，也就是说， Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。</p>
-<p>形式上， Generator 函数是一个普通函数，但是有两个特征。一是，function 命令与函数名之间有一个星号；二是，函数体内部使用 yield 语句，定义不同的内部状态（ yield 语句在英语里的意思就是“产出”）。</p>
-      
-    </div>    
-
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/WEB/">WEB</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/30/Node.js4.0-2/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -789,81 +890,6 @@
         <p class="article-more-link">
           <a  href="/2015/11/19/spider/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-spider-cheerio" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/18/spider-cheerio/" class="article-date">
-  	<time datetime="2015-11-18T13:14:29.790Z" itemprop="datePublished">2015-11-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/18/spider-cheerio/">spider-cheerio</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="cheerio">cheerio</h2><p><em>cheerio</em> 为服务器特别定制的，快速，灵活， 实施的jQuery核心实现。<br>可用通过如下命令进行安装：<br><code>npm install cheerio</code></p>
-<p><strong><em>Features</em></strong><br>    相似的语法： 包括了jQuery核心的子集。<br>    闪电般的快： 工作在一个非常简单，一致的DOM模型之上。高效的完成解析， 操作， 呈送。（基础的端到端的基准测试显示 Cheerio 大约比 JSDOM 快八倍）。<br>    巨灵活： cheerio 封装了兼容 htmlparser。cheerio 几乎能够解析任何的 HTML 和 XML document。</p>
-<h2 id="简单的使用">简单的使用</h2><ol>
-<li><p>Loading</p>
-  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var cheerio = <span class="keyword">require</span>(<span class="string">'cheerio'</span>);</span><br><span class="line">  <span class="variable">$ </span>= cheerio.load(<span class="string">'&lt;ul id="fruites"&gt;...&lt;/ul&gt;'</span>);</span><br></pre></td></tr></table></figure>
-<p>或者通过传递字符串作为内容来加载 HTML:</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>= <span class="keyword">require</span>(<span class="string">'cheerio'</span>);</span><br><span class="line"><span class="variable">$(</span><span class="string">'ul'</span>, <span class="string">'&lt;ul id="fruits"&gt;...&lt;/ul&gt;'</span>);</span><br></pre></td></tr></table></figure>
-<p>Or as the root:</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>= <span class="keyword">require</span>(<span class="string">'cheerio'</span>);</span><br><span class="line">   <span class="variable">$(</span><span class="string">'li'</span>, <span class="string">'ul'</span>, <span class="string">'&lt;ul id="fruits"&gt;...&lt;/ul&gt;'</span>);</span><br></pre></td></tr></table></figure>
-<p>你也可以传递一个额外的对象给.load()如果你需要更改任何的默认解析选项的话:</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ = cheerio.load('&lt;ul <span class="property">id</span>=<span class="string">"fruits"</span>&gt;...&lt;/ul&gt;', &#123;</span><br><span class="line">      ignoreWhitespace: <span class="constant">true</span>,</span><br><span class="line">      xmlMode: <span class="constant">true</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-<p>这些解析选项都是直接来自htmlparser ，因此任何在htmlparser里有效的选项在Chreeio里也是行得通的。默认的选项如下:</p>
-<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="collection">&#123;</span><br><span class="line">   ignoreWhitespace: <span class="literal">false</span>,</span><br><span class="line">   xmlMode: <span class="literal">false</span>,</span><br><span class="line">   lowerCaseTags: <span class="literal">false</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>参考链接: <a href="https://www.npmjs.com/package/cheerio" target="_blank" rel="external">https://www.npmjs.com/package/cheerio</a></p>
-
-      
-    </div>    
-
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cheerio/">cheerio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/WEB/">WEB</a>
-	</div>
-
-
       
       <div class="clearfix"></div>
     </div>

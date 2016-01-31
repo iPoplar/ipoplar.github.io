@@ -175,6 +175,81 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-spider-cheerio" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/18/spider-cheerio/" class="article-date">
+  	<time datetime="2015-11-18T13:14:29.790Z" itemprop="datePublished">2015-11-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/18/spider-cheerio/">spider-cheerio</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="cheerio">cheerio</h2><p><em>cheerio</em> 为服务器特别定制的，快速，灵活， 实施的jQuery核心实现。<br>可用通过如下命令进行安装：<br><code>npm install cheerio</code></p>
+<p><strong><em>Features</em></strong><br>    相似的语法： 包括了jQuery核心的子集。<br>    闪电般的快： 工作在一个非常简单，一致的DOM模型之上。高效的完成解析， 操作， 呈送。（基础的端到端的基准测试显示 Cheerio 大约比 JSDOM 快八倍）。<br>    巨灵活： cheerio 封装了兼容 htmlparser。cheerio 几乎能够解析任何的 HTML 和 XML document。</p>
+<h2 id="简单的使用">简单的使用</h2><ol>
+<li><p>Loading</p>
+  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var cheerio = <span class="keyword">require</span>(<span class="string">'cheerio'</span>);</span><br><span class="line">  <span class="variable">$ </span>= cheerio.load(<span class="string">'&lt;ul id="fruites"&gt;...&lt;/ul&gt;'</span>);</span><br></pre></td></tr></table></figure>
+<p>或者通过传递字符串作为内容来加载 HTML:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>= <span class="keyword">require</span>(<span class="string">'cheerio'</span>);</span><br><span class="line"><span class="variable">$(</span><span class="string">'ul'</span>, <span class="string">'&lt;ul id="fruits"&gt;...&lt;/ul&gt;'</span>);</span><br></pre></td></tr></table></figure>
+<p>Or as the root:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>= <span class="keyword">require</span>(<span class="string">'cheerio'</span>);</span><br><span class="line">   <span class="variable">$(</span><span class="string">'li'</span>, <span class="string">'ul'</span>, <span class="string">'&lt;ul id="fruits"&gt;...&lt;/ul&gt;'</span>);</span><br></pre></td></tr></table></figure>
+<p>你也可以传递一个额外的对象给.load()如果你需要更改任何的默认解析选项的话:</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ = cheerio.load('&lt;ul <span class="property">id</span>=<span class="string">"fruits"</span>&gt;...&lt;/ul&gt;', &#123;</span><br><span class="line">      ignoreWhitespace: <span class="constant">true</span>,</span><br><span class="line">      xmlMode: <span class="constant">true</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>这些解析选项都是直接来自htmlparser ，因此任何在htmlparser里有效的选项在Chreeio里也是行得通的。默认的选项如下:</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="collection">&#123;</span><br><span class="line">   ignoreWhitespace: <span class="literal">false</span>,</span><br><span class="line">   xmlMode: <span class="literal">false</span>,</span><br><span class="line">   lowerCaseTags: <span class="literal">false</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>参考链接: <a href="https://www.npmjs.com/package/cheerio" target="_blank" rel="external">https://www.npmjs.com/package/cheerio</a></p>
+
+      
+    </div>    
+
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cheerio/">cheerio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-jQuery-Ajax" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
