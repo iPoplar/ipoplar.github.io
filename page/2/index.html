@@ -109,7 +109,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/Redis/" style="font-size: 12.5px;">Redis</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 12.5px;">jQuery</a> <a href="/tags/mode-js/" style="font-size: 10px;">mode.js</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 12.5px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 17.5px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+						<a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Node-js/" style="font-size: 16px;">Node.js</a> <a href="/tags/Redis/" style="font-size: 12px;">Redis</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 12px;">jQuery</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 14px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 18px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
 					</div>
 				</section>
 				
@@ -174,6 +174,71 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-jQuery-Ajax" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/16/jQuery-Ajax/" class="article-date">
+  	<time datetime="2015-11-15T16:00:00.000Z" itemprop="datePublished">2015-11-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/16/jQuery-Ajax/">jQuery-Ajax</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在此是对<a href="https://www.shiyanlou.com/">实验楼</a>的练习笔记的整理，有兴趣的小伙伴可以到<a href="https://www.shiyanlou.com/">实验楼</a>这个非常棒的平台去练练～</p>
+<p><strong>原始Ajax</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"zh"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span>jQuery Ajax<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery-1.11.2.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> xhr = <span class="keyword">new</span> AjaxXmlHttpRequest();</span><br><span class="line">      $(<span class="string">"#btnAjaxOld"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> xhr = <span class="keyword">new</span> AjaxXmlHttpRequest();</span><br><span class="line">        xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"divResult"</span>).innerHTML = xhr.responseText;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//由于涉及到同源策略，需要服务器端的支持</span></span><br><span class="line">        xhr.open(<span class="string">"GET"</span>, <span class="string">"data/AjaxGetCityInfo.aspx?resultType=html"</span>, <span class="literal">true</span>);</span><br><span class="line">        xhr.send(<span class="literal">null</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//跨浏览器获取 XmlHttpRequest 对象</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">AjaxXmlHttpRequest</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> xmlHttp;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// Firefox, Opera 8.0+, Safari</span></span><br><span class="line">        xmlHttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="comment">// Internet Explorer</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          xmlHttp = <span class="keyword">new</span> ActiveXObject(<span class="string">"Msxml2.XMLHTTP"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">            xmlHttp = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">          &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            alert(<span class="string">"Your browser nonsupport AJAX！"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> xmlHttp;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"btnAjaxOld"</span>&gt;</span>original ajax call<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"divResult"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>    
+
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/16/jQuery-Ajax/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-回顾jQuery" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -255,7 +320,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2015 Poplar
+    		&copy; 2016 Poplar
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

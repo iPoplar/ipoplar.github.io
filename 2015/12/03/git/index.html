@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Git 常用命令笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Git 的总结 Blog 很多，一般的都参考或学习廖雪峰曾写的 Git 教程和 经典的 Pro Git，小白在此整理了 Git 的常用命令，是方便自己的复习和查阅，也希望能方便和我一样有此需求的人，O(∩_∩)O~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 常用命令笔记">
+<meta property="og:url" content="http://yoursite.com/2015/12/03/git/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Git 的总结 Blog 很多，一般的都参考或学习廖雪峰曾写的 Git 教程和 经典的 Pro Git，小白在此整理了 Git 的常用命令，是方便自己的复习和查阅，也希望能方便和我一样有此需求的人，O(∩_∩)O~">
+<meta property="og:image" content="http://yoursite.com/growth-img/git-img/resolve01.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/git-img/resolve02.png">
+<meta property="og:image" content="http://yoursite.com/growth-img/git-img/bootstrap.png">
+<meta property="og:updated_time" content="2016-01-31T16:11:38.767Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 常用命令笔记">
+<meta name="twitter:description" content="Git 的总结 Blog 很多，一般的都参考或学习廖雪峰曾写的 Git 教程和 经典的 Pro Git，小白在此整理了 Git 的常用命令，是方便自己的复习和查阅，也希望能方便和我一样有此需求的人，O(∩_∩)O~">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="img/poplar3.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Poplar</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/学习笔记">学习笔记</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Node-js/" style="font-size: 16px;">Node.js</a> <a href="/tags/Redis/" style="font-size: 12px;">Redis</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/jQuery/" style="font-size: 12px;">jQuery</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 14px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 18px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">All is well O(∩_∩)O~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Poplar</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="img/poplar3.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Poplar</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/学习笔记">学习笔记</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/03/git/" class="article-date">
+  	<time datetime="2015-12-02T16:00:00.000Z" itemprop="datePublished">2015-12-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Git 常用命令笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Git 的总结 Blog 很多，一般的都参考或学习廖雪峰曾写的 <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git 教程</a><br>和 经典的 <a href="https://www.gitbook.com/book/0532/progit/details" target="_blank" rel="external">Pro Git</a>，小白在此整理了 Git 的常用命令，是方便自己的复习和查阅，也希望能方便和我一样有此需求的人，O(∩_∩)O~</p>
+</blockquote>
+<a id="more"></a>
+<p><code>git status</code> 命令可以让我们时刻掌握仓库当前的状态。</p>
+<p>要随时掌握工作区的状态，使用 <code>git status</code> 命令。<br>如果 <code>git status</code> 告诉你有文件被修改过，用 <code>git diff</code> 可以查看修改内容。</p>
+<p><strong><em>版本回退</em></strong></p>
+<p><code>git log</code> 命令显示从最近到最远的提交日志。</p>
+<p>在 Git 中，用 HEAD 表示当前版本，上一个版本就是 HEAD^，上上一个版本就是 HEAD^^，当然往上 100 个版本写 100个 ^ 比较容易数不过来，所以写成 HEAD~100。</p>
+<p>现在，我们要把当前版本 “append GPL” 回退到上一个版本 “add distributed”，就可以使用 <code>git reset</code> 命令：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="operator"><span class="keyword">reset</span> <span class="comment">--hard HEAD^</span></span><br><span class="line"><span class="keyword">HEAD</span> <span class="keyword">is</span> <span class="keyword">now</span> <span class="keyword">at</span> ea34578 <span class="keyword">add</span> <span class="keyword">distributed</span></span></span><br></pre></td></tr></table></figure>
+<p><strong><em>重新恢复到新版本</em></strong></p>
+<p>只要右侧环境还在，就可以找到那个 append GPL 的 commit id 是 3628164…，于是就可以指定回到未来的某个版本：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="operator"><span class="keyword">reset</span> <span class="comment">--hard 3628164</span></span><br><span class="line"><span class="keyword">HEAD</span> <span class="keyword">is</span> <span class="keyword">now</span> <span class="keyword">at</span> <span class="number">3628164</span> append GPL</span></span><br></pre></td></tr></table></figure>
+<p>版本号没必要写全，前几位就可以了，Git 会自动去找</p>
+<ul>
+<li>HEAD 指向的版本就是当前版本，因此，Git 允许我们在版本的历史之间穿梭，使用命令 git reset –hard commit_id。</li>
+<li>穿梭前，用 git log 可以查看提交历史，以便确定要回退到哪个版本。</li>
+<li>要重返未来，用 git reflog 查看命令历史，以便确定要回到未来的哪个版本。</li>
+</ul>
+<p><strong><em>撤销修改</em></strong></p>
+<p>1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令 <code>git checkout -- file</code>。</p>
+<p>2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步：</p>
+<p>第一步用命令 <code>git reset HEAD file</code>，就回到了 1；<br>第二步按 1 操作。</p>
+<p>3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。</p>
+<p><strong><em>删除文件</em></strong></p>
+<p>一般情况下，你通常直接在文件管理器中把没用的文件删了，或者用 rm 命令删了：</p>
+<p><code>$ rm test.txt</code></p>
+<p>这个时候，Git 知道你删除了文件，因此，工作区和版本库就不一致了，<code>git status</code> 命令会立刻告诉你哪些文件被删除了。</p>
+<p>现在你有两个选择，一是确实要从版本库中删除该文件，那就用命令 <code>git rm</code> 删掉，并且 <code>git commit</code>：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">rm</span> <span class="keyword">test</span>.txt</span><br><span class="line"><span class="keyword">rm</span> '<span class="keyword">test</span>.txt'</span><br><span class="line">$ git commit -<span class="keyword">m</span> <span class="string">"remove test.txt"</span></span><br><span class="line"></span><br><span class="line">现在，文件就从版本库中被删除了。</span><br></pre></td></tr></table></figure>
+<p>另一种情况是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：</p>
+<p><code>$ git checkout -- test.txt</code></p>
+<p><code>git checkout</code> 其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
+<p>命令 <code>git rm</code> 用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。</p>
+<p><strong><em> 远程仓库</em></strong></p>
+<p><em>关联远程仓库</em></p>
+<p><code>$ git remote add origin git@github.com:onlyone/learngit.git</code><br><code>注意：要关联一个远程库，使用命令 git remote add origin git@server-name:path/repo-name.git。</code></p>
+<p><em>本地内容推送到远程库</em></p>
+<p>本地库的所有内容推送到远程库上：</p>
+<p><code>$ git push -u origin master</code></p>
+<p>加上了 -u 参数，Git 不但会把本地的 master 分支内容推送的远程新的 master 分支，还会把本地的 master 分支和远程的 master 分支关联起来，在以后的推送或者拉取时就可以简化命令</p>
+<hr>
+<p>要关联一个远程库，使用命令 <code>git remote add origin git@server-name:path/repo-name.git；</code> 关联后，使用命令 <code>git push -u origin master</code> 第一次推送 master 分支的所有内容；此后，每次本地提交后，只要有必要，就可以使用命令 <code>git push origin master</code> 推送最新修改；</p>
+<p>Git 支持多种协议，包括 https，但通过 ssh 支持的原生 git 协议速度最快</p>
+<p><strong><em>git 分支管理</em></strong></p>
+<p>首先，我们<strong><em>创建</em></strong> dev 分支，然后切换到 dev 分支：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -<span class="tag">b</span> dev</span><br><span class="line">Switched to <span class="tag">a</span> new branch <span class="string">'dev'</span></span><br></pre></td></tr></table></figure>
+<p><code>git checkout</code> 命令加上 -b 参数表示创建并<strong><em>切换</em></strong>，相当于以下两条命令：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">branch </span>dev</span><br><span class="line">$ git checkout dev</span><br><span class="line"><span class="keyword">Switched </span>to <span class="keyword">branch </span><span class="string">'dev'</span></span><br></pre></td></tr></table></figure>
+<p>然后，用 <code>git branch</code> 命令<strong><em>查看</em></strong>当前分支：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">branch</span><br><span class="line"></span>* dev</span><br><span class="line">  master</span><br></pre></td></tr></table></figure>
+<p><code>git merge</code> 命令用于<strong><em>合并</em></strong>指定分支到当前分支</p>
+<blockquote>
+<p>前面所讲知识：汇总下这些使用命令：</p>
+<p>查看分支：git branch</p>
+<p>创建分支：git branch <name></name></p>
+<p>切换分支：git checkout <name></name></p>
+<p>创建+切换分支：git checkout -b <name></name></p>
+<p>合并某分支到当前分支：git merge <name></name></p>
+<p>删除分支：git branch -d <name></name></p>
+</blockquote>
+<p><strong><em>冲突</em></strong></p>
+<p>在上节中 master 分支和 feature1 分支各自都分别有新的提交，变成了这样：</p>
+<p><img src="/growth-img/git-img/resolve01.png" alt=""></p>
+<p>这种情况下，Git 无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突，执行 git merge feature1,在看<br>readme.txt：</p>
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<span class="header">Creating a new branch is quick &amp; simple.
+=======</span>
+Creating a new branch is quick AND simple.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature1
+</code></pre><p>我们把冲突的内容修改为 <code>Creating a new branch is quick and simple.</code>，提交：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git add readme.txt </span><br><span class="line"><span class="variable">$ </span>git commit -m <span class="string">"conflict fixed"</span></span><br></pre></td></tr></table></figure>
+<p>现在，master 分支和 feature1 分支变成了下图所示：</p>
+<p><img src="/growth-img/git-img/resolve02.png" alt=""></p>
+<p>用带参数的 git log 也可以看到分支的合并情况：</p>
+<p><code>$ git log --graph --pretty=oneline --abbrev-commit</code></p>
+<p>最后，删除 feature1 分支：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">branch </span>-d feature1</span><br><span class="line"><span class="label">Deleted</span> <span class="keyword">branch </span>feature1.</span><br></pre></td></tr></table></figure>
+<p>冲突解决，最后，删除 feature1 分支 <code>git branch -d feature1</code>。当 Git 无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。</p>
+<p>用 <code>git log --graph</code> 命令可以看到分支合并图。</p>
+<p><strong><em>Bug 分支</em></strong></p>
+<p>　如果你有一个 bug 任务，你想创建一个分支 issue-101 来修复它，但是你当前正在 dev 上进行的工作还没有完成而不能提交，bug 需要现在修复，所以现在你需要暂停 dev 上工作，Git 提供了一个 stash 功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：<code>$ git stash</code>。</p>
+<p>　　假定需要在 master 分支上修复，就从 master 创建临时分支：</p>
+<pre><code>$ git checkout master
+Switched <span class="built_in">to</span> branch <span class="string">'master'</span>
+$ git checkout -b issue-<span class="number">101</span>
+Switched <span class="built_in">to</span> <span class="operator">a</span> <span class="built_in">new</span> branch <span class="string">'issue-101'</span>
+</code></pre><p>　　现在修复 bug，需要把 “Git is free software …” 改为 “Git is a free software …”，然后提交：</p>
+<pre><code><span class="variable">$ </span>git add readme.txt 
+<span class="variable">$ </span>git commit -m <span class="string">"fix bug 101"</span>
+</code></pre><p>　　修复完成后，切换到 master 分支，并完成合并，最后删除 issue-101 分支：</p>
+<pre><code>$ git checkout master
+...
+$ git <span class="keyword">merge</span> --<span class="keyword">no</span>-ff -<span class="keyword">m</span> <span class="string">"merged bug fix 101"</span> issue-101
+...
+$ git branch -<span class="keyword">d</span> issue-101
+Deleted branch issue-101 (...).
+</code></pre><p>　　Git 把 stash 内容存在某个地方了，但是需要恢复一下，有两个办法：</p>
+<ul>
+<li>一是用 <code>git stash apply</code> 恢复，但是恢复后，stash 内容并不删除，你需要用 <code>git stash drop</code> 来删除；</li>
+<li>另一种方式是用 <code>git stash pop</code>，恢复的同时把 stash 内容也删了：</li>
+</ul>
+<p><strong><em>Feature 分支</em></strong></p>
+<p>在软件开发中，总会添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以每添加一个新功能，最好新建一个 feature 分支，在上面开发，完成后，合并，最后，删除该 feature 分支。</p>
+<p>　　现在新功能开发代号为 Vulcan:</p>
+<pre><code>$ git checkout -<span class="tag">b</span> feature-vulcan
+Switched to <span class="tag">a</span> new branch <span class="string">'feature-vulcan'</span>
+</code></pre><p>　　开发完毕，添加并提交：</p>
+<pre><code><span class="variable">$ </span>git add vulcan.py
+<span class="variable">$ </span>git commit -m <span class="string">"add feature vulcan"</span>
+</code></pre><p>切回 dev，准备合并：</p>
+<p>　　一切顺利的话，feature 分支和 bug 分支是类似的，合并，然后删除。</p>
+<p>　　由于种种原因，此功能又不需要了，现在这个分支需要就地销毁：</p>
+<pre><code>$ git branch -d feature-vulcan
+<span class="attribute">error</span>: The branch <span class="string">'feature-vulcan'</span> <span class="keyword">is</span> <span class="keyword">not</span> fully merged.
+If you are sure you want <span class="keyword">to</span> <span class="keyword">delete</span> <span class="literal">it</span>, run <span class="string">'git branch -D feature-vulcan'</span>.
+</code></pre><p>　　销毁失败。Git 友情提醒，feature-vulcan 分支还没有被合并，如果删除，将丢失掉修改，如果要强行删除，需要使用命令 <code>git branch -D feature-vulcan</code>。</p>
+<p>　　现在我们强行删除：</p>
+<pre><code>$ git <span class="keyword">branch </span>-D feature-vulcan
+<span class="label">Deleted</span> <span class="keyword">branch </span>feature-vulcan (was <span class="number">756</span>d4af).
+</code></pre><p>　　注意：开发一个新 feature，最好新建一个分支；如果要丢弃一个没有被合并过的分支，可以通过 <code>git branch -D &lt;name&gt;</code> 强行删除。</p>
+<p><strong><em>推送分支</em></strong></p>
+<p>　当你从远程仓库克隆时，实际上 Git 自动把本地的 master 分支和远程的 master 分支对应起来了，并且远程仓库的默认名称是 origin。</p>
+<p>　　要查看远程库的信息，用 git remote</p>
+<pre><code><span class="variable">$ </span>git remote
+origin
+</code></pre><p>　　或者，用 git remote -v 显示更详细的信息：</p>
+<pre><code><span class="variable">$ </span>git remote -v
+</code></pre><p>推送分支<br>　　推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git 就会把该分支推送到远程库对应的远程分支上：</p>
+<pre><code><span class="label">git</span> <span class="keyword">push </span>origin master
+</code></pre><p>　　如果要推送其他分支，比如dev，就改成</p>
+<pre><code><span class="label">git</span> <span class="keyword">push </span>origin dev
+</code></pre><ul>
+<li>master 分支是主分支，因此要时刻与远程同步；</li>
+<li>dev 分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；</li>
+<li>bug 分支只用于在本地修复 bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个 bug；</li>
+<li>feature 分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。</li>
+</ul>
+<p><strong><em>多人协作</em></strong></p>
+<p>　多人协作时，大家都会往 master 和 dev 分支上推送各自的修改。当你的同事也克隆一份此项目从远程库，默认情况下，只能看到本地的 master 分支。现在，你的同事要在 dev 分支上开发，就必须创建远程 origin 的 dev 分支到本地，于是他用这个命令创建本地 dev 分支：</p>
+<pre><code>$ git checkout -b <span class="built_in">dev</span> origin/<span class="built_in">dev</span>
+</code></pre><p>　　现在，他就可以在dev上继续修改，然后，时不时地把 dev 分支 push 到远程，并且已经向 origin/dev 分支推送了他的提交，这时你也对同样的文件作了修改，并试图推送，推送失败，因为你的同事的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git 已经提示我们，先用 git pull 把最新的提交从 origin/dev 抓下来，然后，在本地合并，解决冲突，再推送，git pull 也失败了，原因是没有指定本地 dev 分支与远程 origin/dev 分支的链接，根据提示，设置 dev 和 origin/dev 的链接。</p>
+<p>　　这回 git pull 成功，但是是合并有冲突，需要手动解决，解决的方法和分支管理中的解决冲突完全一样。解决后，提交，再 push：</p>
+<pre><code>$ git <span class="operator"><span class="keyword">commit</span> -<span class="keyword">m</span> <span class="string">"merge &amp; fix hello.py"</span>
+[dev adca45d] <span class="keyword">merge</span> &amp; fix hello.py
+$ git push origin dev</span>
+</code></pre><p>　　因此，多人协作的工作模式通常是这样：</p>
+<ul>
+<li>首先，可以试图用 <code>git push origin branch-name</code> 推送自己的修改；</li>
+<li>如果推送失败，则因为远程分支比你的本地更新，需要先用 git pull 试图合并；</li>
+<li>如果合并有冲突，则解决冲突，并在本地提交；</li>
+<li>没有冲突或者解决掉冲突后，再用 git push origin branch-name 推送就能成功！</li>
+</ul>
+<p>　　如果 git pull 提示 <code>“no tracking information”</code>，则说明本地分支和远程分支的链接关系没有创建，用命令 <code>git branch --set-upstream branch-name origin/branch-name</code>。</p>
+<p><strong><em>标签</em></strong></p>
+<p>在 Git 中打标签非常简单，首先，切换到需要打标签的分支上：</p>
+<pre><code>$ git <span class="keyword">branch
+</span>* dev
+  master
+$ git checkout master
+<span class="keyword">Switched </span>to <span class="keyword">branch </span><span class="string">'master'</span>
+</code></pre><p>　　然后，敲命令 <code>git tag &lt;name&gt;</code> 就可以打一个新标签：</p>
+<pre><code>$ git tag <span class="literal">v1</span>.<span class="number">0</span>
+</code></pre><p>　　默认标签是打在最新提交的 commit 上的。还可以对历史提交打上标签，只要找到历史提交的 commit id，然后打上就可以了，例如要对 add merge 这次提交打标签，它对应的 commit id 是 6224937，输入命令：</p>
+<pre><code>$ git tag v0<span class="number">.9</span> <span class="number">6224937</span>
+</code></pre><p>　　还可以创建带有说明的标签，用 -a 指定标签名，-m 指定说明文字：</p>
+<pre><code>$ git tag -a v0<span class="number">.1</span> -m <span class="string">"version 0.1 released"</span> <span class="number">3628164</span>
+</code></pre><p>　　用命令 git show 可以看到说明文字：</p>
+<pre><code>$ git show v0<span class="number">.1</span>
+tag v0<span class="number">.1</span>
+<span class="label">Tagger:</span> hubwiz &lt;hubwiz<span class="localvars">@163</span>.com&gt;
+<span class="label">Date:</span>   Mon Aug <span class="number">26</span> <span class="number">07</span>:<span class="number">28</span>:<span class="number">11</span> <span class="number">2015</span> +<span class="number">0800</span>
+version <span class="number">0.1</span> released
+&lt;/hubwiz<span class="localvars">@163</span>.com&gt;
+</code></pre><p>　　签名采用 PGP 签名，因此，必须首先安装 gpg（GnuPG），如果没有找到 gpg，或者没有 gpg 密钥对，就会报错：</p>
+<pre><code><span class="attribute">gpg</span>: <span class="string">signing failed: secret key not available</span>
+<span class="attribute">error</span>: <span class="string">gpg failed to sign the data</span>
+<span class="attribute">error</span>: <span class="string">unable to sign the tag</span>
+</code></pre><p>　　如果报错，请参考 GnuPG 帮助文档配置 Key。</p>
+<ul>
+<li>命令 <code>git tag &lt;name&gt;</code> 用于新建一个标签，默认为 HEAD，也可以指定一个 commit id；</li>
+<li><code>git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;</code> 可以指定标签信息；</li>
+<li><code>git tag -s &lt;tagname&gt; -m &quot;blablabla...&quot;</code> 可以用 PGP 签名标签；<br>命令 <code>git tag</code> 可以查看所有标签。</li>
+</ul>
+<p>如果标签打错了，也可以删除：</p>
+<pre><code>$ git <span class="built_in">tag</span> <span class="attribute">-d</span> v0<span class="number">.1</span>
+Deleted <span class="built_in">tag</span> <span class="string">'v0.1'</span> (was e078af9)
+</code></pre><p>因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。</p>
+<p>如果要推送某个标签到远程，使用命令 <code>it push origin &lt;tagname&gt;:</code></p>
+<pre><code>$ git push origin v1<span class="number">.0</span>
+Total <span class="number">0</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)
+To git@github.com:michaelliao/learngit.git
+ * [<span class="keyword">new</span> tag]         v1<span class="number">.0</span> -&gt; v1<span class="number">.0</span>
+</code></pre><p>或者，一次性推送全部尚未推送到远程的本地标签：</p>
+<pre><code>$ git push origin --tags
+Counting objects: <span class="number">1</span>, done.
+Writing objects: <span class="number">100</span>% (<span class="number">1</span>/<span class="number">1</span>), <span class="number">554</span> bytes, done.
+Total <span class="number">1</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)
+To git@github.com:michaelliao/learngit.git
+ * [<span class="keyword">new</span> tag]         v0<span class="number">.2</span> -&gt; v0<span class="number">.2</span>
+ * [<span class="keyword">new</span> tag]         v0<span class="number">.9</span> -&gt; v0<span class="number">.9</span>
+</code></pre><p>如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：</p>
+<pre><code>$ git <span class="built_in">tag</span> <span class="attribute">-d</span> v0<span class="number">.9</span>
+Deleted <span class="built_in">tag</span> <span class="string">'v0.9'</span> (was <span class="number">6224937</span>)
+</code></pre><p>然后，从远程删除。删除命令也是 push，但是格式如下：</p>
+<pre><code><span class="variable">$ </span>git push origin <span class="symbol">:refs/tags/v0</span>.<span class="number">9</span>
+<span class="constant">To</span> git<span class="variable">@github</span>.<span class="symbol">com:</span>michaelliao/learngit.git
+ - [deleted]         v0.<span class="number">9</span>
+</code></pre><p>要看看是否真的从远程库删除了标签，可以登陆 GitHub 查看。</p>
+<ul>
+<li>git push origin <tagname> 可以推送一个本地标签；</tagname></li>
+<li>git push origin –tags 可以推送全部未推送过的本地标签；</li>
+<li>git tag -d <tagname> 可以删除一个本地标签；</tagname></li>
+<li>git push origin :refs/tags/<tagname> 可以删除一个远程标签。</tagname></li>
+</ul>
+<p>　GitHub 不仅是免费的远程仓库，个人的开源项目，可以放到 GitHub 上，而且 GitHub 还是一个开源协作社区，通过 GitHub，既可以让别人参与你的开源项目，也可以参与别人的开源项目。</p>
+<p>　　在 GitHub 上，利用 Git 极其强大的克隆和分支功能，人们可以自由参与各种开源项目。比如人气极高的 bootstrap 项目，这是一个非常强大的 CSS 框架，在它的项目主页，点 “Fork” 就在自己的账号下克隆了一个 bootstrap 仓库，然后，从自己的账号下 clone。一定要从自己的账号下 clone 仓库，这样你才能推送修改。如果从 bootstrap 的作者的仓库地址 git@github.com:twbs/bootstrap.git 克隆，因为没有权限，你将不能推送修改。</p>
+<p>　　Bootstrap 的官方仓库 twbs/bootstrap、你在 GitHub 上克隆的仓库 my/bootstrap，以及你自己克隆到本地电脑的仓库，他们的关系就像下图显示的那样：</p>
+<p><img src="/growth-img/git-img/bootstrap.png" alt=""></p>
+<p>如果你希望 bootstrap 的官方库能接受你的修改，你就可以在 GitHub 上发起一个 pull request。</p>
+<ul>
+<li>在 GitHub 上，可以任意 Fork 开源仓库；</li>
+<li>自己拥有 Fork 后的仓库的读写权限；</li>
+<li>可以推送 pull request 给官方仓库来贡献代码。</li>
+</ul>
+<p><strong><em>自定义 Git </em></strong></p>
+<p>实际上，Git 还有很多可配置项。</p>
+<p>比如，让 Git 显示颜色，会让命令输出看起来更醒目：</p>
+<p><code>$ git config --global color.ui true</code></p>
+<p>这样，Git会适当地显示不同的颜色</p>
+<p><em>忽略特殊文件</em></p>
+<p>有些时候我们需要把一些文件例如：保存了数据库密码的配置文件放在 Git 目录下，但又不提交，那么需要我们在 Git 工作区的根目录下创建一个特殊的 .gitignore 文件，然后把要忽略的文件名填进去，Git 就会自动忽略这些文件。</p>
+<p>　　不需要从头写 .gitignore 文件，GitHub 已经为我们准备了各种配置文件，只需要组合一下就可以使用了。所有配置文件可以直接在线浏览：<a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a></p>
+<p>忽略文件的原则是：</p>
+<ul>
+<li>忽略操作系统自动生成的文件，比如缩略图等；</li>
+<li>忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如Java编译产生的 .class 文件；</li>
+<li>忽略你自己的带有敏感信息的配置文件，比如存放口令的配置文件。</li>
+</ul>
+<p><em>配置别名</em></p>
+<p>配置别名其实就是把命令重新设置简单些，方便输入，例如：如果输入 git st 就表示 git status。</p>
+<pre><code>$ git config --<span class="preprocessor">global</span> <span class="preprocessor">alias</span>.st status
+</code></pre><p>现在都用 co 表示 checkout，ci 表示 commit，br 表示 branch：</p>
+<pre><code>$ git config --<span class="preprocessor">global</span> <span class="preprocessor">alias</span>.co checkout
+$ git config --<span class="preprocessor">global</span> <span class="preprocessor">alias</span>.ci commit
+$ git config --<span class="preprocessor">global</span> <span class="preprocessor">alias</span>.<span class="keyword">br </span><span class="keyword">branch</span>
+</code></pre><p>–global 参数是全局参数，也就是这些命令在这台电脑的所有 Git 仓库下都有用。</p>
+<p><em>配置文件</em></p>
+<p>配置 Git 的时候，加上 –global 是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。</p>
+<p>配置文件放哪了？每个仓库的 Git 配置文件都放在 .git/config 文件中：</p>
+<pre><code><span class="variable">$ </span>cat .git/config 
+[core]
+    repositoryformatversion = <span class="number">0</span>
+    filemode = <span class="keyword">true</span>
+    bare = <span class="keyword">false</span>
+    logallrefupdates = <span class="keyword">true</span>
+    ignorecase = <span class="keyword">true</span>
+    precomposeunicode = <span class="keyword">true</span>
+[remote <span class="string">"origin"</span>]
+    url = git<span class="variable">@github</span>.<span class="symbol">com:</span>michaelliao/learngit.git
+    fetch = +refs/heads/*<span class="symbol">:refs/remotes/origin/*</span>
+[branch <span class="string">"master"</span>]
+    remote = origin
+    merge = refs/heads/master
+[<span class="keyword">alias</span>]
+    last = log -<span class="number">1</span>
+</code></pre><p>别名就在 [alias] 后面，要删除别名，直接把对应的行删掉即可。</p>
+<p>而当前用户的 Git 配置文件放在用户主目录下的一个隐藏文件 .gitconfig 中：</p>
+<pre><code>$ cat .gitconfig
+[alias]
+    co = checkout
+    ci = <span class="operator"><span class="keyword">commit</span>
+    br = branch
+    st = <span class="keyword">status</span>
+[<span class="keyword">user</span>]
+    <span class="keyword">name</span> = Your <span class="keyword">Name</span>
+    email = your@email.com</span>
+</code></pre><p>配置别名也可以直接修改这个文件，如果改错了，可以删掉文件重新通过命令配置。</p>
+<p><em>搭建 Git 服务器</em></p>
+<p>搭建 Git 服务器需要准备一台运行 Linux 的机器，强烈推荐用 Ubuntu 或 Debian，这样，通过几条简单的 apt 命令就可以完成安装。</p>
+<p>假设你已经有 sudo 权限的用户账号，下面，正式开始安装。</p>
+<p>第一步，安装 git：</p>
+<pre><code>$ sudo apt-<span class="keyword">get</span> install git
+</code></pre><p>第二步，创建一个 git 用户，用来运行 git 服务：</p>
+<pre><code>$ sudo <span class="keyword">adduser </span>git
+</code></pre><p>第三步，创建证书登录：</p>
+<p>收集所有需要登录的用户的公钥，就是他们自己的 <code>id_rsa.pub</code> 文件，把所有公钥导入到 <code>/home/git/.ssh/authorized_keys</code> 文件里，一行一个。</p>
+<p>第四步，初始化 Git 仓库：</p>
+<p>先选定一个目录作为 Git 仓库，假定是 /srv/sample.git，在 /srv 目录下输入命令：</p>
+<pre><code>$ sudo git init <span class="comment">--bare sample.git</span>
+</code></pre><p>　　Git 就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的 Git 仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的 Git 仓库通常都以 .git 结尾。然后，把 owne r改为 git：</p>
+<pre><code><span class="variable">$ </span>sudo chown -<span class="constant">R</span> <span class="symbol">git:</span>git sample.git
+</code></pre><p>第五步，禁用 shell 登录：</p>
+<p>出于安全考虑，第二步创建的 git 用户不允许登录 shell，这可以通过编辑 /etc/passwd 文件完成。找到类似下面的一行：</p>
+<pre><code><span class="symbol">git:</span><span class="symbol">x:</span><span class="number">1001</span><span class="symbol">:</span><span class="number">1001</span><span class="symbol">:</span>,,,<span class="symbol">:/home/git</span><span class="symbol">:/bin/bash</span>
+</code></pre><p>改为：</p>
+<pre><code><span class="symbol">git:</span><span class="symbol">x:</span><span class="number">1001</span><span class="symbol">:</span><span class="number">1001</span><span class="symbol">:</span>,,,<span class="symbol">:/home/git</span><span class="symbol">:/usr/bin/git-shell</span>
+</code></pre><p>这样，git用户可以正常通过 ssh 使用 git，但无法登录 shell，因为我们为 git 用户指定的 git-shell 每次一登录就自动退出。</p>
+<p>第六步，克隆远程仓库：</p>
+<p>现在，可以通过 git clone 命令克隆远程仓库了，在各自的电脑上运行：</p>
+<pre><code><span class="variable">$ </span>git clone git<span class="variable">@server</span><span class="symbol">:/srv/sample</span>.git
+<span class="constant">Cloning </span>into <span class="string">'sample'</span>...
+<span class="symbol">warning:</span> <span class="constant">You </span>appear to have cloned an empty repository.
+</code></pre><p><em>管理公钥和管理权限</em></p>
+<p>管理公钥</p>
+<p>　　如果团队很小，把每个人的公钥收集起来放到服务器的 <code>/home/git/.ssh/authorized_keys</code> 文件里就是可行的。如果团队有几百号人，就没法这么玩了，这时，可以用 Gitosis 来管理公钥。</p>
+<p>管理权限</p>
+<p>　　有很多不但视源代码如生命，而且视员工为窃贼的公司，会在版本控制系统里设置一套完善的权限控制，每个人是否有读写权限会精确到每个分支甚至每个目录下。因为 Git 是为 Linux 源代码托管而开发的，所以 Git 也继承了开源社区的精神，不支持权限控制。不过，因为 Git 支持钩子（hook），所以，可以在服务器端编写一系列脚本来控制提交等操作，达到权限控制的目的。 Gitolite 就是这个工具。</p>
+<p>这里我们也不介绍 Gitolite 了，不要把有限的生命浪费到权限斗争中。</p>
+<p>主要两点：</p>
+<ul>
+<li>要方便管理公钥，用 Gitosis；</li>
+<li>要像SVN那样变态地控制权限，用 Gitolite。</li>
+</ul>
+
+      
+    </div>    
+
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/11/30/Node.js-session应用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node.js-session 应用</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="git" data-title="Git 常用命令笔记" data-url="http://yoursite.com/2015/12/03/git/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Poplar
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
