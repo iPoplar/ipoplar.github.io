@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>网站性能提升 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.减少 HTTP 请求
+图片地图
+CSS Sprites
+内联图片和脚本
+样式表的合并
+
+图片地图
+ Image Map 允许在一个图片上关联多个 URL。
+
+服务器端图片地图 将所有点击提交到同一个目标 URL，向其传递用户点击的 x、y 坐标。Web 应用程序将该 x、y 坐标映射为适当的操作。
+
+客户端图片地图 可以将用户的点击映射到一个操作，而无需向后端应用程序发送请求。
+
+
+映射通过">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网站性能提升">
+<meta property="og:url" content="http://yoursite.com/2016/02/15/网站性能提升/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.减少 HTTP 请求
+图片地图
+CSS Sprites
+内联图片和脚本
+样式表的合并
+
+图片地图
+ Image Map 允许在一个图片上关联多个 URL。
+
+服务器端图片地图 将所有点击提交到同一个目标 URL，向其传递用户点击的 x、y 坐标。Web 应用程序将该 x、y 坐标映射为适当的操作。
+
+客户端图片地图 可以将用户的点击映射到一个操作，而无需向后端应用程序发送请求。
+
+
+映射通过">
+<meta property="og:updated_time" content="2016-02-17T12:06:58.688Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网站性能提升">
+<meta name="twitter:description" content="1.减少 HTTP 请求
+图片地图
+CSS Sprites
+内联图片和脚本
+样式表的合并
+
+图片地图
+ Image Map 允许在一个图片上关联多个 URL。
+
+服务器端图片地图 将所有点击提交到同一个目标 URL，向其传递用户点击的 x、y 坐标。Web 应用程序将该 x、y 坐标映射为适当的操作。
+
+客户端图片地图 可以将用户的点击映射到一个操作，而无需向后端应用程序发送请求。
+
+
+映射通过">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="img/poplar3.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Poplar</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/学习笔记">学习笔记</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Modernizr/" style="font-size: 10px;">Modernizr</a> <a href="/tags/Node-js/" style="font-size: 16px;">Node.js</a> <a href="/tags/Redis/" style="font-size: 12px;">Redis</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jQuery/" style="font-size: 12px;">jQuery</a> <a href="/tags/meta/" style="font-size: 10px;">meta</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 14px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 18px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/网站性能/" style="font-size: 10px;">网站性能</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">All is well O(∩_∩)O~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Poplar</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="img/poplar3.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Poplar</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/学习笔记">学习笔记</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ipoplar/" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/ipoplar@foxmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-网站性能提升" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/15/网站性能提升/" class="article-date">
+  	<time datetime="2016-02-14T16:00:00.000Z" itemprop="datePublished">2016-02-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网站性能提升
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网站性能/">网站性能</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-减少_HTTP_请求">1.减少 HTTP 请求</h2><ul>
+<li>图片地图</li>
+<li>CSS Sprites</li>
+<li>内联图片和脚本</li>
+<li>样式表的合并</li>
+</ul>
+<p><strong>图片地图</strong></p>
+<p> Image Map 允许在一个图片上关联多个 URL。</p>
+<ul>
+<li><p><em>服务器端图片地图</em> 将所有点击提交到同一个目标 URL，向其传递用户点击的 x、y 坐标。Web 应用程序将该 x、y 坐标映射为适当的操作。</p>
+</li>
+<li><p><em>客户端图片地图</em> 可以将用户的点击映射到一个操作，而无需向后端应用程序发送请求。</p>
+</li>
+</ul>
+<p>映射通过 HTML 的 MAP 标签实现。</p>
+<p><em>缺点</em> 如果采用手工方式则很难完成而且容易出错，而且除了矩形之外几乎无法定义其他形状。</p>
+<blockquote>
+<p>如果正在导航栏或者其他超链接中使用多个图片，将它们转换为图片地图&gt; 是加速页面的最简单方式。</p>
+</blockquote>
+<a id="more"></a>
+<p><strong>CSS Sprites</strong></p>
+<p>CSS Sprites 将多幅图片合并为一幅图片。</p>
+<p>图片地图中的图片必须是连续的，而 CSS Sprites 没有这个限制。比图片地图更加灵，而且还降低了下载量。</p>
+<blockquote>
+<p>如果需要在页面中为背景、按钮、导航栏、链接等提供大量图片， CSS &gt; Sprites 是一种优秀的解决方案——干净的标签、很少的图片和很短的响<br>应时间。</p>
+</blockquote>
+<p><strong> 内联图片</strong></p>
+<p> 通过使用 data: URL 模式可以在 Web 页面中包含图片但无需任何额外的 HTTP 请求。（Internet Explorer 目前还不支持这种方式）</p>
+<p><code>data:[&lt;mediatype&gt;][;base64],&lt;data&gt;</code></p>
+<p>eg:<br>    <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">img</span> alt=<span class="string">"red star"</span> src=<span class="string">"data:image/gif;base64,R01GOD1hDAA..."</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-_使用内容发布网络">2. 使用内容发布网络</h2><p>内容发布网络（CDN）是一组分布在多个不同地理位置的 Web 服务器，用于更加有效地向用户发布内容。</p>
+<p><em>优点</em>: 缩短响应时间，CDN 的服务包括备份、扩展存储能力和进行缓存。CDN 还有助于缓和 Web 流量峰值压力，如在获取天气或股市新闻、浏览流行的体育或娱乐事件时。</p>
+<p><em>缺点</em>:（1）响应时间可能会受到其他网站——甚至很可能是竞争对手流量的影响。（2）无法直接控制组件服务器所带来的特殊麻烦。eg: 修改 HTTP 响应头必须通过服务提供商来完成，而不是由你的团队完成。（3）如果 CDN 服务的性能下降，那么也会降低工作质量。</p>
+<blockquote>
+<p> CDN 用于发布静态内容，如图片、脚本、样式表和 Flash。提供动态 &gt; HTML 页面会引入特殊的存储需求——数据库连接、状态管理、验证、硬件&gt; 和 OS 优化等。这些复杂性超越了 CDN 的能力范围。另一方面，静态文&gt; 件更容易存储并具有较少的依赖性。</p>
+</blockquote>
+<h2 id="3-添加_Expires_头">3.添加 Expires 头</h2><p>Expires 头会和相应的过期时间组件一起保存到其缓存中。只要组件没有过期，浏览器就会使用缓存版本而不会进行任何 HTTP 请求。</p>
+<p>Cache-Control 使用 max-age 指令指定组件被缓存多久。</p>
+<blockquote>
+<p>为组件添加长久的 Expires 头。</p>
+</blockquote>
+<h2 id="4-压缩组件">4.压缩组件</h2><p><code>Accept-Encoding:gzip,deflate</code> 会使客户端列出来的方法中一种来压缩响应。</p>
+<p>Web 服务器通过响应中的 <code>Content-Encoding: gzip</code> 来通知客户端。</p>
+<p>gzip 是目前最流行和最有效的压缩方法。</p>
+<p>压缩的内容包括 XML 和 JSON 在内的任何文本响应，（在此关注脚本和样式表），图片和 PDF 不应该压缩，因为它们本来就已经被压缩了，对它们试图进行压缩只会浪费 CPU 资源，还有可能增加文件大小。</p>
+<p>通常对于大于 1KB 或 2KB 的文件进行压缩。 mod_gzip_minimum_file_size 指令控制着希望压缩的文件的最小值，默认值是 500B。</p>
+<p>配置 gzip 时使用的模块取决于 Apache 的版本。</p>
+<p><em>代理缓存</em> </p>
+<p><code>Vary: Accept-Encoding</code> 将使得代理缓存响应的多个版本，为 Accept-Encoding 请求头的每个值缓存一份。</p>
+<p><em>边缘情形</em></p>
+<ul>
+<li><p>如果网站用户很少，并且他们处于一个小圈子中，边缘情形就不需要太多关注。可以压缩内容并使用 Vary: Accept-Encoding。 这样可以通过减小组件的大小和利用代理缓存来改善用户体验。</p>
+</li>
+<li><p>如果更注意带宽开销，可以和前一种一样——可以压缩内容并使用 Vary: Accept-Encoding。 这样可以降低服务器的带宽开销并提升了代理处理的请求数量。</p>
+</li>
+<li><p>如果拥有大量的、多变的用户群，能够应付较高的带宽开销，并且享有高质量的名声，请压缩内容并使用 Cache-Control:Private。这禁用了代理缓存但避免了边缘情形的缺陷。</p>
+</li>
+</ul>
+<h2 id="5-将样式表放在顶部">5.将样式表放在顶部</h2><p>将样式表放在底部，会导致白屏。</p>
+<p>@import 也可能会导致白屏现象。</p>
+<blockquote>
+<p>使用 Link 标签将样式表放在文档 Head 中。</p>
+</blockquote>
+<h2 id="6-_将脚本放在底部">6. 将脚本放在底部</h2><p>这样既页面可以逐步呈现，也可以提高下载的并行速度。</p>
+<p>（每个主机名并行下载两个组件的限制只是一个建议，也可以重写： IE 将这个值存放在 Registry Editor 中； Firefox 使用 about:config 页面中的 network.http.max-persistent-connections-per-server 设置来修改，对于 HTTP1.0, Firefox 的默认值是每个主机名并行下载 8 个组件。 Yahoo! 研究表明，使用两个主机名比使用 1、4 或 10 个主机名能带来更好的性能。）</p>
+<h2 id="7-避免_CSS_表达式">7.避免 CSS 表达式</h2><p>CSS 表达式可能会出现处理页面加载之后的性能问题，也会影响页面的加载时间。</p>
+<h2 id="8-使用外部_JavaScript_和_CSS">8.使用外部 JavaScript 和 CSS</h2><h2 id="9-_减少_DNS_查找">9. 减少 DNS 查找</h2><p>HTTP 构建在 Transmission Control Protocol(TCP) 之上。<br>在早期的 HTTP 实现中，每个 HTTP 请求都要打开一个 socket 连接。<br><strong>持久连接</strong> 解决了多对一的请求，它使得浏览器可以在一个单独的连接上进行多个请求。浏览器和服务器使用 Connection 头来指出对 Keep-Alive 的支持。浏览器或服务器可以通过发送一个 Connection:close 头来关闭连接。</p>
+<p>管道的性能优于持久连接。但是 IE(包括版本 7 在内)， Firefox （自版本 2 开始）就默认关闭了管道的功能。</p>
+<p><strong>Keep-Alive</strong> 可以通过重用现有连接，从而通过避免 TCP/IP 开销来减少响应时间。确保服务器支持 Keep-Alive 还能减少 DNS 查找，尤其是对 Firefox 用户。</p>
+<blockquote>
+<p>通过使用 Keep-Alive 和较少的域名减少 DNS 查找。</p>
+</blockquote>
+<h2 id="10-_精简_JavaScript_代码">10. 精简 JavaScript 代码</h2><h2 id="11-_避免重定向">11. 避免重定向</h2><p>重定向会使页面变慢！</p>
+<p>当 Web 服务器向浏览器返回一个重定向时，响应中就会拥有一个范围在 3xx 的状态码。这表示用户代理必须执行进一步操作才能完成请求。</p>
+<pre><code><span class="number">300</span>        Multiple Choices
+<span class="number">301</span>        Moved Permanently
+<span class="number">302</span>        Moved Temporarily
+<span class="number">303</span>        See Other
+<span class="number">304</span>        Not Modified
+<span class="number">305</span>        Use Proxy
+<span class="number">306</span>     (不再使用)
+<span class="number">307</span>        Temporary Redirect 
+
+“<span class="number">304</span> Not Modified” 并不真的是重定向———它用来响应条件 GET 请求，避免下载已经存在于浏览器缓存中的数据。
+
+<span class="number">303</span> 和 <span class="number">307</span> 是在 HTTP1<span class="number">.1</span> 规范中添加的。
+</code></pre><p><strong>在 URL 结尾必须出现斜线（/）</strong> 缺少时导致了一个 301 响应。</p>
+<h2 id="12-_删除重复脚本">12. 删除重复脚本</h2><h2 id="13-_配置_ETag">13. 配置 ETag</h2><p><strong>实体标签</strong>(Entity Tag, ETag) 是 Web 服务器和浏览器用于确认缓存组件有效性的一种机制。</p>
+<p>对 ETag 进行配置，以利用其灵活的验证能力。<br>eg: 可以使用一段根据浏览器是否为 IE 而变化的脚本。 如果使用 PHP 来生成脚本，可以通过设置 ETag 头来反映浏览器状态——</p>
+<pre><code><span class="php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">if</span>(strops(<span class="variable">$_SERVER</span>[<span class="string">"HTTP_USER_AGENT"</span>],<span class="string">"MSIE"</span>））{
+    header(<span class="string">"ETag: MSIE"</span>);
+}
+<span class="keyword">else</span>{
+    header(<span class="string">"ETag: notMSIE"</span>);
+}</span>
+</code></pre><p>如果组件必须通过最新修改日期之外的一些东西来进行验证，则 ETag 是一种强大的方法。如果无须自定义 ETag ，最好简单得将其移除。</p>
+<blockquote>
+<p>配置或移除 ETag。</p>
+</blockquote>
+<h2 id="14-_使_Ajax_可缓存">14. 使 Ajax 可缓存</h2><p>改善主动 Ajax 请求最重要的方式就是使响应缓存，压缩组件、减少 DNS<br>查找、精简 JavaScript、避免重定向、ETag 也适用于 Ajax。</p>
+<blockquote>
+<p>确保 Ajax 请求遵守性能指导，尤其应具有长久的 Expires 头。</p>
+</blockquote>
+
+      
+    </div>    
+
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/31/Modernizr/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Modernizr --- HTML5 和 CSS3 开发利器</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="网站性能提升" data-title="网站性能提升" data-url="http://yoursite.com/2016/02/15/网站性能提升/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Poplar
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

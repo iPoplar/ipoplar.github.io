@@ -109,7 +109,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Modernizr/" style="font-size: 10px;">Modernizr</a> <a href="/tags/Node-js/" style="font-size: 16px;">Node.js</a> <a href="/tags/Redis/" style="font-size: 12px;">Redis</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jQuery/" style="font-size: 12px;">jQuery</a> <a href="/tags/meta/" style="font-size: 10px;">meta</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 14px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 18px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+						<a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Modernizr/" style="font-size: 10px;">Modernizr</a> <a href="/tags/Node-js/" style="font-size: 16px;">Node.js</a> <a href="/tags/Redis/" style="font-size: 12px;">Redis</a> <a href="/tags/cheerio/" style="font-size: 10px;">cheerio</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jQuery/" style="font-size: 12px;">jQuery</a> <a href="/tags/meta/" style="font-size: 10px;">meta</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/node-js/" style="font-size: 14px;">node.js</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/学习笔记/" style="font-size: 18px;">学习笔记</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/网站性能/" style="font-size: 10px;">网站性能</a>
 					</div>
 				</section>
 				
@@ -174,6 +174,87 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-网站性能提升" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/15/网站性能提升/" class="article-date">
+  	<time datetime="2016-02-14T16:00:00.000Z" itemprop="datePublished">2016-02-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/15/网站性能提升/">网站性能提升</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-减少_HTTP_请求">1.减少 HTTP 请求</h2><ul>
+<li>图片地图</li>
+<li>CSS Sprites</li>
+<li>内联图片和脚本</li>
+<li>样式表的合并</li>
+</ul>
+<p><strong>图片地图</strong></p>
+<p> Image Map 允许在一个图片上关联多个 URL。</p>
+<ul>
+<li><p><em>服务器端图片地图</em> 将所有点击提交到同一个目标 URL，向其传递用户点击的 x、y 坐标。Web 应用程序将该 x、y 坐标映射为适当的操作。</p>
+</li>
+<li><p><em>客户端图片地图</em> 可以将用户的点击映射到一个操作，而无需向后端应用程序发送请求。</p>
+</li>
+</ul>
+<p>映射通过 HTML 的 MAP 标签实现。</p>
+<p><em>缺点</em> 如果采用手工方式则很难完成而且容易出错，而且除了矩形之外几乎无法定义其他形状。</p>
+<blockquote>
+<p>如果正在导航栏或者其他超链接中使用多个图片，将它们转换为图片地图&gt; 是加速页面的最简单方式。</p>
+</blockquote>
+      
+    </div>    
+
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网站性能/">网站性能</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/15/网站性能提升/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-Modernizr" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -371,6 +452,71 @@
 
 
   
+    <article id="post-Node.js4.0-2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/30/Node.js4.0-2/" class="article-date">
+  	<time datetime="2015-11-29T16:00:00.000Z" itemprop="datePublished">2015-11-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/30/Node.js4.0-2/">Node.js 4.0 (二)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Generator">Generator</h2><p>Generator 函数有多种理解角度。从语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。</p>
+<p>执行 Generator 函数会返回一个遍历器对象，也就是说， Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。</p>
+<p>形式上， Generator 函数是一个普通函数，但是有两个特征。一是，function 命令与函数名之间有一个星号；二是，函数体内部使用 yield 语句，定义不同的内部状态（ yield 语句在英语里的意思就是“产出”）。</p>
+      
+    </div>    
+
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/WEB/">WEB</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/30/Node.js4.0-2/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Node.js-session应用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -427,71 +573,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/11/30/Node.js-session应用/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Node.js4.0-2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/30/Node.js4.0-2/" class="article-date">
-  	<time datetime="2015-11-29T16:00:00.000Z" itemprop="datePublished">2015-11-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/30/Node.js4.0-2/">Node.js 4.0 (二)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Generator">Generator</h2><p>Generator 函数有多种理解角度。从语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。</p>
-<p>执行 Generator 函数会返回一个遍历器对象，也就是说， Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。</p>
-<p>形式上， Generator 函数是一个普通函数，但是有两个特征。一是，function 命令与函数名之间有一个星号；二是，函数体内部使用 yield 语句，定义不同的内部状态（ yield 语句在英语里的意思就是“产出”）。</p>
-      
-    </div>    
-
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/WEB/">WEB</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/30/Node.js4.0-2/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -778,74 +859,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/11/22/Redis初识/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-mongoDB-base" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/20/mongoDB-base/" class="article-date">
-  	<time datetime="2015-11-19T16:00:00.000Z" itemprop="datePublished">2015-11-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/20/mongoDB-base/">mongoDb基本使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="基本的命令">基本的命令</h2><p><strong><em>启动服务：</em></strong><br><code>sudo service mongod start</code><br>或者<br><code>systemctl start mongod</code></p>
-<p><code>mongod --dbpath=/data/db --port=27017</code>   //有两个参数,如果不加，就执行默认的端口</p>
-<hr>
-<p><strong><em>终止服务：</em></strong></p>
-<p><code>sudo service mongod stop</code><br>或者<br><code>ctrl + c</code></p>
-<hr>
-      
-    </div>    
-
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongoDB/">mongoDB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/WEB/">WEB</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/20/mongoDB-base/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
